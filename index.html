@@ -1,250 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0d1117" />
-  <title>Our Finance</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div id="toast" class="toast"></div>
-
-  <section id="loginView" class="auth-shell">
-    <div class="auth-card glass">
-      <div class="brand-mark">OF</div>
-      <h1>Our Finance</h1>
-      <p class="muted">Private household money tracker for Mehedi & Mou.</p>
-      <form id="loginForm" class="stack">
-        <label>Email<input id="loginEmail" type="email" required autocomplete="email" /></label>
-        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" /></label>
-        <button class="btn primary" type="submit">Sign in</button>
-      </form>
-      <p class="tiny muted">Create only your two users in Supabase Auth, then disable public sign-ups.</p>
-    </div>
-  </section>
-
-  <div id="app" class="app hidden">
-    <aside class="sidebar">
-      <div class="brand">
-        <div class="brand-mark">OF</div>
-        <div><strong>Our Finance</strong><span>Mehedi & Mou</span></div>
-      </div>
-      <nav>
-        <button class="nav-item active" data-page="home">⌂ <span>Dashboard</span></button>
-        <button class="nav-item" data-page="history">≡ <span>History</span></button>
-        <button class="nav-item" data-page="targets">◎ <span>Targets</span></button>
-        <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
-      </nav>
-      <div class="sidebar-foot">
-        <button id="logoutBtn" class="btn ghost full">Sign out</button>
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">HOUSEHOLD FINANCE</p>
-          <h2 id="pageTitle">Dashboard</h2>
-        </div>
-        <div class="top-actions">
-          <select id="monthPicker"></select>
-          <button id="quickAddBtn" class="btn primary">+ Add</button>
-        </div>
-      </header>
-
-      <section id="homePage" class="page active">
-        <div class="hero-card">
-          <div>
-            <p class="muted">Available Balance</p>
-            <h1 id="availableBalance">AED 0.00</h1>
-            <span id="monthLabel" class="chip">This month</span>
-          </div>
-          <div class="hero-mini">
-            <span>Future Savings</span>
-            <strong id="totalSavings">AED 0.00</strong>
-          </div>
-        </div>
-
-        <div class="stats-grid">
-          <article class="stat-card income"><span>Income</span><strong id="incomeTotal">AED 0</strong><small>salary + other</small></article>
-          <article class="stat-card expense"><span>Expense</span><strong id="expenseTotal">AED 0</strong><small>all spending</small></article>
-          <article class="stat-card family"><span>Family Support</span><strong id="familyTotal">AED 0</strong><small id="familySplit">Mehedi 0 • Mou 0</small></article>
-          <article class="stat-card savings"><span>Saved</span><strong id="savedThisMonth">AED 0</strong><small>this month</small></article>
-        </div>
-
-        <div class="quick-grid">
-          <button class="quick-action income" data-kind="income"><span>＋</span><div><strong>Income</strong><small>Salary or other money in</small></div></button>
-          <button class="quick-action expense" data-kind="expense"><span>−</span><div><strong>Expense</strong><small>Daily & monthly spending</small></div></button>
-          <button class="quick-action savings" data-kind="saving"><span>↗</span><div><strong>Savings</strong><small>Move money to future</small></div></button>
-        </div>
-
-        <div class="dashboard-grid">
-          <article class="panel">
-            <div class="panel-head"><div><p class="eyebrow">SPENDING</p><h3>Where money went</h3></div><span id="expenseCount" class="badge">0 entries</span></div>
-            <div id="categoryBars" class="bar-list empty-state">No expenses yet.</div>
-          </article>
-          <article class="panel">
-            <div class="panel-head"><div><p class="eyebrow">TARGETS</p><h3>Future plans</h3></div><button class="link-btn" data-page-jump="targets">View all</button></div>
-            <div id="targetPreview" class="target-list empty-state">No targets yet.</div>
-          </article>
-        </div>
-
-        <article class="panel">
-          <div class="panel-head"><div><p class="eyebrow">RECENT</p><h3>Latest activity</h3></div><button class="link-btn" data-page-jump="history">Full history</button></div>
-          <div id="recentList" class="transaction-list empty-state">No transactions yet.</div>
-        </article>
-      </section>
-
-      <section id="historyPage" class="page">
-        <div class="panel">
-          <div class="filter-row">
-            <input id="historySearch" placeholder="Search amount, note, category..." />
-            <select id="historyType">
-              <option value="all">All types</option>
-              <option value="income">Income</option>
-              <option value="expense">Expense</option>
-              <option value="saving">Savings</option>
-            </select>
-            <select id="historyCategory"><option value="all">All categories</option></select>
-          </div>
-          <div id="historyList" class="transaction-list"></div>
-        </div>
-      </section>
-
-      <section id="targetsPage" class="page">
-        <div class="section-actions">
-          <div><p class="muted">Track what you are saving for without making daily use complicated.</p></div>
-          <button id="addTargetBtn" class="btn primary">+ New Target</button>
-        </div>
-        <div id="targetsGrid" class="targets-grid"></div>
-      </section>
-
-      <section id="settingsPage" class="page">
-        <div id="settingsLock" class="lock-card panel">
-          <div class="lock-icon">⌁</div>
-          <h3>Settings Locked</h3>
-          <p class="muted">Enter your settings PIN.</p>
-          <form id="pinForm" class="pin-row">
-            <input id="pinInput" inputmode="numeric" maxlength="8" type="password" placeholder="••••" />
-            <button class="btn primary">Unlock</button>
-          </form>
-        </div>
-
-        <div id="settingsContent" class="hidden">
-          <div class="settings-grid">
-            <article class="panel">
-              <div class="panel-head"><div><p class="eyebrow">GENERAL</p><h3>App Settings</h3></div></div>
-              <label>Base currency<select id="baseCurrency"></select></label>
-              <label>New Settings PIN<input id="newPin" type="password" inputmode="numeric" placeholder="Leave blank to keep current" /></label>
-              <button id="saveGeneralBtn" class="btn primary">Save Settings</button>
-            </article>
-
-            <article class="panel">
-              <div class="panel-head"><div><p class="eyebrow">CURRENCIES</p><h3>Active currencies</h3></div></div>
-              <div id="currencyManager" class="manager-list"></div>
-              <div class="inline-add"><input id="newCurrencyCode" maxlength="3" placeholder="e.g. BDT" /><input id="newCurrencySymbol" placeholder="৳" /><button id="addCurrencyBtn" class="btn">Add</button></div>
-              <p class="tiny muted">Each saved transaction keeps its original currency and optional conversion rate.</p>
-            </article>
-
-            <article class="panel">
-              <div class="panel-head"><div><p class="eyebrow">EXPENSE</p><h3>Expense categories</h3></div></div>
-              <div id="categoryManager" class="manager-list"></div>
-              <div class="inline-add"><input id="newCategory" placeholder="New category" /><button id="addCategoryBtn" class="btn">Add</button></div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-head"><div><p class="eyebrow">METHODS</p><h3>Payment methods</h3></div></div>
-              <div id="methodManager" class="manager-list"></div>
-              <div class="inline-add"><input id="newMethod" placeholder="e.g. ENBD Card" /><button id="addMethodBtn" class="btn">Add</button></div>
-            </article>
-
-            <article class="panel">
-              <div class="panel-head"><div><p class="eyebrow">SAVINGS</p><h3>Savings accounts</h3></div></div>
-              <div id="savingAccountManager" class="manager-list"></div>
-              <div class="inline-add three"><input id="newSavingAccount" placeholder="Bangladesh Savings" /><select id="newSavingCurrency"></select><button id="addSavingAccountBtn" class="btn">Add</button></div>
-            </article>
-
-            <article class="panel danger-panel">
-              <div class="panel-head"><div><p class="eyebrow">DATA</p><h3>Backup & deleted records</h3></div></div>
-              <div class="button-stack">
-                <button id="exportBtn" class="btn">Export JSON Backup</button>
-                <button id="exportCsvBtn" class="btn">Export CSV</button>
-                <button id="showTrashBtn" class="btn">Open Trash</button>
-              </div>
-              <p class="tiny muted">Normal delete is soft-delete. Records stay recoverable until permanently removed.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <nav class="mobile-nav">
-      <button class="nav-item active" data-page="home">⌂<span>Home</span></button>
-      <button class="nav-item" data-page="history">≡<span>History</span></button>
-      <button id="mobileAdd" class="mobile-add">＋</button>
-      <button class="nav-item" data-page="targets">◎<span>Targets</span></button>
-      <button class="nav-item" data-page="settings">⚙<span>Settings</span></button>
-    </nav>
-  </div>
-
-  <dialog id="entryDialog" class="modal">
-    <form id="entryForm" method="dialog">
-      <div class="modal-head">
-        <div><p class="eyebrow">NEW RECORD</p><h3 id="entryTitle">Add Expense</h3></div>
-        <button type="button" class="icon-btn" data-close="entryDialog">×</button>
-      </div>
-      <div class="type-switch">
-        <button type="button" data-entry-type="income">Income</button>
-        <button type="button" class="active" data-entry-type="expense">Expense</button>
-        <button type="button" data-entry-type="saving">Savings</button>
-      </div>
-      <input id="entryType" type="hidden" value="expense" />
-      <label class="amount-label">Amount
-        <div class="amount-box"><select id="entryCurrency"></select><input id="entryAmount" type="number" step="0.01" min="0" required placeholder="0.00" /></div>
-      </label>
-      <div id="rateWrap" class="hidden"><label>Rate to base currency<input id="entryRate" type="number" step="0.000001" min="0" value="1" /></label></div>
-      <div id="incomeFields" class="hidden">
-        <label>Source<select id="incomeSource"></select></label>
-      </div>
-      <div id="expenseFields">
-        <label>Category<select id="expenseCategory"></select></label>
-        <label id="familyGroupWrap" class="hidden">Family<select id="familyGroup"><option>Mehedi Family</option><option>Mou Family</option></select></label>
-      </div>
-      <div id="savingFields" class="hidden">
-        <label>Save to<select id="savingAccount"></select></label>
-        <label>Target (optional)<select id="savingTarget"><option value="">No target</option></select></label>
-      </div>
-      <label>Method<select id="entryMethod"></select></label>
-      <div class="two-col">
-        <label>Date<input id="entryDate" type="date" required /></label>
-        <label>Added by<select id="entryOwner"><option>Mehedi</option><option>Mou</option><option>Shared</option></select></label>
-      </div>
-      <label>Note (optional)<textarea id="entryNote" rows="2" placeholder="Short note"></textarea></label>
-      <div class="modal-actions"><button type="button" class="btn ghost" data-close="entryDialog">Cancel</button><button class="btn primary" type="submit">Save Record</button></div>
-    </form>
-  </dialog>
-
-  <dialog id="targetDialog" class="modal">
-    <form id="targetForm" method="dialog">
-      <div class="modal-head"><h3>New Target</h3><button type="button" class="icon-btn" data-close="targetDialog">×</button></div>
-      <label>Target name<input id="targetName" required placeholder="Future Plan" /></label>
-      <div class="two-col"><label>Target amount<input id="targetAmount" type="number" step="0.01" min="0" required /></label><label>Currency<select id="targetCurrency"></select></label></div>
-      <label>Target date (optional)<input id="targetDate" type="date" /></label>
-      <div class="modal-actions"><button type="button" class="btn ghost" data-close="targetDialog">Cancel</button><button class="btn primary" type="submit">Create Target</button></div>
-    </form>
-  </dialog>
-
-  <dialog id="trashDialog" class="modal wide">
-    <div class="modal-head"><div><p class="eyebrow">RECOVERY</p><h3>Trash</h3></div><button type="button" class="icon-btn" data-close="trashDialog">×</button></div>
-    <div id="trashList" class="transaction-list"></div>
-  </dialog>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="config.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090d13"><title>Our Money</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{--bg:#080c12;--panel:#111821;--line:#223041;--text:#f6f8fb;--muted:#8da0b4;--a:#86f1cd;--b:#6ba9ff;--danger:#ff7487;--warn:#ffd06d}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0,#16233b 0,transparent 30%),var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}button,input,select,textarea{font:inherit}.hidden{display:none!important}.muted{color:var(--muted)}.auth{min-height:100vh;display:grid;place-items:center;padding:20px}.card,.panel{background:#101720;border:1px solid var(--line);border-radius:22px;box-shadow:0 20px 55px rgba(0,0,0,.25)}.login{width:min(420px,100%);padding:30px}.brand{display:flex;gap:12px;align-items:center}.mark{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:900;color:#07100d;background:linear-gradient(135deg,var(--a),var(--b))}label{display:grid;gap:7px;font-size:13px;font-weight:600;color:#bdc8d4}input,select,textarea{width:100%;background:#0b1219;border:1px solid #253346;color:white;border-radius:13px;padding:12px 13px}.stack{display:grid;gap:14px}.btn{border:1px solid #2c3c4f;background:#182432;color:white;border-radius:13px;padding:11px 14px;font-weight:700;cursor:pointer}.primary{border:0;background:linear-gradient(135deg,var(--a),#49d2aa);color:#07130f}.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}.side{border-right:1px solid var(--line);padding:22px 16px;position:sticky;top:0;height:100vh}.side nav{display:grid;gap:7px;margin-top:30px}.nav{border:0;background:transparent;color:#93a2b3;padding:12px 14px;border-radius:13px;text-align:left;font-weight:700}.nav.active,.nav:hover{background:#14202a;color:#fff}.main{padding:28px 30px 100px;max-width:1450px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.page{display:none}.page.active{display:block}.hero{padding:26px;min-height:170px;border-radius:26px;background:linear-gradient(135deg,#0f2a29,#10213a 55%,#221b38);border:1px solid #294254}.hero h1{font-size:clamp(34px,5vw,56px);margin:8px 0}.stats,.quick,.grid2,.settings{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,1fr);margin:14px 0}.stat{padding:18px;border-radius:18px;background:#101720;border:1px solid var(--line)}.stat span,.stat small{display:block;color:var(--muted);font-size:12px}.stat strong{display:block;font-size:23px;margin:8px 0}.quick{grid-template-columns:repeat(3,1fr);margin-bottom:14px}.quick button{padding:17px;text-align:left;border-radius:17px}.grid2{grid-template-columns:1.25fr 1fr}.panel{padding:18px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}.head h3{margin:0}.txs,.bars,.breakdowns{display:grid;gap:9px}.tx{display:grid;grid-template-columns:42px 1fr auto auto;gap:10px;align-items:center;padding:11px;border:1px solid #1f2c3a;border-radius:14px;background:#0c131b}.ico{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:#17232f}.tx small{display:block;color:var(--muted);margin-top:3px}.amt{font-weight:800}.income{color:var(--a)}.expense{color:var(--danger)}.saving{color:var(--b)}.bars .row{display:grid;grid-template-columns:125px 1fr 90px;gap:10px;align-items:center;font-size:12px}.track{height:8px;background:#202c38;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--b),#b695ff)}.filters,.reportFilters{display:grid;gap:9px}.filters{grid-template-columns:1fr 180px 220px}.reportFilters{grid-template-columns:repeat(4,1fr)}.reportToolbar{display:flex;gap:12px;align-items:end}.reportToolbar .reportFilters{flex:1}.break{display:flex;justify-content:space-between;padding:10px;border:1px solid #223142;border-radius:12px;background:#0c131b}.settings{grid-template-columns:repeat(2,1fr)}.manager{display:flex;flex-wrap:wrap;gap:7px}.chip{display:flex;gap:7px;align-items:center;padding:7px 9px;border:1px solid #2a3949;border-radius:999px;background:#0c131b;font-size:12px}.chip button{border:0;background:transparent;color:#ff8ea0}.cat{border:1px solid #263546;border-radius:14px;overflow:hidden;margin-bottom:9px}.catHead{display:flex;justify-content:space-between;padding:11px 13px}.catBody{padding:0 13px 13px}.subs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}.modal{width:min(560px,calc(100% - 22px));background:#101821;color:white;border:1px solid #2a3949;border-radius:22px;padding:20px}.modal::backdrop{background:rgba(0,0,0,.72)}.modal form{display:grid;gap:13px}.switch{display:grid;grid-template-columns:repeat(3,1fr);background:#0a1118;padding:4px;border-radius:12px}.switch button{border:0;background:transparent;color:#94a4b6;padding:9px;border-radius:9px}.switch button.active{background:#1a2734;color:white}.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}.owner{display:flex;justify-content:space-between;padding:11px 13px;background:#0b1219;border:1px solid #253346;border-radius:13px}.target{border:1px solid #223142;border-radius:16px;padding:15px;background:#0c131b}.prog{height:9px;background:#202c38;border-radius:99px;overflow:hidden;margin:10px 0}.prog span{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b))}.mobile{display:none}.toast{position:fixed;z-index:99;top:18px;right:18px;background:#13231d;border:1px solid #285347;padding:11px 14px;border-radius:12px;transform:translateY(-70px);opacity:0;transition:.25s}.toast.show{transform:none;opacity:1}
+@media(max-width:950px){.app{grid-template-columns:78px 1fr}.side .txt,.side .who{display:none}.stats{grid-template-columns:repeat(2,1fr)}.settings{grid-template-columns:1fr}.reportFilters{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.app{display:block}.side{display:none}.main{padding:16px 12px 90px}.stats{grid-template-columns:repeat(2,1fr)}.quick{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters input{grid-column:1/-1}.reportToolbar{display:block}.reportFilters{grid-template-columns:1fr 1fr}.reportToolbar>.btn{width:100%;margin-top:8px}.tx{grid-template-columns:40px 1fr auto}.tx .del{grid-column:3}.bars .row{grid-template-columns:100px 1fr 70px}.mobile{display:grid;position:fixed;bottom:0;left:0;right:0;grid-template-columns:1fr 1fr 64px 1fr 1fr;background:#090e14eF;border-top:1px solid var(--line);padding:7px}.mobile button{border:0;background:transparent;color:#91a0b1}.mobile .plus{width:52px;height:52px;border-radius:50%;margin:-22px auto 0;background:linear-gradient(135deg,var(--a),var(--b));color:#07110e;font-size:26px}.two{grid-template-columns:1fr}.modal{padding:16px}}
+</style></head><body><div id="toast" class="toast"></div>
+<section id="loginView" class="auth"><div class="login card"><div class="brand"><div class="mark">OM</div><div><h2>Our Money</h2><p class="muted" data-t="privateFinance">Private daily finance for Mehedi & Mou</p></div></div><form id="loginForm" class="stack"><label><span data-t="email">Email</span><input id="email" type="email" required></label><label><span data-t="password">Password</span><input id="password" type="password" required></label><button class="btn primary" data-t="signIn">Sign in</button></form></div></section>
+<div id="app" class="app hidden"><aside class="side"><div class="brand"><div class="mark">OM</div><div class="txt"><strong>Our Money</strong><small class="who" id="who">—</small></div></div><nav><button class="nav active" data-page="home">⌂ <span class="txt" data-t="dashboard">Dashboard</span></button><button class="nav" data-page="history">≡ <span class="txt" data-t="history">History</span></button><button class="nav" data-page="reports">▦ <span class="txt" data-t="reports">Reports</span></button><button class="nav" data-page="targets">◎ <span class="txt" data-t="targets">Targets</span></button><button class="nav" data-page="settings">⚙ <span class="txt" data-t="settings">Settings</span></button></nav><button id="logout" class="btn" style="position:absolute;bottom:20px;left:16px;right:16px" data-t="signOut">Sign out</button></aside>
+<main class="main"><header class="top"><div><small class="muted">OUR MONEY</small><h2 id="title">Dashboard</h2></div><div style="display:flex;gap:8px"><select id="monthPick"></select><button id="addTop" class="btn primary">+ <span data-t="add">Add</span></button></div></header>
+<section id="homePage" class="page active"><div class="hero"><span class="muted" data-t="availableBalance">Available Balance</span><h1 id="balance">AED 0</h1><span id="monthText" class="muted">—</span></div><div class="stats"><div class="stat"><span data-t="income">Income</span><strong class="income" id="inc">AED 0</strong></div><div class="stat"><span data-t="expense">Expense</span><strong class="expense" id="exp">AED 0</strong></div><div class="stat"><span data-t="familySupport">Family Support</span><strong id="fam">AED 0</strong><small id="famSplit">—</small></div><div class="stat"><span data-t="savings">Savings</span><strong class="saving" id="sav">AED 0</strong></div></div><div class="quick"><button class="btn" data-kind="income"><strong data-t="income">Income</strong><br><small class="muted" data-t="incomeAction">Salary or other money in</small></button><button class="btn" data-kind="expense"><strong data-t="expense">Expense</strong><br><small class="muted" data-t="expenseAction">Daily & monthly spending</small></button><button class="btn" data-kind="saving"><strong data-t="savings">Savings</strong><br><small class="muted" data-t="savingAction">Move money to future</small></button></div><div class="grid2"><div class="panel"><div class="head"><h3 data-t="whereMoneyWent">Where money went</h3><small id="expCount" class="muted"></small></div><div id="bars" class="bars"></div></div><div class="panel"><div class="head"><h3 data-t="futurePlans">Future plans</h3></div><div id="targetPreview"></div></div></div><div class="panel" style="margin-top:14px"><div class="head"><h3 data-t="latestActivity">Latest activity</h3></div><div id="recent" class="txs"></div></div></section>
+<section id="historyPage" class="page"><div class="panel"><div class="filters"><input id="hSearch" placeholder="Search"><select id="hType"><option value="all">All types</option><option value="income">Income</option><option value="expense">Expense</option><option value="saving">Savings</option></select><select id="hCat"></select></div><div id="history" class="txs" style="margin-top:12px"></div></div></section>
+<section id="reportsPage" class="page"><div class="panel reportToolbar"><div class="reportFilters"><label><span data-t="period">Period</span><select id="rPeriod"><option value="month">Month</option><option value="year">Year</option><option value="custom">Custom</option></select></label><label id="rMonthWrap"><span data-t="month">Month</span><input id="rMonth" type="month"></label><label id="rYearWrap" class="hidden"><span data-t="year">Year</span><select id="rYear"></select></label><label id="rFromWrap" class="hidden"><span data-t="from">From</span><input id="rFrom" type="date"></label><label id="rToWrap" class="hidden"><span data-t="to">To</span><input id="rTo" type="date"></label><label><span data-t="category">Category</span><select id="rCat"></select></label><label><span data-t="subcategory">Subcategory</span><select id="rSub"></select></label><label><span data-t="addedBy">Added by</span><select id="rOwner"></select></label><label><span data-t="currency">Currency</span><select id="rCurr"></select></label></div><button id="pdf" class="btn primary">PDF</button></div><div class="stats"><div class="stat"><span data-t="totalIncome">Total Income</span><strong id="rInc" class="income"></strong></div><div class="stat"><span data-t="totalExpense">Total Expense</span><strong id="rExp" class="expense"></strong></div><div class="stat"><span data-t="totalSavings">Total Savings</span><strong id="rSav" class="saving"></strong></div><div class="stat"><span data-t="remaining">Remaining</span><strong id="rRem"></strong></div></div><div class="grid2"><div class="panel"><div class="head"><h3 data-t="categoryBreakdown">Category breakdown</h3></div><div id="rBreak" class="breakdowns"></div></div><div class="panel"><div class="head"><h3 data-t="subcategoryBreakdown">Subcategory breakdown</h3></div><div id="rSubBreak" class="breakdowns"></div></div></div><div class="panel" style="margin-top:14px"><div class="head"><h3 data-t="reportTransactions">Report transactions</h3><small id="rCount" class="muted"></small></div><div id="rTx" class="txs"></div></div></section>
+<section id="targetsPage" class="page"><div class="head"><p class="muted" data-t="targetsIntro">Track future plans without making daily use complicated.</p><button id="newTarget" class="btn primary">+ <span data-t="newTarget">New Target</span></button></div><div id="targets" class="settings"></div></section>
+<section id="settingsPage" class="page"><div id="lock" class="panel" style="max-width:480px;margin:40px auto;text-align:center"><h3 data-t="settingsLocked">Settings Locked</h3><p class="muted" data-t="enterPin">Enter your settings PIN.</p><form id="pinForm" style="display:flex;gap:8px"><input id="pin" type="password" inputmode="numeric" maxlength="8"><button class="btn primary" data-t="unlock">Unlock</button></form></div><div id="settingsContent" class="settings hidden"><div class="panel"><h3 data-t="myPreferences">My Preferences</h3><label><span data-t="displayName">Display name</span><input id="profileName"></label><label><span data-t="language">Language</span><select id="profileLang"><option value="en">English</option><option value="bn">বাংলা</option></select></label><button id="saveProfile" class="btn primary" data-t="savePreferences">Save Preferences</button></div><div class="panel"><h3 data-t="sharedSettings">Shared Settings</h3><label><span data-t="baseCurrency">Base currency</span><select id="baseCurr"></select></label><label><span data-t="newSettingsPin">New Settings PIN</span><input id="newPin" type="password" inputmode="numeric"></label><button id="saveGeneral" class="btn primary" data-t="saveSettings">Save Settings</button></div><div class="panel"><h3 data-t="currencies">Currencies</h3><div id="currMgr" class="manager"></div><div style="display:grid;grid-template-columns:1fr 80px auto;gap:7px;margin-top:9px"><input id="currCode" placeholder="BDT"><input id="currSymbol" placeholder="৳"><button id="addCurr" class="btn" data-t="add">Add</button></div></div><div class="panel"><h3 data-t="categoriesSubcategories">Categories & subcategories</h3><div id="catMgr"></div><div style="display:flex;gap:7px"><input id="newCat"><button id="addCat" class="btn" data-t="addCategory">Add Category</button></div></div><div class="panel"><h3 data-t="paymentMethods">Payment methods</h3><div id="methodMgr" class="manager"></div><div style="display:flex;gap:7px;margin-top:9px"><input id="newMethod"><button id="addMethod" class="btn" data-t="add">Add</button></div></div><div class="panel"><h3 data-t="savingsAccounts">Savings accounts</h3><div id="savingMgr" class="manager"></div><div style="display:grid;grid-template-columns:1fr 90px auto;gap:7px;margin-top:9px"><input id="newSaving"><select id="newSavingCurr"></select><button id="addSaving" class="btn" data-t="add">Add</button></div></div><div class="panel"><h3>Data</h3><button id="backup" class="btn" data-t="exportBackup">Export JSON Backup</button><button id="trash" class="btn" style="margin-left:7px" data-t="openTrash">Open Trash</button></div></div></section>
+</main><nav class="mobile"><button class="nav active" data-page="home">⌂<small>Home</small></button><button class="nav" data-page="history">≡<small>History</small></button><button id="mobileAdd" class="plus">＋</button><button class="nav" data-page="reports">▦<small>Reports</small></button><button class="nav" data-page="settings">⚙<small>Settings</small></button></nav></div>
+<dialog id="entry" class="modal"><form id="entryForm"><div class="head"><h3 id="entryTitle">Expense</h3><button type="button" class="btn" onclick="entry.close()">×</button></div><div class="switch"><button type="button" data-entry="income">Income</button><button type="button" data-entry="expense" class="active">Expense</button><button type="button" data-entry="saving">Savings</button></div><input id="entryType" type="hidden" value="expense"><label><span data-t="amount">Amount</span><div style="display:grid;grid-template-columns:90px 1fr;gap:8px"><select id="eCurr"></select><input id="eAmount" type="number" step="0.01" min="0" required></div></label><label id="rateWrap" class="hidden"><span data-t="rateToBase">Rate to base currency</span><input id="eRate" type="number" step="0.000001" value="1"></label><div id="incomeFields" class="hidden"><label><span data-t="source">Source</span><select id="eSource"></select></label></div><div id="expenseFields"><label><span data-t="category">Category</span><select id="eCat"></select></label><label id="eSubWrap"><span data-t="subcategory">Subcategory</span><select id="eSub"></select></label></div><div id="savingFields" class="hidden"><label><span data-t="saveTo">Save to</span><select id="eSaving"></select></label><label><span data-t="targetOptional">Target (optional)</span><select id="eTarget"></select></label></div><label><span data-t="method">Method</span><select id="eMethod"></select></label><label><span data-t="date">Date</span><input id="eDate" type="date" required></label><div class="owner"><span data-t="addedBy">Added by</span><strong id="autoOwner">—</strong></div><label><span data-t="noteOptional">Note (optional)</span><textarea id="eNote" rows="2"></textarea></label><button class="btn primary" data-t="saveRecord">Save Record</button></form></dialog>
+<dialog id="targetDlg" class="modal"><form id="targetForm"><div class="head"><h3 data-t="newTarget">New Target</h3><button type="button" class="btn" onclick="targetDlg.close()">×</button></div><label><span data-t="targetName">Target name</span><input id="tName" required></label><div class="two"><label><span data-t="targetAmount">Target amount</span><input id="tAmount" type="number" required></label><label><span data-t="currency">Currency</span><select id="tCurr"></select></label></div><label><span data-t="targetDateOptional">Target date (optional)</span><input id="tDate" type="date"></label><button class="btn primary" data-t="createTarget">Create Target</button></form></dialog>
+<dialog id="trashDlg" class="modal"><div class="head"><h3 data-t="trash">Trash</h3><button class="btn" onclick="trashDlg.close()">×</button></div><div id="trashList" class="txs"></div></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script><script src="config.js"></script><script>
+const C=window.APP_CONFIG||{},ok=C.SUPABASE_URL&&!C.SUPABASE_URL.includes('YOUR_')&&C.SUPABASE_PUBLISHABLE_KEY&&!C.SUPABASE_PUBLISHABLE_KEY.includes('YOUR_'),db=ok?supabase.createClient(C.SUPABASE_URL,C.SUPABASE_PUBLISHABLE_KEY):null,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const DEF={base_currency:'AED',pin_hash:'',currencies:[{code:'AED',symbol:'AED'},{code:'BDT',symbol:'৳'}],categories:[{name:'Family Support',subs:['Mehedi Family','Mou Family']},{name:'Rent / Home',subs:['House Rent','Maintenance','Furniture / Home Item','Other Home Expense']},{name:'Bills',subs:['Mobile Bill','Internet / Wi-Fi','Electricity','Water','Gas','Subscription','Government / Service Fee','Other Bill']},{name:'Grocery / Bazar',subs:['Monthly Grocery','Daily Grocery','Meat / Fish','Vegetables / Fruits','Rice / Oil / Essentials','Household Items','Cleaning Items','Other Grocery']},{name:'Market / Shopping',subs:['Clothes','Shoes','Personal Items','Cosmetics','Electronics','Home Accessories','Gift','Other Shopping']},{name:'Online Order',subs:['Amazon','Noon','Temu','AliExpress','Food Delivery','Other Online Order']},{name:'Car / Transport',subs:['Fuel','Parking','Salik / Toll','Car Wash','Service / Maintenance','Repair','Registration / Insurance','Taxi / Ride','Other Transport']},{name:'Tabby / Installment',subs:['Tabby','Tamara','Credit Card Installment','Other Installment']},{name:'Debt Repayment',subs:['Borrowed Money Repayment','Personal Loan','Friend / Family Repayment','Other Debt']},{name:'Eating Out',subs:['Restaurant','Cafe','Fast Food','Snacks / Drinks','Delivery Food']},{name:'Personal',subs:['Barber / Salon','Medicine / Pharmacy','Personal Care','Entertainment','Gym / Fitness','Other Personal']},{name:'Travel',subs:['Flight','Hotel','Transport','Food','Visa / Documents','Other Travel']},{name:'Other',subs:['Miscellaneous']}],income_sources:['Salary','Overtime','Bonus','Refund','Other'],payment_methods:['Bank','Cash','Card','Bank Transfer','Tabby'],saving_accounts:[{name:'Future Savings',currency:'AED'},{name:'Bangladesh Savings',currency:'BDT'}]};
+const L={en:{privateFinance:'Private daily finance for Mehedi & Mou',email:'Email',password:'Password',signIn:'Sign in',signOut:'Sign out',dashboard:'Dashboard',history:'History',reports:'Reports',targets:'Targets',settings:'Settings',add:'Add',availableBalance:'Available Balance',income:'Income',expense:'Expense',savings:'Savings',familySupport:'Family Support',incomeAction:'Salary or other money in',expenseAction:'Daily & monthly spending',savingAction:'Move money to future',whereMoneyWent:'Where money went',futurePlans:'Future plans',latestActivity:'Latest activity',period:'Period',month:'Month',year:'Year',from:'From',to:'To',category:'Category',subcategory:'Subcategory',addedBy:'Added by',currency:'Currency',totalIncome:'Total Income',totalExpense:'Total Expense',totalSavings:'Total Savings',remaining:'Remaining',categoryBreakdown:'Category breakdown',subcategoryBreakdown:'Subcategory breakdown',reportTransactions:'Report transactions',targetsIntro:'Track future plans without making daily use complicated.',newTarget:'New Target',settingsLocked:'Settings Locked',enterPin:'Enter your settings PIN.',unlock:'Unlock',myPreferences:'My Preferences',displayName:'Display name',language:'Language',savePreferences:'Save Preferences',sharedSettings:'Shared Settings',baseCurrency:'Base currency',newSettingsPin:'New Settings PIN',saveSettings:'Save Settings',currencies:'Currencies',categoriesSubcategories:'Categories & subcategories',addCategory:'Add Category',paymentMethods:'Payment methods',savingsAccounts:'Savings accounts',exportBackup:'Export JSON Backup',openTrash:'Open Trash',amount:'Amount',rateToBase:'Rate to base currency',source:'Source',saveTo:'Save to',targetOptional:'Target (optional)',method:'Method',date:'Date',noteOptional:'Note (optional)',saveRecord:'Save Record',targetName:'Target name',targetAmount:'Target amount',targetDateOptional:'Target date (optional)',createTarget:'Create Target',trash:'Trash'},bn:{privateFinance:'মেহেদী ও মৌ-এর দৈনন্দিন হিসাব',email:'ইমেইল',password:'পাসওয়ার্ড',signIn:'লগইন',signOut:'লগআউট',dashboard:'ড্যাশবোর্ড',history:'হিস্টোরি',reports:'রিপোর্ট',targets:'টার্গেট',settings:'সেটিংস',add:'যোগ করুন',availableBalance:'বর্তমান ব্যালেন্স',income:'আয়',expense:'খরচ',savings:'সঞ্চয়',familySupport:'ফ্যামিলি সাপোর্ট',incomeAction:'বেতন বা অন্য আয়',expenseAction:'দৈনিক ও মাসিক খরচ',savingAction:'ভবিষ্যতের জন্য সঞ্চয়',whereMoneyWent:'কোথায় টাকা খরচ হয়েছে',futurePlans:'ভবিষ্যৎ পরিকল্পনা',latestActivity:'সর্বশেষ লেনদেন',period:'সময়কাল',month:'মাস',year:'বছর',from:'শুরু',to:'শেষ',category:'ক্যাটাগরি',subcategory:'সাবক্যাটাগরি',addedBy:'যোগ করেছেন',currency:'কারেন্সি',totalIncome:'মোট আয়',totalExpense:'মোট খরচ',totalSavings:'মোট সঞ্চয়',remaining:'অবশিষ্ট',categoryBreakdown:'ক্যাটাগরি অনুযায়ী',subcategoryBreakdown:'সাবক্যাটাগরি অনুযায়ী',reportTransactions:'রিপোর্টের লেনদেন',targetsIntro:'দৈনন্দিন ব্যবহার সহজ রেখে ভবিষ্যৎ পরিকল্পনা দেখুন।',newTarget:'নতুন টার্গেট',settingsLocked:'সেটিংস লক করা',enterPin:'সেটিংস PIN দিন।',unlock:'আনলক',myPreferences:'আমার পছন্দ',displayName:'নাম',language:'ভাষা',savePreferences:'পছন্দ সেভ করুন',sharedSettings:'শেয়ার্ড সেটিংস',baseCurrency:'মূল কারেন্সি',newSettingsPin:'নতুন সেটিংস PIN',saveSettings:'সেটিংস সেভ করুন',currencies:'কারেন্সি',categoriesSubcategories:'ক্যাটাগরি ও সাবক্যাটাগরি',addCategory:'ক্যাটাগরি যোগ করুন',paymentMethods:'পেমেন্ট মেথড',savingsAccounts:'সেভিংস অ্যাকাউন্ট',exportBackup:'JSON ব্যাকআপ',openTrash:'ট্র্যাশ খুলুন',amount:'পরিমাণ',rateToBase:'বেস কারেন্সিতে রেট',source:'উৎস',saveTo:'যেখানে সেভ করবেন',targetOptional:'টার্গেট (ঐচ্ছিক)',method:'মেথড',date:'তারিখ',noteOptional:'নোট (ঐচ্ছিক)',saveRecord:'রেকর্ড সেভ করুন',targetName:'টার্গেটের নাম',targetAmount:'টার্গেট পরিমাণ',targetDateOptional:'টার্গেট তারিখ (ঐচ্ছিক)',createTarget:'টার্গেট তৈরি করুন',trash:'ট্র্যাশ'}};
+let S={user:null,profile:null,profiles:[],settings:structuredClone(DEF),tx:[],targets:[],month:new Date().toISOString().slice(0,7),unlocked:false,report:[]};const lang=()=>S.profile?.language||'en',tr=k=>L[lang()]?.[k]||L.en[k]||k,money=(v,c=S.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`,today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10),hash=async s=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))).map(b=>b.toString(16).padStart(2,'0')).join('');
+function toast(x){$('#toast').textContent=x;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),2000)}function applyLang(){$$('[data-t]').forEach(e=>e.textContent=tr(e.dataset.t));document.documentElement.lang=lang()==='bn'?'bn':'en'}function esc(x){return String(x??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function fill(el,a,sel){let cur=sel??el.value;el.innerHTML=a.map(x=>{let v=typeof x==='string'?x:x.value,l=typeof x==='string'?x:x.label;return `<option value="${esc(v)}">${esc(l)}</option>`}).join('');if([...el.options].some(o=>o.value===cur))el.value=cur}
+async function enter(user){S.user=user;$('#loginView').classList.add('hidden');$('#app').classList.remove('hidden');let r=await db.from('profiles').select('*').eq('user_id',user.id).maybeSingle();if(!r.data){let n=(user.user_metadata?.full_name||user.email.split('@')[0]).replace(/[._-]/g,' ');r=await db.from('profiles').insert({user_id:user.id,display_name:n,language:'en'}).select().single()}S.profile=r.data;let set=await db.from('app_settings').select('settings').eq('id',1).maybeSingle();if(set.data?.settings){S.settings={...structuredClone(DEF),...set.data.settings};if(S.settings.expense_categories&&!set.data.settings.categories)S.settings.categories=S.settings.expense_categories.map(name=>({name,subs:[]}))}else{S.settings={...structuredClone(DEF),pin_hash:await hash('9988')};await db.from('app_settings').upsert({id:1,settings:S.settings,updated_by:user.id})}await load();$('#who').textContent=S.profile.display_name;$('#autoOwner').textContent=S.profile.display_name;applyLang();setupOptions();render()}
+async function load(){let [p,t,g]=await Promise.all([db.from('profiles').select('*'),db.from('transactions').select('*').is('deleted_at',null).order('transaction_date',{ascending:false}).order('created_at',{ascending:false}),db.from('targets').select('*').is('deleted_at',null).order('created_at',{ascending:false})]);S.profiles=p.data||[];S.tx=t.data||[];S.targets=g.data||[]}
+function setupMonths(){let s=$('#monthPick'),now=new Date();s.innerHTML='';for(let i=-36;i<=12;i++){let d=new Date(now.getFullYear(),now.getMonth()+i,1),v=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`,o=document.createElement('option');o.value=v;o.textContent=d.toLocaleDateString(lang()==='bn'?'bn-BD':'en-US',{month:'short',year:'numeric'});if(v===S.month)o.selected=true;s.append(o)}$('#rMonth').value=S.month;let y=$('#rYear'),cy=new Date().getFullYear();y.innerHTML='';for(let i=cy-10;i<=cy+2;i++)y.innerHTML+=`<option ${i===cy?'selected':''}>${i}</option>`}
+function setupOptions(){setupMonths();let codes=S.settings.currencies.map(x=>x.code),cats=S.settings.categories.map(x=>x.name);[$('#eCurr'),$('#tCurr'),$('#newSavingCurr'),$('#baseCurr')].forEach(e=>fill(e,codes,S.settings.base_currency));fill($('#eCat'),cats);subOptions();fill($('#eSource'),S.settings.income_sources);fill($('#eMethod'),S.settings.payment_methods);fill($('#eSaving'),S.settings.saving_accounts.map(x=>({value:x.name,label:`${x.name} (${x.currency})`})));fill($('#eTarget'),[{value:'',label:'No target'},...S.targets.map(x=>({value:x.id,label:x.name}))]);fill($('#hCat'),[{value:'all',label:'All categories'},...cats.map(x=>({value:x,label:x}))],'all');fill($('#rCat'),[{value:'all',label:'All categories'},...cats.map(x=>({value:x,label:x}))],'all');rSubOptions();fill($('#rOwner'),[{value:'all',label:'All'},...S.profiles.map(x=>({value:x.display_name,label:x.display_name}))],'all');fill($('#rCurr'),[{value:'all',label:'All'},...codes.map(x=>({value:x,label:x}))],'all');renderSettings()}
+function subOptions(){let c=S.settings.categories.find(x=>x.name===$('#eCat').value),a=c?.subs||[];fill($('#eSub'),a);$('#eSubWrap').classList.toggle('hidden',!a.length)}function base(x){return Number(x.amount||0)*Number(x.exchange_rate||1)}function txHtml(x){let lab=x.category?`${x.category}${x.subcategory?' → '+x.subcategory:''}`:(x.source||x.saving_account||'Record'),sign=x.type==='income'?'+':x.type==='expense'?'−':'→';return `<div class="tx"><div class="ico">${x.type==='income'?'＋':x.type==='expense'?'−':'↗'}</div><div><strong>${esc(lab)}</strong><small>${x.transaction_date} • ${tr('addedBy')}: ${esc(x.owner_name||'User')}${x.note?' • '+esc(x.note):''}</small></div><div class="amt ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="btn del" data-id="${x.id}">⋯</button></div>`}
+function render(){renderHome();renderHistory();renderTargets();renderReport();renderSettings()}function renderHome(){let m=S.tx.filter(x=>x.transaction_date.slice(0,7)===S.month),sum=t=>m.filter(x=>x.type===t).reduce((s,x)=>s+base(x),0),inc=sum('income'),exp=sum('expense'),sav=sum('saving'),allI=S.tx.filter(x=>x.type==='income').reduce((s,x)=>s+base(x),0),allE=S.tx.filter(x=>x.type==='expense').reduce((s,x)=>s+base(x),0),allS=S.tx.filter(x=>x.type==='saving').reduce((s,x)=>s+base(x),0),fam=m.filter(x=>x.type==='expense'&&x.category==='Family Support'),mf=fam.filter(x=>x.subcategory==='Mehedi Family').reduce((s,x)=>s+base(x),0),mou=fam.filter(x=>x.subcategory==='Mou Family').reduce((s,x)=>s+base(x),0);$('#inc').textContent=money(inc);$('#exp').textContent=money(exp);$('#sav').textContent=money(sav);$('#fam').textContent=money(mf+mou);$('#famSplit').textContent=`Mehedi ${money(mf)} • Mou ${money(mou)}`;$('#balance').textContent=money(allI-allE-allS);$('#monthText').textContent=new Date(S.month+'-01').toLocaleDateString(lang()==='bn'?'bn-BD':'en-US',{month:'long',year:'numeric'});let mp={};m.filter(x=>x.type==='expense').forEach(x=>mp[x.category]=(mp[x.category]||0)+base(x));let rows=Object.entries(mp).sort((a,b)=>b[1]-a[1]);$('#expCount').textContent=`${m.filter(x=>x.type==='expense').length} entries`;$('#bars').innerHTML=rows.length?rows.map(([k,v])=>`<div class="row"><span>${esc(k)}</span><div class="track"><div class="fill" style="width:${Math.max(5,v/rows[0][1]*100)}%"></div></div><b>${money(v)}</b></div>`).join(''):'<span class="muted">No data</span>';$('#recent').innerHTML=S.tx.slice(0,7).map(txHtml).join('')||'<span class="muted">No data</span>';$('#targetPreview').innerHTML=S.targets.slice(0,3).map(targetHtml).join('')||'<span class="muted">No targets</span>';bindDelete()}
+function renderHistory(){let a=[...S.tx],q=$('#hSearch').value.toLowerCase(),ty=$('#hType').value,c=$('#hCat').value;if(ty!=='all')a=a.filter(x=>x.type===ty);if(c!=='all')a=a.filter(x=>x.category===c);if(q)a=a.filter(x=>JSON.stringify(x).toLowerCase().includes(q));$('#history').innerHTML=a.map(txHtml).join('')||'<span class="muted">No data</span>';bindDelete()}
+function targetHtml(t){let s=S.tx.filter(x=>x.type==='saving'&&x.target_id===t.id).reduce((a,x)=>a+Number(x.amount||0),0),p=t.target_amount?Math.min(100,s/Number(t.target_amount)*100):0;return `<div class="target"><div class="head"><strong>${esc(t.name)}</strong><span>${Math.round(p)}%</span></div><div class="prog"><span style="width:${p}%"></span></div><small class="muted">${money(s,t.currency)} / ${money(t.target_amount,t.currency)}</small></div>`}function renderTargets(){$('#targets').innerHTML=S.targets.map(targetHtml).join('')||'<span class="muted">No targets</span>'}
+function reportRows(){let a=S.tx,p=$('#rPeriod').value;if(p==='month')a=a.filter(x=>x.transaction_date.slice(0,7)===$('#rMonth').value);if(p==='year')a=a.filter(x=>x.transaction_date.slice(0,4)===$('#rYear').value);if(p==='custom')a=a.filter(x=>(!$('#rFrom').value||x.transaction_date>=$('#rFrom').value)&&(!$('#rTo').value||x.transaction_date<=$('#rTo').value));if($('#rCat').value!=='all')a=a.filter(x=>x.category===$('#rCat').value);if($('#rSub').value!=='all')a=a.filter(x=>x.subcategory===$('#rSub').value);if($('#rOwner').value!=='all')a=a.filter(x=>x.owner_name===$('#rOwner').value);if($('#rCurr').value!=='all')a=a.filter(x=>x.currency===$('#rCurr').value);return a}
+function rSubOptions(){let c=$('#rCat').value,a=[];if(c&&c!=='all')a=S.settings.categories.find(x=>x.name===c)?.subs||[];fill($('#rSub'),[{value:'all',label:'All'},...a.map(x=>({value:x,label:x}))],'all')}function renderReport(){if(!$('#rMonth').value)return;let a=reportRows();S.report=a;let sum=t=>a.filter(x=>x.type===t).reduce((s,x)=>s+base(x),0),i=sum('income'),e=sum('expense'),s=sum('saving');$('#rInc').textContent=money(i);$('#rExp').textContent=money(e);$('#rSav').textContent=money(s);$('#rRem').textContent=money(i-e-s);$('#rCount').textContent=`${a.length} entries`;let c={},sub={};a.filter(x=>x.type==='expense').forEach(x=>{c[x.category]=(c[x.category]||0)+base(x);if(x.subcategory)sub[x.subcategory]=(sub[x.subcategory]||0)+base(x)});let bh=o=>Object.entries(o).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="break"><span>${esc(k)}</span><b>${money(v)}</b></div>`).join('')||'<span class="muted">No data</span>';$('#rBreak').innerHTML=bh(c);$('#rSubBreak').innerHTML=bh(sub);$('#rTx').innerHTML=a.map(txHtml).join('')||'<span class="muted">No data</span>';bindDelete()}
+function renderSettings(){$('#profileName').value=S.profile?.display_name||'';$('#profileLang').value=lang();fill($('#baseCurr'),S.settings.currencies.map(x=>x.code),S.settings.base_currency);$('#currMgr').innerHTML=S.settings.currencies.map((x,i)=>chip(`${x.code} ${x.symbol}`,'curr',i)).join('');$('#methodMgr').innerHTML=S.settings.payment_methods.map((x,i)=>chip(x,'method',i)).join('');$('#savingMgr').innerHTML=S.settings.saving_accounts.map((x,i)=>chip(`${x.name} • ${x.currency}`,'saving',i)).join('');$('#catMgr').innerHTML=S.settings.categories.map((c,i)=>`<div class="cat"><div class="catHead"><strong>${esc(c.name)}</strong><div><button class="btn toggle" data-i="${i}">Sub</button> <button class="btn catDel" data-i="${i}">×</button></div></div><div class="catBody hidden" id="body${i}"><div class="subs">${c.subs.map((s,j)=>`<span class="chip">${esc(s)}<button data-ci="${i}" data-si="${j}">×</button></span>`).join('')}</div><div style="display:flex;gap:6px"><input id="sub${i}" placeholder="New subcategory"><button class="btn addSub" data-i="${i}">Add</button></div></div></div>`).join('');bindManagers()}
+function chip(l,t,i){return `<span class="chip">${esc(l)}<button data-m="${t}" data-i="${i}">×</button></span>`}function bindManagers(){$$('.toggle').forEach(b=>b.onclick=()=>$('#body'+b.dataset.i).classList.toggle('hidden'));$$('.catDel').forEach(b=>b.onclick=async()=>{S.settings.categories.splice(+b.dataset.i,1);await saveSettings()});$$('[data-ci]').forEach(b=>b.onclick=async()=>{S.settings.categories[+b.dataset.ci].subs.splice(+b.dataset.si,1);await saveSettings()});$$('.addSub').forEach(b=>b.onclick=async()=>{let i=+b.dataset.i,v=$('#sub'+i).value.trim();if(v&&!S.settings.categories[i].subs.includes(v)){S.settings.categories[i].subs.push(v);await saveSettings()}});$$('[data-m]').forEach(b=>b.onclick=async()=>{let map={curr:'currencies',method:'payment_methods',saving:'saving_accounts'};S.settings[map[b.dataset.m]].splice(+b.dataset.i,1);await saveSettings()})}
+async function saveSettings(){await db.from('app_settings').upsert({id:1,settings:S.settings,updated_by:S.user.id,updated_at:new Date().toISOString()});setupOptions();render();toast('Saved')}
+function bindDelete(){$$('.del').forEach(b=>b.onclick=async()=>{if(!confirm('Move to Trash?'))return;await db.from('transactions').update({deleted_at:new Date().toISOString()}).eq('id',b.dataset.id);await load();render()})}
+function openEntry(type='expense'){setType(type);$('#eDate').value=today();$('#eAmount').value='';$('#eNote').value='';$('#eCurr').value=S.settings.base_currency;$('#eRate').value=1;$('#autoOwner').textContent=S.profile.display_name;$('#entry').showModal()}function setType(t){$('#entryType').value=t;$$('[data-entry]').forEach(b=>b.classList.toggle('active',b.dataset.entry===t));$('#incomeFields').classList.toggle('hidden',t!=='income');$('#expenseFields').classList.toggle('hidden',t!=='expense');$('#savingFields').classList.toggle('hidden',t!=='saving');$('#entryTitle').textContent=tr(t==='saving'?'savings':t)}
+async function saveEntry(e){e.preventDefault();let type=$('#entryType').value,curr=$('#eCurr').value,rate=curr===S.settings.base_currency?1:Number($('#eRate').value||0),row={type,amount:Number($('#eAmount').value),currency:curr,exchange_rate:rate,transaction_date:$('#eDate').value,payment_method:$('#eMethod').value,owner_name:S.profile.display_name,created_by:S.user.id,note:$('#eNote').value.trim()||null};if(type==='income')row.source=$('#eSource').value;if(type==='expense'){row.category=$('#eCat').value;row.subcategory=$('#eSub').value||null}if(type==='saving'){row.saving_account=$('#eSaving').value;row.target_id=$('#eTarget').value||null}let r=await db.from('transactions').insert(row);if(r.error)return toast(r.error.message);entry.close();await load();render();toast('Saved')}
+async function pdfReport(){const {jsPDF}=window.jspdf,d=new jsPDF({unit:'pt',format:'a4'}),a=S.report;let inc=a.filter(x=>x.type==='income').reduce((s,x)=>s+base(x),0),exp=a.filter(x=>x.type==='expense').reduce((s,x)=>s+base(x),0),sav=a.filter(x=>x.type==='saving').reduce((s,x)=>s+base(x),0);d.setFontSize(18);d.text('Our Money - Finance Report',40,40);d.setFontSize(9);d.text(`Generated: ${new Date().toLocaleString()} | Downloaded by: ${S.profile.display_name}`,40,58);d.autoTable({startY:75,head:[['Income','Expense','Savings','Remaining']],body:[[money(inc),money(exp),money(sav),money(inc-exp-sav)]]});let y=d.lastAutoTable.finalY+16,c={};a.filter(x=>x.type==='expense').forEach(x=>{let k=x.category+(x.subcategory?' > '+x.subcategory:'');c[k]=(c[k]||0)+base(x)});d.text('Expense Breakdown',40,y);d.autoTable({startY:y+7,head:[['Category / Subcategory','Total']],body:Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,money(v)])});y=d.lastAutoTable.finalY+16;d.text('Transactions',40,y);d.autoTable({startY:y+7,head:[['Date','Type','Category','Subcategory/Source','Amount','Added by']],body:a.map(x=>[x.transaction_date,x.type,x.category||'',x.subcategory||x.source||x.saving_account||'',money(x.amount,x.currency),x.owner_name||'']) ,styles:{fontSize:7}});d.save(`our-money-report-${today()}.pdf`)}
+function page(p){$$('.page').forEach(x=>x.classList.remove('active'));$('#'+p+'Page').classList.add('active');$$('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===p));$('#title').textContent=tr(p==='home'?'dashboard':p);if(p==='settings'&&!S.unlocked){$('#lock').classList.remove('hidden');$('#settingsContent').classList.add('hidden')}if(p==='reports')renderReport()}
+$('#loginForm').onsubmit=async e=>{e.preventDefault();if(!db)return toast('Set config.js first');let r=await db.auth.signInWithPassword({email:$('#email').value,password:$('#password').value});if(r.error)return toast(r.error.message);enter(r.data.user)};$('#logout').onclick=async()=>{await db.auth.signOut();location.reload()};$$('.nav').forEach(b=>b.onclick=()=>page(b.dataset.page));$('#monthPick').onchange=e=>{S.month=e.target.value;renderHome()};$('#addTop').onclick=()=>openEntry();$('#mobileAdd').onclick=()=>openEntry();$$('[data-kind]').forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$('[data-entry]').forEach(b=>b.onclick=()=>setType(b.dataset.entry));$('#eCat').onchange=subOptions;$('#eCurr').onchange=()=>$('#rateWrap').classList.toggle('hidden',$('#eCurr').value===S.settings.base_currency);$('#entryForm').onsubmit=saveEntry;$('#hSearch').oninput=renderHistory;$('#hType').onchange=renderHistory;$('#hCat').onchange=renderHistory;$('#newTarget').onclick=()=>targetDlg.showModal();$('#targetForm').onsubmit=async e=>{e.preventDefault();let r=await db.from('targets').insert({name:$('#tName').value.trim(),target_amount:Number($('#tAmount').value),currency:$('#tCurr').value,target_date:$('#tDate').value||null,created_by:S.user.id});if(r.error)return toast(r.error.message);targetDlg.close();e.target.reset();await load();setupOptions();render()};$('#pinForm').onsubmit=async e=>{e.preventDefault();if(await hash($('#pin').value)===S.settings.pin_hash){S.unlocked=true;$('#lock').classList.add('hidden');$('#settingsContent').classList.remove('hidden')}else toast('Wrong PIN')};$('#saveProfile').onclick=async()=>{let n=$('#profileName').value.trim(),l=$('#profileLang').value;if(!n)return;await db.from('profiles').update({display_name:n,language:l}).eq('user_id',S.user.id);S.profile={...S.profile,display_name:n,language:l};await load();$('#who').textContent=n;applyLang();setupOptions();render();toast('Saved')};$('#saveGeneral').onclick=async()=>{S.settings.base_currency=$('#baseCurr').value;let p=$('#newPin').value.trim();if(p)S.settings.pin_hash=await hash(p);$('#newPin').value='';saveSettings()};$('#addCurr').onclick=async()=>{let c=$('#currCode').value.trim().toUpperCase(),s=$('#currSymbol').value.trim()||c;if(c.length===3&&!S.settings.currencies.some(x=>x.code===c)){S.settings.currencies.push({code:c,symbol:s});$('#currCode').value=$('#currSymbol').value='';saveSettings()}};$('#addCat').onclick=async()=>{let v=$('#newCat').value.trim();if(v&&!S.settings.categories.some(x=>x.name===v)){S.settings.categories.push({name:v,subs:[]});$('#newCat').value='';saveSettings()}};$('#addMethod').onclick=async()=>{let v=$('#newMethod').value.trim();if(v&&!S.settings.payment_methods.includes(v)){S.settings.payment_methods.push(v);$('#newMethod').value='';saveSettings()}};$('#addSaving').onclick=async()=>{let v=$('#newSaving').value.trim();if(v){S.settings.saving_accounts.push({name:v,currency:$('#newSavingCurr').value});$('#newSaving').value='';saveSettings()}};$('#backup').onclick=()=>{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({settings:S.settings,profiles:S.profiles,transactions:S.tx,targets:S.targets},null,2)],{type:'application/json'}));a.download=`our-money-backup-${today()}.json`;a.click()};$('#trash').onclick=async()=>{let r=await db.from('transactions').select('*').not('deleted_at','is',null).order('deleted_at',{ascending:false});$('#trashList').innerHTML=(r.data||[]).map(x=>`<div class="tx"><div class="ico">↶</div><div><strong>${esc(x.category||x.source||x.saving_account)}</strong><small>${x.transaction_date}</small></div><div>${money(x.amount,x.currency)}</div><button class="btn restore" data-id="${x.id}">Restore</button></div>`).join('')||'<span class="muted">Empty</span>';$$('.restore').forEach(b=>b.onclick=async()=>{await db.from('transactions').update({deleted_at:null}).eq('id',b.dataset.id);await load();render();$('#trash').click()});trashDlg.showModal()};$('#rPeriod').onchange=()=>{let p=$('#rPeriod').value;$('#rMonthWrap').classList.toggle('hidden',p!=='month');$('#rYearWrap').classList.toggle('hidden',p!=='year');$('#rFromWrap').classList.toggle('hidden',p!=='custom');$('#rToWrap').classList.toggle('hidden',p!=='custom');renderReport()};$('#rCat').onchange=()=>{rSubOptions();renderReport()};['rMonth','rYear','rFrom','rTo','rSub','rOwner','rCurr'].forEach(id=>$('#'+id).onchange=renderReport);$('#pdf').onclick=pdfReport;
+(async()=>{if(!ok)return;let s=(await db.auth.getSession()).data.session;if(s)enter(s.user)})();
+</script></body></html>
