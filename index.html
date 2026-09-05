@@ -52,6 +52,10 @@
         <h2 id="pageTitle">Dashboard</h2>
       </div>
       <div class="top-actions">
+        <select id="headerLanguage" class="language-switch" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="bn">বাংলা</option>
+        </select>
         <select id="monthPicker"></select>
         <button id="quickAddBtn" class="btn primary">+ <span data-i18n="add">Add</span></button>
       </div>
@@ -198,7 +202,6 @@
           <article class="panel accent-panel">
             <div class="panel-head"><div><p class="eyebrow" data-i18n="myPreferences">MY PREFERENCES</p><h3 id="preferenceTitle">—</h3></div></div>
             <label><span data-i18n="displayName">Display name</span><input id="profileName"></label>
-            <label><span data-i18n="language">Language</span><select id="profileLanguage"><option value="en">English</option><option value="bn">বাংলা</option></select></label>
             <button id="saveProfileBtn" class="btn primary" data-i18n="savePreferences">Save Preferences</button>
             <p class="tiny muted" data-i18n="profileHint">Language changes only your screen. Financial data stays shared.</p>
           </article>
@@ -273,7 +276,10 @@
       <label><span data-i18n="targetOptional">Target (optional)</span><select id="savingTarget"></select></label>
     </div>
     <label><span data-i18n="method">Method</span><select id="entryMethod"></select></label>
-    <label><span data-i18n="date">Date</span><input id="entryDate" type="date" required></label>
+    <div class="two-col">
+      <label><span data-i18n="date">Date</span><input id="entryDate" type="date" required></label>
+      <label><span data-i18n="time">Time</span><input id="entryTime" type="time" required></label>
+    </div>
     <div class="auto-owner"><span data-i18n="addedBy">Added by</span><strong id="autoOwner">—</strong></div>
     <label><span data-i18n="noteOptional">Note (optional)</span><textarea id="entryNote" rows="2" data-i18n-placeholder="shortNote" placeholder="Short note"></textarea></label>
     <div class="modal-actions"><button type="button" class="btn ghost" data-close="entryDialog" data-i18n="cancel">Cancel</button><button class="btn primary" type="submit" data-i18n="saveRecord">Save Record</button></div>
@@ -298,6 +304,14 @@
   <div id="detailSummary" class="detail-summary"></div>
   <div id="detailList" class="transaction-list"></div>
   <button id="detailHistoryBtn" class="btn full" data-i18n="viewInHistory">View in History</button>
+</dialog>
+
+<dialog id="transactionDialog" class="modal">
+  <div class="modal-head">
+    <div><p class="eyebrow" data-i18n="details">DETAILS</p><h3 id="transactionDetailTitle">Transaction</h3></div>
+    <button type="button" class="icon-btn" data-close="transactionDialog">×</button>
+  </div>
+  <div id="transactionDetailBody" class="transaction-detail"></div>
 </dialog>
 
 <dialog id="trashDialog" class="modal wide">
