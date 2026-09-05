@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0d1117" />
+  <title>Our Finance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <section id="loginView" class="auth-shell">
+    <div class="auth-card glass">
+      <div class="brand-mark">OF</div>
+      <h1>Our Finance</h1>
+      <p class="muted">Private household money tracker for Mehedi & Mou.</p>
+      <form id="loginForm" class="stack">
+        <label>Email<input id="loginEmail" type="email" required autocomplete="email" /></label>
+        <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" /></label>
+        <button class="btn primary" type="submit">Sign in</button>
+      </form>
+      <p class="tiny muted">Create only your two users in Supabase Auth, then disable public sign-ups.</p>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">OF</div>
+        <div><strong>Our Finance</strong><span>Mehedi & Mou</span></div>
+      </div>
+      <nav>
+        <button class="nav-item active" data-page="home">⌂ <span>Dashboard</span></button>
+        <button class="nav-item" data-page="history">≡ <span>History</span></button>
+        <button class="nav-item" data-page="targets">◎ <span>Targets</span></button>
+        <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+      </nav>
+      <div class="sidebar-foot">
+        <button id="logoutBtn" class="btn ghost full">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">HOUSEHOLD FINANCE</p>
+          <h2 id="pageTitle">Dashboard</h2>
+        </div>
+        <div class="top-actions">
+          <select id="monthPicker"></select>
+          <button id="quickAddBtn" class="btn primary">+ Add</button>
+        </div>
+      </header>
+
+      <section id="homePage" class="page active">
+        <div class="hero-card">
+          <div>
+            <p class="muted">Available Balance</p>
+            <h1 id="availableBalance">AED 0.00</h1>
+            <span id="monthLabel" class="chip">This month</span>
+          </div>
+          <div class="hero-mini">
+            <span>Future Savings</span>
+            <strong id="totalSavings">AED 0.00</strong>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card income"><span>Income</span><strong id="incomeTotal">AED 0</strong><small>salary + other</small></article>
+          <article class="stat-card expense"><span>Expense</span><strong id="expenseTotal">AED 0</strong><small>all spending</small></article>
+          <article class="stat-card family"><span>Family Support</span><strong id="familyTotal">AED 0</strong><small id="familySplit">Mehedi 0 • Mou 0</small></article>
+          <article class="stat-card savings"><span>Saved</span><strong id="savedThisMonth">AED 0</strong><small>this month</small></article>
+        </div>
+
+        <div class="quick-grid">
+          <button class="quick-action income" data-kind="income"><span>＋</span><div><strong>Income</strong><small>Salary or other money in</small></div></button>
+          <button class="quick-action expense" data-kind="expense"><span>−</span><div><strong>Expense</strong><small>Daily & monthly spending</small></div></button>
+          <button class="quick-action savings" data-kind="saving"><span>↗</span><div><strong>Savings</strong><small>Move money to future</small></div></button>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">SPENDING</p><h3>Where money went</h3></div><span id="expenseCount" class="badge">0 entries</span></div>
+            <div id="categoryBars" class="bar-list empty-state">No expenses yet.</div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">TARGETS</p><h3>Future plans</h3></div><button class="link-btn" data-page-jump="targets">View all</button></div>
+            <div id="targetPreview" class="target-list empty-state">No targets yet.</div>
+          </article>
+        </div>
+
+        <article class="panel">
+          <div class="panel-head"><div><p class="eyebrow">RECENT</p><h3>Latest activity</h3></div><button class="link-btn" data-page-jump="history">Full history</button></div>
+          <div id="recentList" class="transaction-list empty-state">No transactions yet.</div>
+        </article>
+      </section>
+
+      <section id="historyPage" class="page">
+        <div class="panel">
+          <div class="filter-row">
+            <input id="historySearch" placeholder="Search amount, note, category..." />
+            <select id="historyType">
+              <option value="all">All types</option>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+              <option value="saving">Savings</option>
+            </select>
+            <select id="historyCategory"><option value="all">All categories</option></select>
+          </div>
+          <div id="historyList" class="transaction-list"></div>
+        </div>
+      </section>
+
+      <section id="targetsPage" class="page">
+        <div class="section-actions">
+          <div><p class="muted">Track what you are saving for without making daily use complicated.</p></div>
+          <button id="addTargetBtn" class="btn primary">+ New Target</button>
+        </div>
+        <div id="targetsGrid" class="targets-grid"></div>
+      </section>
+
+      <section id="settingsPage" class="page">
+        <div id="settingsLock" class="lock-card panel">
+          <div class="lock-icon">⌁</div>
+          <h3>Settings Locked</h3>
+          <p class="muted">Enter your settings PIN.</p>
+          <form id="pinForm" class="pin-row">
+            <input id="pinInput" inputmode="numeric" maxlength="8" type="password" placeholder="••••" />
+            <button class="btn primary">Unlock</button>
+          </form>
+        </div>
+
+        <div id="settingsContent" class="hidden">
+          <div class="settings-grid">
+            <article class="panel">
+              <div class="panel-head"><div><p class="eyebrow">GENERAL</p><h3>App Settings</h3></div></div>
+              <label>Base currency<select id="baseCurrency"></select></label>
+              <label>New Settings PIN<input id="newPin" type="password" inputmode="numeric" placeholder="Leave blank to keep current" /></label>
+              <button id="saveGeneralBtn" class="btn primary">Save Settings</button>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><p class="eyebrow">CURRENCIES</p><h3>Active currencies</h3></div></div>
+              <div id="currencyManager" class="manager-list"></div>
+              <div class="inline-add"><input id="newCurrencyCode" maxlength="3" placeholder="e.g. BDT" /><input id="newCurrencySymbol" placeholder="৳" /><button id="addCurrencyBtn" class="btn">Add</button></div>
+              <p class="tiny muted">Each saved transaction keeps its original currency and optional conversion rate.</p>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><p class="eyebrow">EXPENSE</p><h3>Expense categories</h3></div></div>
+              <div id="categoryManager" class="manager-list"></div>
+              <div class="inline-add"><input id="newCategory" placeholder="New category" /><button id="addCategoryBtn" class="btn">Add</button></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><p class="eyebrow">METHODS</p><h3>Payment methods</h3></div></div>
+              <div id="methodManager" class="manager-list"></div>
+              <div class="inline-add"><input id="newMethod" placeholder="e.g. ENBD Card" /><button id="addMethodBtn" class="btn">Add</button></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head"><div><p class="eyebrow">SAVINGS</p><h3>Savings accounts</h3></div></div>
+              <div id="savingAccountManager" class="manager-list"></div>
+              <div class="inline-add three"><input id="newSavingAccount" placeholder="Bangladesh Savings" /><select id="newSavingCurrency"></select><button id="addSavingAccountBtn" class="btn">Add</button></div>
+            </article>
+
+            <article class="panel danger-panel">
+              <div class="panel-head"><div><p class="eyebrow">DATA</p><h3>Backup & deleted records</h3></div></div>
+              <div class="button-stack">
+                <button id="exportBtn" class="btn">Export JSON Backup</button>
+                <button id="exportCsvBtn" class="btn">Export CSV</button>
+                <button id="showTrashBtn" class="btn">Open Trash</button>
+              </div>
+              <p class="tiny muted">Normal delete is soft-delete. Records stay recoverable until permanently removed.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav">
+      <button class="nav-item active" data-page="home">⌂<span>Home</span></button>
+      <button class="nav-item" data-page="history">≡<span>History</span></button>
+      <button id="mobileAdd" class="mobile-add">＋</button>
+      <button class="nav-item" data-page="targets">◎<span>Targets</span></button>
+      <button class="nav-item" data-page="settings">⚙<span>Settings</span></button>
+    </nav>
+  </div>
+
+  <dialog id="entryDialog" class="modal">
+    <form id="entryForm" method="dialog">
+      <div class="modal-head">
+        <div><p class="eyebrow">NEW RECORD</p><h3 id="entryTitle">Add Expense</h3></div>
+        <button type="button" class="icon-btn" data-close="entryDialog">×</button>
+      </div>
+      <div class="type-switch">
+        <button type="button" data-entry-type="income">Income</button>
+        <button type="button" class="active" data-entry-type="expense">Expense</button>
+        <button type="button" data-entry-type="saving">Savings</button>
+      </div>
+      <input id="entryType" type="hidden" value="expense" />
+      <label class="amount-label">Amount
+        <div class="amount-box"><select id="entryCurrency"></select><input id="entryAmount" type="number" step="0.01" min="0" required placeholder="0.00" /></div>
+      </label>
+      <div id="rateWrap" class="hidden"><label>Rate to base currency<input id="entryRate" type="number" step="0.000001" min="0" value="1" /></label></div>
+      <div id="incomeFields" class="hidden">
+        <label>Source<select id="incomeSource"></select></label>
+      </div>
+      <div id="expenseFields">
+        <label>Category<select id="expenseCategory"></select></label>
+        <label id="familyGroupWrap" class="hidden">Family<select id="familyGroup"><option>Mehedi Family</option><option>Mou Family</option></select></label>
+      </div>
+      <div id="savingFields" class="hidden">
+        <label>Save to<select id="savingAccount"></select></label>
+        <label>Target (optional)<select id="savingTarget"><option value="">No target</option></select></label>
+      </div>
+      <label>Method<select id="entryMethod"></select></label>
+      <div class="two-col">
+        <label>Date<input id="entryDate" type="date" required /></label>
+        <label>Added by<select id="entryOwner"><option>Mehedi</option><option>Mou</option><option>Shared</option></select></label>
+      </div>
+      <label>Note (optional)<textarea id="entryNote" rows="2" placeholder="Short note"></textarea></label>
+      <div class="modal-actions"><button type="button" class="btn ghost" data-close="entryDialog">Cancel</button><button class="btn primary" type="submit">Save Record</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="targetDialog" class="modal">
+    <form id="targetForm" method="dialog">
+      <div class="modal-head"><h3>New Target</h3><button type="button" class="icon-btn" data-close="targetDialog">×</button></div>
+      <label>Target name<input id="targetName" required placeholder="Future Plan" /></label>
+      <div class="two-col"><label>Target amount<input id="targetAmount" type="number" step="0.01" min="0" required /></label><label>Currency<select id="targetCurrency"></select></label></div>
+      <label>Target date (optional)<input id="targetDate" type="date" /></label>
+      <div class="modal-actions"><button type="button" class="btn ghost" data-close="targetDialog">Cancel</button><button class="btn primary" type="submit">Create Target</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="trashDialog" class="modal wide">
+    <div class="modal-head"><div><p class="eyebrow">RECOVERY</p><h3>Trash</h3></div><button type="button" class="icon-btn" data-close="trashDialog">×</button></div>
+    <div id="trashList" class="transaction-list"></div>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
