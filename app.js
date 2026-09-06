@@ -30,17 +30,18 @@ categories:[
 {name:"Travel",subs:["Flight","Hotel","Transport","Food","Visa / Documents","Other Travel"]},
 {name:"Other",subs:["Miscellaneous"]}
 ],
+income_owners:["Mehedi Income","Mousumi Income"],
 income_sources:["Salary","Overtime","Bonus","Refund","Other"],
 payment_methods:["Bank","Cash","Card","Bank Transfer","Tabby"],
 saving_accounts:[{name:"Future Savings",currency:"AED"},{name:"Bangladesh Savings",currency:"BDT"}]
 };
 
 const T={
-en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
-bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
+en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",incomeOwner:"Income Owner",incomeSetup:"Income Owners & Sources",incomeOwners:"Income Owners",incomeSources:"Income Sources",editRecord:"Edit Record",psaHint:"Private to your login. It never appears in shared dashboard, history, savings or reports.",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
+bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
 };
 
-let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null};
+let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,currentTxId:null,expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[]};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=()=>state.profile?.language||"en",tr=k=>T[lang()]?.[k]||T.en[k]||k;
 const money=(v,c=state.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`;
@@ -59,7 +60,7 @@ async function boot(){
 }
 async function enter(user){
   state.user=user;$("#loginView").classList.add("hidden");$("#app").classList.remove("hidden");
-  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTargets()]);
+  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTargets(),loadPsaMeta()]);
   applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile.display_name;$("#autoOwner").textContent=state.profile.display_name;
 }
 async function ensureProfile(){
@@ -98,11 +99,12 @@ function populate(){
   fill($("#historyType"),[{value:"all",label:tr("allTypes")},{value:"income",label:tr("income")},{value:"expense",label:tr("expense")},{value:"saving",label:tr("savings")}],"all");
   fill($("#historyCategory"),[{value:"all",label:tr("allCategories")},...cats.map(x=>({value:x,label:x}))],"all");
   fill($("#expenseCategory"),cats);updateSubs();
-  fill($("#incomeSource"),state.settings.income_sources);fill($("#entryMethod"),state.settings.payment_methods);
+  fill($("#incomeOwner"),state.settings.income_owners||["Mehedi Income","Mousumi Income"]);fill($("#incomeSource"),state.settings.income_sources);fill($("#entryMethod"),state.settings.payment_methods);
   [$("#entryCurrency"),$("#targetCurrency"),$("#newSavingCurrency")].forEach(e=>fill(e,codes,state.settings.base_currency));
   fill($("#savingAccount"),state.settings.saving_accounts.map(x=>({value:x.name,label:`${x.name} (${x.currency})`})));
   fill($("#savingTarget"),[{value:"",label:lang()==="bn"?"কোনো টার্গেট নয়":"No target"},...state.targets.map(x=>({value:x.id,label:x.name}))]);
   fill($("#reportCategory"),[{value:"all",label:tr("allCategories")},...cats.map(x=>({value:x,label:x}))],"all");updateReportSubs();
+  fill($("#reportIncomeOwner"),[{value:"all",label:tr("all")},...(state.settings.income_owners||[]).map(x=>({value:x,label:x}))],"all");
   fill($("#reportOwner"),[{value:"all",label:tr("all")},...state.profiles.map(p=>({value:p.display_name,label:p.display_name}))],"all");
   fill($("#reportCurrency"),[{value:"all",label:tr("all")},...codes.map(x=>({value:x,label:x}))],"all");
   renderSettings();
@@ -113,7 +115,7 @@ function renderDashboard(){
   const tx=monthRows(),sum=t=>tx.filter(x=>x.type===t).reduce((s,x)=>s+baseValue(x),0),inc=sum("income"),exp=sum("expense"),sav=sum("saving");
   const allInc=state.transactions.filter(x=>x.type==="income").reduce((s,x)=>s+baseValue(x),0),allExp=state.transactions.filter(x=>x.type==="expense").reduce((s,x)=>s+baseValue(x),0),allSav=state.transactions.filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0);
   const fam=tx.filter(x=>x.type==="expense"&&x.category==="Family Support"),mf=fam.filter(x=>x.subcategory==="Mehedi Family").reduce((s,x)=>s+baseValue(x),0),mouf=fam.filter(x=>x.subcategory==="Mou Family").reduce((s,x)=>s+baseValue(x),0);
-  $("#incomeTotal").textContent=money(inc);$("#expenseTotal").textContent=money(exp);$("#savedThisMonth").textContent=money(sav);$("#familyTotal").textContent=money(mf+mouf);$("#familySplit").textContent=`Mehedi ${money(mf)} • Mou ${money(mouf)}`;$("#availableBalance").textContent=money(allInc-allExp-allSav);$("#totalSavings").textContent=money(allSav);
+  $("#incomeTotal").textContent=money(inc);$("#expenseTotal").textContent=money(exp);renderSavingsMasked(sav);$("#availableBalance").textContent=money(allInc-allExp-allSav);$("#totalSavings").textContent=money(allSav);prepareExpenseSlides(tx);
   const d=new Date(state.selectedMonth+"-01T00:00:00");$("#monthLabel").textContent=d.toLocaleDateString(lang()==="bn"?"bn-BD":"en-US",{month:"long",year:"numeric"});
   const cmap={};tx.filter(x=>x.type==="expense").forEach(x=>cmap[x.category]=(cmap[x.category]||0)+baseValue(x));const arr=Object.entries(cmap).sort((a,b)=>b[1]-a[1]);$("#expenseCount").textContent=`${tx.filter(x=>x.type==="expense").length} ${tr("entries")}`;$("#categoryBars").innerHTML=arr.length?arr.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(5,v/arr[0][1]*100)}%"></div></div><strong>${money(v)}</strong></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;
   $("#recentList").innerHTML=state.transactions.slice(0,7).length?state.transactions.slice(0,7).map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();
@@ -139,15 +141,22 @@ function renderTargets(){$("#targetsGrid").innerHTML=state.targets.length?state.
 
 function updateSubs(){const c=state.settings.categories.find(x=>x.name===$("#expenseCategory").value),s=c?.subs||[];fill($("#expenseSubcategory"),s);$("#subcategoryWrap").classList.toggle("hidden",!s.length)}
 function setEntryType(type){$("#entryType").value=type;$$("[data-entry-type]").forEach(b=>b.classList.toggle("active",b.dataset.entryType===type));$("#incomeFields").classList.toggle("hidden",type!=="income");$("#expenseFields").classList.toggle("hidden",type!=="expense");$("#savingFields").classList.toggle("hidden",type!=="saving");$("#entryTitle").textContent=type==="income"?tr("income"):type==="expense"?tr("expense"):tr("savings")}
-function openEntry(type="expense"){setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
+function openEntry(type="expense"){state.editingId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
   e.preventDefault();const type=$("#entryType").value,amount=Number($("#entryAmount").value),currency=$("#entryCurrency").value,rate=currency===state.settings.base_currency?1:Number($("#entryRate").value||0);if(!amount||amount<=0)return toast("Enter amount");if(rate<=0)return toast("Enter conversion rate");
   const row={type,amount,currency,exchange_rate:rate,transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),payment_method:$("#entryMethod").value,note:$("#entryNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name};
-  if(type==="income")row.source=$("#incomeSource").value;
+  if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value;}
   if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
   if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
-  const {error}=await db.from("transactions").insert(row);if(error)return toast(error.message);closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved")
+  let error;
+  if(state.editingId){
+    const res=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);error=res.error;
+  }else{
+    const res=await db.from("transactions").insert(row);error=res.error;
+  }
+  if(error)return toast(error.message);
+  state.editingId=null;closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved")
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
 
@@ -156,7 +165,7 @@ function formatCreatedAt(value){
   try{return new Date(value).toLocaleString(lang()==="bn"?"bn-BD":"en-US",{year:"numeric",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}catch{return value}
 }
 function openTransactionDetail(id){
-  const x=state.transactions.find(r=>r.id===id);if(!x)return;
+  const x=state.transactions.find(r=>r.id===id);if(!x)return;state.currentTxId=id;
   const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Transaction");
   $("#transactionDetailTitle").textContent=label;
   const rows=[
@@ -166,7 +175,7 @@ function openTransactionDetail(id){
     [tr("method"),x.payment_method||"—"],
     [tr("createdAt"),formatCreatedAt(x.created_at)]
   ];
-  if(x.type==="income")rows.splice(2,0,[tr("source"),x.source||"—"]);
+  if(x.type==="income"){rows.splice(2,0,[tr("incomeOwner"),x.income_owner||"—"]);rows.splice(3,0,[tr("source"),x.source||"—"]);}
   if(x.type==="expense"){rows.splice(2,0,[tr("category"),x.category||"—"]);rows.splice(3,0,[tr("subcategory"),x.subcategory||"—"])}
   if(x.type==="saving"){rows.splice(2,0,[tr("saveTo"),x.saving_account||"—"]);const tg=state.targets.find(t=>t.id===x.target_id);rows.splice(3,0,[tr("targets"),tg?.name||(lang()==="bn"?"কোনো টার্গেট নয়":"No target")])}
   if(x.note)rows.push([tr("noteOptional").replace(" (optional)",""),x.note]);
@@ -176,7 +185,8 @@ function openTransactionDetail(id){
 
 function openDrill(kind){
   const tx=monthRows();let rows=[],title="",summary="";
-  if(kind==="income"){rows=tx.filter(x=>x.type==="income");title=tr("income");summary=`<div class="detail-kpi"><span>${tr("totalIncome")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
+  if(kind==="category"){const c=state.expenseSlides[state.expenseSlideIndex]?.category;rows=tx.filter(x=>x.type==="expense"&&x.category===c);title=c||tr("expense");summary=`<div class="detail-kpi"><span>${tr("totalExpense")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
+  else if(kind==="income"){rows=tx.filter(x=>x.type==="income");title=tr("income");summary=`<div class="detail-kpi"><span>${tr("totalIncome")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
   else if(kind==="expense"){rows=tx.filter(x=>x.type==="expense");title=tr("expense");summary=`<div class="detail-kpi"><span>${tr("totalExpense")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
   else if(kind==="family"){rows=tx.filter(x=>x.type==="expense"&&x.category==="Family Support");title=tr("familySupport");const m=rows.filter(x=>x.subcategory==="Mehedi Family").reduce((s,x)=>s+baseValue(x),0),mo=rows.filter(x=>x.subcategory==="Mou Family").reduce((s,x)=>s+baseValue(x),0);summary=`<div class="detail-kpi"><span>Mehedi Family</span><strong>${money(m)}</strong></div><div class="detail-kpi"><span>Mou Family</span><strong>${money(mo)}</strong></div><div class="detail-kpi"><span>${tr("totalFamily")}</span><strong>${money(m+mo)}</strong></div>`}
   else if(kind==="saving"){rows=tx.filter(x=>x.type==="saving");title=tr("savings");summary=`<div class="detail-kpi"><span>${tr("totalSavings")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
@@ -195,11 +205,11 @@ function reportDateRange(){
 }
 function updateReportSubs(){const c=$("#reportCategory").value,s=c&&c!=="all"?state.settings.categories.find(x=>x.name===c)?.subs||[]:[];fill($("#reportSubcategory"),[{value:"all",label:tr("all")},...s.map(x=>({value:x,label:x}))],"all")}
 function getReportRows(){
-  const {from,to}=reportDateRange(),cat=$("#reportCategory").value||"all",sub=$("#reportSubcategory").value||"all",owner=$("#reportOwner").value||"all",cur=$("#reportCurrency").value||"all";
+  const {from,to}=reportDateRange(),cat=$("#reportCategory").value||"all",sub=$("#reportSubcategory").value||"all",incomeOwner=$("#reportIncomeOwner").value||"all",owner=$("#reportOwner").value||"all",cur=$("#reportCurrency").value||"all";
   let rows=state.transactions.filter(x=>x.transaction_date>=from&&x.transaction_date<=to);
   if(state.reportType==="family")rows=rows.filter(x=>x.type==="expense"&&x.category==="Family Support");
   else if(state.reportType!=="all")rows=rows.filter(x=>x.type===state.reportType);
-  if(cat!=="all")rows=rows.filter(x=>x.category===cat);if(sub!=="all")rows=rows.filter(x=>x.subcategory===sub);if(owner!=="all")rows=rows.filter(x=>(x.owner_name||ownerName(x.created_by))===owner);if(cur!=="all")rows=rows.filter(x=>x.currency===cur);
+  if(incomeOwner!=="all")rows=rows.filter(x=>x.income_owner===incomeOwner);if(cat!=="all")rows=rows.filter(x=>x.category===cat);if(sub!=="all")rows=rows.filter(x=>x.subcategory===sub);if(owner!=="all")rows=rows.filter(x=>(x.owner_name||ownerName(x.created_by))===owner);if(cur!=="all")rows=rows.filter(x=>x.currency===cur);
   return rows;
 }
 function reportLabel(){
@@ -209,9 +219,15 @@ function renderReport(){
   const rows=getReportRows();state.reportRows=rows;
   let total=0;if(state.reportType==="all")total=rows.reduce((s,x)=>s+(x.type==="income"?baseValue(x):-baseValue(x)),0);else total=rows.reduce((s,x)=>s+baseValue(x),0);
   const label=reportLabel();$("#reportSummaryLabel").textContent=label;$("#reportSummaryValue").textContent=money(total);$("#reportSummaryMeta").textContent=`${rows.length} ${tr("entries")}`;$("#reportBottomLabel").textContent=label;$("#reportBottomTotal").textContent=money(total);$("#reportCount").textContent=`${rows.length} ${tr("entries")}`;
-  const cmap={},smap={};rows.forEach(x=>{if(x.category)cmap[x.category]=(cmap[x.category]||0)+baseValue(x);if(x.subcategory)smap[x.subcategory]=(smap[x.subcategory]||0)+baseValue(x)});
+  const cmap={},smap={};
+  if(state.reportType==="income"){
+    rows.forEach(x=>{const k=x.income_owner||"Unassigned";cmap[k]=(cmap[k]||0)+baseValue(x);if(x.source)smap[x.source]=(smap[x.source]||0)+baseValue(x)});
+  }else{
+    rows.forEach(x=>{if(x.category)cmap[x.category]=(cmap[x.category]||0)+baseValue(x);if(x.subcategory)smap[x.subcategory]=(smap[x.subcategory]||0)+baseValue(x)});
+  }
   const breakdown=m=>{const a=Object.entries(m).sort((a,b)=>b[1]-a[1]);return a.length?a.map(([k,v])=>`<div class="breakdown-item"><span>${esc(k)}</span><strong>${money(v)}</strong></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`};
-  $("#reportCategoryBreakdown").innerHTML=breakdown(cmap);$("#reportSubcategoryBreakdown").innerHTML=breakdown(smap);$("#reportBreakdownWrap").classList.toggle("hidden",state.reportType==="income"||state.reportType==="saving");
+  $("#reportCategoryBreakdown").innerHTML=breakdown(cmap);$("#reportSubcategoryBreakdown").innerHTML=breakdown(smap);$("#reportBreakdownWrap").classList.toggle("hidden",state.reportType==="saving");
+  $("#reportIncomeOwnerWrap").classList.toggle("hidden",!(state.reportType==="income"||state.reportType==="all"));
   $("#reportTransactions").innerHTML=rows.length?rows.map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();
 }
 function pdfReport(){
@@ -224,10 +240,117 @@ function pdfReport(){
   doc.save(`our-money-${state.reportType}-${localDate()}.pdf`);
 }
 
+
+function renderSavingsMasked(value){
+  const el=$("#savedThisMonth");
+  el.dataset.real=money(value);
+  el.innerHTML=`<span class="savings-mask">AED ••••••</span><button type="button" class="savings-eye" aria-label="Show savings">◉</button>`;
+  const eye=el.querySelector(".savings-eye");
+  eye.onclick=(e)=>{e.stopPropagation();revealSavings()};
+}
+function revealSavings(){
+  const el=$("#savedThisMonth");if(!el)return;
+  clearTimeout(state.savingsRevealTimer);
+  const real=el.dataset.real||"AED 0";
+  el.innerHTML=`<span>${esc(real)}</span><button type="button" class="savings-eye" aria-label="Hide savings">◉</button>`;
+  el.querySelector(".savings-eye").onclick=(e)=>{e.stopPropagation();renderSavingsMasked(Number(monthRows().filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0)))};
+  state.savingsRevealTimer=setTimeout(()=>renderSavingsMasked(monthRows().filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0)),4000);
+}
+function prepareExpenseSlides(tx){
+  const map={};
+  tx.filter(x=>x.type==="expense").forEach(x=>{
+    if(!map[x.category])map[x.category]={total:0,subs:{}};
+    map[x.category].total+=baseValue(x);
+    if(x.subcategory)map[x.category].subs[x.subcategory]=(map[x.category].subs[x.subcategory]||0)+baseValue(x);
+  });
+  state.expenseSlides=Object.entries(map).sort((a,b)=>b[1].total-a[1].total).map(([category,v])=>({category,...v}));
+  if(state.expenseSlideIndex>=state.expenseSlides.length)state.expenseSlideIndex=0;
+  renderExpenseSlide();
+  clearInterval(state.expenseSlideTimer);
+  if(state.expenseSlides.length>1)state.expenseSlideTimer=setInterval(()=>{state.expenseSlideIndex=(state.expenseSlideIndex+1)%state.expenseSlides.length;renderExpenseSlide()},3800);
+}
+function renderExpenseSlide(){
+  const s=state.expenseSlides[state.expenseSlideIndex];
+  if(!s){$("#expenseSlideTitle").textContent=tr("expense");$("#expenseSlideAmount").textContent=money(0);$("#expenseSlideSub").textContent=tr("noData");$("#expenseSlideDots").innerHTML="";return}
+  $("#expenseSlideTitle").textContent=s.category;$("#expenseSlideAmount").textContent=money(s.total);
+  const subs=Object.entries(s.subs).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([k,v])=>`${k} ${money(v)}`);
+  $("#expenseSlideSub").textContent=subs.join(" • ")||tr("tapDetails");
+  $("#expenseSlideDots").innerHTML=state.expenseSlides.map((_,i)=>`<i class="${i===state.expenseSlideIndex?"active":""}"></i>`).join("");
+}
+function editCurrentTransaction(){
+  const x=state.transactions.find(r=>r.id===state.currentTxId);if(!x)return;
+  closeD("transactionDialog");state.editingId=x.id;setEntryType(x.type);
+  $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
+  $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);$("#entryMethod").value=x.payment_method||"";$("#entryNote").value=x.note||"";
+  if(x.type==="income"){$("#incomeOwner").value=x.income_owner||"";$("#incomeSource").value=x.source||""}
+  if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||""}
+  if(x.type==="saving"){$("#savingAccount").value=x.saving_account||"";$("#savingTarget").value=x.target_id||""}
+  $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+(x.type==="income"?tr("income"):x.type==="expense"?tr("expense"):tr("savings"));
+  $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";
+  openD("entryDialog");
+}
+async function loadPsaMeta(){
+  const {data,error}=await db.from("psa_settings").select("code_hash").eq("user_id",state.user.id).maybeSingle();
+  if(error && error.code!=="PGRST116")console.warn(error);
+  state.psaHasCode=!!data?.code_hash;
+}
+function openPsaCodeChange(){
+  $("#psaCurrentCodeWrap").classList.toggle("hidden",!state.psaHasCode);
+  $("#psaCurrentCode").value=$("#psaNewCode").value=$("#psaConfirmCode").value="";
+  $("#psaCodeTitle").textContent=state.psaHasCode?"Change PSA Code":"Create PSA Code";openD("psaCodeDialog");
+}
+async function savePsaCode(e){
+  e.preventDefault();
+  const current=$("#psaCurrentCode").value,newCode=$("#psaNewCode").value,confirm=$("#psaConfirmCode").value;
+  if(!/^\d{4,8}$/.test(newCode))return toast("PSA code must be 4-8 digits");
+  if(newCode!==confirm)return toast("Codes do not match");
+  if(state.psaHasCode){
+    const {data}=await db.from("psa_settings").select("code_hash").eq("user_id",state.user.id).single();
+    if(!data||await sha256(current)!==data.code_hash)return toast("Current PSA code is wrong");
+  }
+  const code_hash=await sha256(newCode);
+  const {error}=await db.from("psa_settings").upsert({user_id:state.user.id,code_hash,updated_at:new Date().toISOString()});
+  if(error)return toast(error.message);
+  state.psaHasCode=true;closeD("psaCodeDialog");toast("PSA code saved");
+}
+async function openPsa(){
+  if(!state.psaHasCode)return openPsaCodeChange();
+  $("#psaUnlockCode").value="";openD("psaUnlockDialog");
+}
+async function unlockPsa(e){
+  e.preventDefault();const code=$("#psaUnlockCode").value;
+  const {data,error}=await db.from("psa_settings").select("code_hash").eq("user_id",state.user.id).single();
+  if(error)return toast(error.message);if(await sha256(code)!==data.code_hash)return toast("Wrong PSA code");
+  state.psaUnlocked=true;closeD("psaUnlockDialog");await loadPsaEntries();openPsaPanel();
+}
+async function loadPsaEntries(){
+  const {data,error}=await db.from("psa_entries").select("*").eq("user_id",state.user.id).order("entry_date",{ascending:false}).order("entry_time",{ascending:false});
+  if(error)return toast(error.message);state.psaEntries=data||[];
+}
+function openPsaPanel(){
+  fill($("#psaCurrency"),state.settings.currencies.map(x=>x.code),state.settings.base_currency);
+  $("#psaDate").value=localDate();$("#psaTime").value=localTime();$("#psaAmount").value="";$("#psaNote").value="";
+  renderPsa();openD("psaDialog");
+}
+function renderPsa(){
+  const balance=state.psaEntries.reduce((s,x)=>s+(x.entry_type==="saving"?Number(x.amount): -Number(x.amount)),0);
+  $("#psaBalance").textContent=money(balance,state.settings.base_currency);
+  $("#psaHistory").innerHTML=state.psaEntries.length?state.psaEntries.map(x=>`<div class="tx"><div class="tx-icon">${x.entry_type==="saving"?"＋":"−"}</div><div class="tx-main"><strong>${x.entry_type==="saving"?"Savings":"Expense"}</strong><small>${x.entry_date} • ${String(x.entry_time||"").slice(0,5)}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.entry_type==="saving"?"income":"expense"}">${x.entry_type==="saving"?"+":"−"} ${money(x.amount,x.currency)}</div></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;
+}
+async function savePsaEntry(e){
+  e.preventDefault();if(!state.psaUnlocked)return;
+  const amount=Number($("#psaAmount").value);if(!amount||amount<=0)return toast("Enter amount");
+  const row={user_id:state.user.id,entry_type:$("#psaType").value,amount,currency:$("#psaCurrency").value,entry_date:$("#psaDate").value,entry_time:$("#psaTime").value||localTime(),note:$("#psaNote").value.trim()||null};
+  const {error}=await db.from("psa_entries").insert(row);if(error)return toast(error.message);
+  await loadPsaEntries();$("#psaAmount").value="";$("#psaNote").value="";renderPsa();toast("PSA entry saved");
+}
+
 function renderSettings(){
   $("#preferenceTitle").textContent=state.profile?.display_name||"—";$("#profileName").value=state.profile?.display_name||"";
   fill($("#baseCurrency"),state.settings.currencies.map(x=>x.code),state.settings.base_currency);
   $("#currencyManager").innerHTML=state.settings.currencies.map((x,i)=>chip(`${x.code} ${x.symbol}`,"currency",i)).join("");
+  $("#incomeOwnerManager").innerHTML=(state.settings.income_owners||[]).map((x,i)=>chip(x,"incomeOwner",i)).join("");
+  $("#incomeSourceManager").innerHTML=state.settings.income_sources.map((x,i)=>chip(x,"incomeSource",i)).join("");
   $("#methodManager").innerHTML=state.settings.payment_methods.map((x,i)=>chip(x,"method",i)).join("");
   $("#savingAccountManager").innerHTML=state.settings.saving_accounts.map((x,i)=>chip(`${x.name} • ${x.currency}`,"saving",i)).join("");
   $("#categoryManager").innerHTML=state.settings.categories.map((c,i)=>`<div class="cat-card"><div class="cat-head"><strong>${esc(c.name)}</strong><div class="cat-actions"><button class="btn cat-toggle" data-i="${i}">Sub</button><button class="icon-btn cat-delete" data-i="${i}">×</button></div></div><div class="cat-body hidden" id="catBody${i}"><div class="subchips">${c.subs.map((s,j)=>`<span class="subchip">${esc(s)}<button data-ci="${i}" data-si="${j}">×</button></span>`).join("")}</div><div class="sub-add"><input id="subInput${i}" placeholder="New subcategory"><button class="btn sub-add-btn" data-i="${i}">${tr("add")}</button></div></div></div>`).join("");
@@ -239,7 +362,7 @@ function bindManagers(){
   $$(".cat-delete").forEach(b=>b.onclick=async()=>{if(!confirm("Remove category? Existing history stays unchanged."))return;state.settings.categories.splice(+b.dataset.i,1);await saveSettings()});
   $$("[data-ci]").forEach(b=>b.onclick=async()=>{state.settings.categories[+b.dataset.ci].subs.splice(+b.dataset.si,1);await saveSettings()});
   $$(".sub-add-btn").forEach(b=>b.onclick=async()=>{const i=+b.dataset.i,v=$("#subInput"+i).value.trim();if(v&&!state.settings.categories[i].subs.includes(v))state.settings.categories[i].subs.push(v);await saveSettings()});
-  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",method:"payment_methods",saving:"saving_accounts"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
+  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",method:"payment_methods",saving:"saving_accounts",incomeOwner:"income_owners",incomeSource:"income_sources"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
 }
 async function saveSettings(){const {error}=await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id,updated_at:new Date().toISOString()});if(error)return toast(error.message);populate();renderAll();toast(lang()==="bn"?"সেটিংস সেভ হয়েছে":"Settings saved")}
 async function saveProfile(){const n=$("#profileName").value.trim();if(!n)return;const {error}=await db.from("profiles").update({display_name:n}).eq("user_id",state.user.id);if(error)return toast(error.message);state.profile={...state.profile,display_name:n};await loadProfiles();applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=n;$("#autoOwner").textContent=n}
@@ -264,13 +387,22 @@ function bind(){
   $$(".clickable-card").forEach(b=>b.onclick=()=>openDrill(b.dataset.drill));$("#detailHistoryBtn").onclick=()=>{closeD("detailDialog");go("history");if(state.detailFilter==="income")$("#historyType").value="income";else if(state.detailFilter==="expense"||state.detailFilter==="family")$("#historyType").value="expense";else if(state.detailFilter==="saving")$("#historyType").value="saving";renderHistory()};
   $$("#reportPeriodSegment button").forEach(b=>b.onclick=()=>{state.reportPeriod=b.dataset.period;$$('#reportPeriodSegment button').forEach(x=>x.classList.toggle("active",x===b));$("#customRange").classList.toggle("hidden",state.reportPeriod!=="custom");renderReport()});
   $$("#reportTypeGrid button").forEach(b=>b.onclick=()=>{state.reportType=b.dataset.reportType;$$('#reportTypeGrid button').forEach(x=>x.classList.toggle("active",x===b));renderReport()});
-  $("#reportCategory").onchange=()=>{updateReportSubs();renderReport()};["reportSubcategory","reportOwner","reportCurrency","reportFrom","reportTo"].forEach(id=>$("#"+id).onchange=renderReport);$("#downloadPdfBtn").onclick=pdfReport;
+  $("#reportCategory").onchange=()=>{updateReportSubs();renderReport()};["reportSubcategory","reportIncomeOwner","reportOwner","reportCurrency","reportFrom","reportTo"].forEach(id=>$("#"+id).onchange=renderReport);$("#downloadPdfBtn").onclick=pdfReport;
   $("#pinForm").onsubmit=async e=>{e.preventDefault();if(await sha256($("#pinInput").value)===state.settings.pin_hash){state.unlocked=true;$("#settingsLock").classList.add("hidden");$("#settingsContent").classList.remove("hidden");$("#pinInput").value=""}else toast("Wrong PIN")};
   $("#saveProfileBtn").onclick=saveProfile;$("#saveGeneralBtn").onclick=async()=>{state.settings.base_currency=$("#baseCurrency").value;const p=$("#newPin").value.trim();if(p){if(p.length<4)return toast("PIN must be at least 4 digits");state.settings.pin_hash=await sha256(p);$("#newPin").value=""}await saveSettings()};
   $("#addCurrencyBtn").onclick=async()=>{const c=$("#newCurrencyCode").value.trim().toUpperCase(),s=$("#newCurrencySymbol").value.trim()||c;if(!/^[A-Z]{3}$/.test(c))return toast("Use 3-letter currency code");if(!state.settings.currencies.some(x=>x.code===c))state.settings.currencies.push({code:c,symbol:s});$("#newCurrencyCode").value=$("#newCurrencySymbol").value="";await saveSettings()};
   $("#addCategoryBtn").onclick=async()=>{const v=$("#newCategory").value.trim();if(v&&!state.settings.categories.some(x=>x.name===v))state.settings.categories.push({name:v,subs:[]});$("#newCategory").value="";await saveSettings()};
   $("#addMethodBtn").onclick=async()=>{const v=$("#newMethod").value.trim();if(v&&!state.settings.payment_methods.includes(v))state.settings.payment_methods.push(v);$("#newMethod").value="";await saveSettings()};
   $("#addSavingAccountBtn").onclick=async()=>{const n=$("#newSavingAccount").value.trim(),c=$("#newSavingCurrency").value;if(n)state.settings.saving_accounts.push({name:n,currency:c});$("#newSavingAccount").value="";await saveSettings()};
+  $("#addIncomeOwnerBtn").onclick=async()=>{const v=$("#newIncomeOwner").value.trim();if(v&&!state.settings.income_owners.includes(v))state.settings.income_owners.push(v);$("#newIncomeOwner").value="";await saveSettings()};
+  $("#addIncomeSourceBtn").onclick=async()=>{const v=$("#newIncomeSource").value.trim();if(v&&!state.settings.income_sources.includes(v))state.settings.income_sources.push(v);$("#newIncomeSource").value="";await saveSettings()};
+  $("#openPsaBtn").onclick=openPsa;
+  $("#changePsaCodeBtn").onclick=openPsaCodeChange;
+  $("#psaCodeForm").onsubmit=savePsaCode;
+  $("#psaUnlockForm").onsubmit=unlockPsa;
+  $("#psaEntryForm").onsubmit=savePsaEntry;
+  $$("[data-psa-type]").forEach(b=>b.onclick=()=>{$$("#psaEntryForm [data-psa-type]").forEach(x=>x.classList.toggle("active",x===b));$("#psaType").value=b.dataset.psaType});
+  $("#editTransactionBtn").onclick=editCurrentTransaction;
   $("#exportBtn").onclick=exportJson;$("#showTrashBtn").onclick=showTrash;
 }
 boot();

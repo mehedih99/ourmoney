@@ -38,3 +38,23 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 .tx[data-tx-id]{cursor:pointer}
 .tx[data-tx-id]:hover{border-color:#33475f}
 @media(max-width:700px){.language-switch{min-width:65px;max-width:72px;padding-left:8px;padding-right:8px}.top-actions{gap:6px}.top-actions #monthPicker{max-width:105px}}
+
+/* latest finance upgrades */
+.slide-dots{display:flex;gap:4px;margin-top:8px;min-height:5px}
+.slide-dots i{display:block;width:5px;height:5px;border-radius:50%;background:#526276}
+.slide-dots i.active{width:14px;border-radius:99px;background:currentColor}
+.savings-mask{letter-spacing:.08em}
+.savings-eye{position:absolute;right:14px;bottom:13px;border:0;background:transparent;color:#8fa0b4;cursor:pointer;padding:5px}
+.psa-card{border-color:#4a3558;background:linear-gradient(180deg,rgba(41,25,49,.95),rgba(17,24,33,.96))}
+.psa-balance-card{padding:20px;border:1px solid #4d3d63;border-radius:20px;background:linear-gradient(135deg,#241b38,#12233a);margin:14px 0}
+.psa-balance-card span,.psa-balance-card small{display:block;color:var(--muted)}
+.psa-balance-card strong{display:block;font-size:34px;margin:8px 0}
+.psa-entry-form{display:grid;gap:13px;margin:18px 0}
+.two-way{grid-template-columns:1fr 1fr}
+.psa-history-head{margin-top:20px}
+.editing-banner{display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border:1px solid #5e4c2b;background:#2a2417;color:#ffd989;border-radius:12px}
+.report-income-breakdown{margin:12px 0}
+@media(max-width:700px){
+  .expense-slider-card small{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .psa-balance-card strong{font-size:28px}
+}

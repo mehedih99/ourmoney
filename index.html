@@ -77,7 +77,12 @@
       <div class="stats-grid">
         <button class="stat-card income clickable-card" data-drill="income"><span data-i18n="income">Income</span><strong id="incomeTotal">AED 0</strong><small data-i18n="tapDetails">Tap for details</small></button>
         <button class="stat-card expense clickable-card" data-drill="expense"><span data-i18n="expense">Expense</span><strong id="expenseTotal">AED 0</strong><small data-i18n="tapDetails">Tap for details</small></button>
-        <button class="stat-card family clickable-card" data-drill="family"><span data-i18n="familySupport">Family Support</span><strong id="familyTotal">AED 0</strong><small id="familySplit">—</small></button>
+        <button class="stat-card family clickable-card expense-slider-card" data-drill="category">
+  <span id="expenseSlideTitle">Expense Category</span>
+  <strong id="expenseSlideAmount">AED 0</strong>
+  <small id="expenseSlideSub">—</small>
+  <div id="expenseSlideDots" class="slide-dots" aria-hidden="true"></div>
+</button>
         <button class="stat-card savings clickable-card" data-drill="saving"><span data-i18n="savings">Savings</span><strong id="savedThisMonth">AED 0</strong><small data-i18n="tapDetails">Tap for details</small></button>
       </div>
 
@@ -151,6 +156,7 @@
           <div class="report-filter-row">
             <label><span data-i18n="category">Category</span><select id="reportCategory"></select></label>
             <label><span data-i18n="subcategory">Subcategory</span><select id="reportSubcategory"></select></label>
+            <label id="reportIncomeOwnerWrap"><span data-i18n="incomeOwner">Income Owner</span><select id="reportIncomeOwner"></select></label>
             <label><span data-i18n="addedBy">Added by</span><select id="reportOwner"></select></label>
             <label><span data-i18n="currency">Currency</span><select id="reportCurrency"></select></label>
           </div>
@@ -226,6 +232,16 @@
           </article>
 
           <article class="panel">
+            <div class="panel-head"><div><p class="eyebrow">INCOME</p><h3 data-i18n="incomeSetup">Income Owners & Sources</h3></div></div>
+            <label><span data-i18n="incomeOwners">Income Owners</span></label>
+            <div id="incomeOwnerManager" class="manager-list"></div>
+            <div class="inline-add two"><input id="newIncomeOwner" placeholder="e.g. Mehedi Income"><button id="addIncomeOwnerBtn" class="btn" data-i18n="add">Add</button></div>
+            <label><span data-i18n="incomeSources">Income Sources</span></label>
+            <div id="incomeSourceManager" class="manager-list"></div>
+            <div class="inline-add two"><input id="newIncomeSource" placeholder="e.g. Salary"><button id="addIncomeSourceBtn" class="btn" data-i18n="add">Add</button></div>
+          </article>
+
+          <article class="panel">
             <div class="panel-head"><div><p class="eyebrow" data-i18n="methods">METHODS</p><h3 data-i18n="paymentMethods">Payment methods</h3></div></div>
             <div id="methodManager" class="manager-list"></div>
             <div class="inline-add two"><input id="newMethod" placeholder="ENBD Card"><button id="addMethodBtn" class="btn" data-i18n="add">Add</button></div>
@@ -235,6 +251,18 @@
             <div class="panel-head"><div><p class="eyebrow" data-i18n="savings">SAVINGS</p><h3 data-i18n="savingsAccounts">Savings accounts</h3></div></div>
             <div id="savingAccountManager" class="manager-list"></div>
             <div class="inline-add three"><input id="newSavingAccount" placeholder="Bangladesh Savings"><select id="newSavingCurrency"></select><button id="addSavingAccountBtn" class="btn" data-i18n="add">Add</button></div>
+          </article>
+
+          <article class="panel psa-card">
+            <div class="panel-head">
+              <div><p class="eyebrow">PRIVATE</p><h3>PSA</h3></div>
+              <span class="badge">Private Savings Account</span>
+            </div>
+            <p class="muted tiny" data-i18n="psaHint">Private to your login. It never appears in shared dashboard, history, savings or reports.</p>
+            <div class="button-stack">
+              <button id="openPsaBtn" class="btn primary">Open PSA</button>
+              <button id="changePsaCodeBtn" class="btn">Set / Change PSA Code</button>
+            </div>
           </article>
 
           <article class="panel">
@@ -266,7 +294,10 @@
     <input id="entryType" type="hidden" value="expense">
     <label><span data-i18n="amount">Amount</span><div class="amount-box"><select id="entryCurrency"></select><input id="entryAmount" type="number" step="0.01" min="0" required placeholder="0.00"></div></label>
     <div id="rateWrap" class="hidden"><label><span data-i18n="rateToBase">Rate to base currency</span><input id="entryRate" type="number" step="0.000001" min="0" value="1"></label></div>
-    <div id="incomeFields" class="hidden"><label><span data-i18n="source">Source</span><select id="incomeSource"></select></label></div>
+    <div id="incomeFields" class="hidden">
+      <label><span data-i18n="incomeOwner">Income Owner</span><select id="incomeOwner"></select></label>
+      <label><span data-i18n="source">Source</span><select id="incomeSource"></select></label>
+    </div>
     <div id="expenseFields">
       <label><span data-i18n="category">Category</span><select id="expenseCategory"></select></label>
       <label id="subcategoryWrap"><span data-i18n="subcategory">Subcategory</span><select id="expenseSubcategory"></select></label>
@@ -312,6 +343,53 @@
     <button type="button" class="icon-btn" data-close="transactionDialog">×</button>
   </div>
   <div id="transactionDetailBody" class="transaction-detail"></div>
+  <div class="modal-actions">
+    <button id="editTransactionBtn" class="btn primary" data-i18n="editRecord">Edit Record</button>
+  </div>
+</dialog>
+
+
+<dialog id="psaCodeDialog" class="modal">
+  <form id="psaCodeForm" method="dialog">
+    <div class="modal-head"><div><p class="eyebrow">PRIVATE</p><h3 id="psaCodeTitle">PSA Code</h3></div><button type="button" class="icon-btn" data-close="psaCodeDialog">×</button></div>
+    <label id="psaCurrentCodeWrap"><span>Current Code</span><input id="psaCurrentCode" type="password" inputmode="numeric" maxlength="8" placeholder="••••"></label>
+    <label><span>New Code</span><input id="psaNewCode" type="password" inputmode="numeric" maxlength="8" placeholder="Minimum 4 digits"></label>
+    <label><span>Confirm New Code</span><input id="psaConfirmCode" type="password" inputmode="numeric" maxlength="8" placeholder="••••"></label>
+    <div class="modal-actions"><button type="button" class="btn ghost" data-close="psaCodeDialog">Cancel</button><button class="btn primary" type="submit">Save Code</button></div>
+  </form>
+</dialog>
+
+<dialog id="psaUnlockDialog" class="modal">
+  <form id="psaUnlockForm" method="dialog">
+    <div class="modal-head"><div><p class="eyebrow">PSA</p><h3>Private Savings Account</h3></div><button type="button" class="icon-btn" data-close="psaUnlockDialog">×</button></div>
+    <label><span>PSA Code</span><input id="psaUnlockCode" type="password" inputmode="numeric" maxlength="8" placeholder="••••"></label>
+    <div class="modal-actions"><button type="button" class="btn ghost" data-close="psaUnlockDialog">Cancel</button><button class="btn primary" type="submit">Unlock PSA</button></div>
+  </form>
+</dialog>
+
+<dialog id="psaDialog" class="modal wide">
+  <div class="modal-head"><div><p class="eyebrow">PRIVATE</p><h3>PSA — Private Savings Account</h3></div><button type="button" class="icon-btn" data-close="psaDialog">×</button></div>
+  <div class="psa-balance-card">
+    <span>PSA Balance</span>
+    <strong id="psaBalance">AED 0</strong>
+    <small>Visible only to this login</small>
+  </div>
+  <form id="psaEntryForm" class="psa-entry-form">
+    <div class="type-switch two-way">
+      <button type="button" class="active" data-psa-type="saving">Savings</button>
+      <button type="button" data-psa-type="expense">Expense</button>
+    </div>
+    <input id="psaType" type="hidden" value="saving">
+    <label><span>Amount</span><div class="amount-box"><select id="psaCurrency"></select><input id="psaAmount" type="number" step="0.01" min="0" required placeholder="0.00"></div></label>
+    <div class="two-col">
+      <label><span>Date</span><input id="psaDate" type="date" required></label>
+      <label><span>Time</span><input id="psaTime" type="time" required></label>
+    </div>
+    <label><span>Note (optional)</span><input id="psaNote" placeholder="Private note"></label>
+    <button class="btn primary" type="submit">Save PSA Entry</button>
+  </form>
+  <div class="panel-head psa-history-head"><div><p class="eyebrow">PRIVATE HISTORY</p><h3>PSA Entries</h3></div></div>
+  <div id="psaHistory" class="transaction-list"></div>
 </dialog>
 
 <dialog id="trashDialog" class="modal wide">
