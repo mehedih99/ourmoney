@@ -73,3 +73,15 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 @media(max-width:700px){
   .psa-access-card{margin:14px 0 24px}
 }
+
+/* Safe offline / sync UI */
+.sync-status{display:flex;align-items:center;gap:7px;border:1px solid #2b3b4f;background:#0d151e;color:#aebdca;border-radius:999px;padding:8px 11px;cursor:pointer;font-size:11px;font-weight:700;white-space:nowrap}
+.sync-status #syncDot{width:8px;height:8px;border-radius:50%;background:#71e6c3;box-shadow:0 0 0 3px rgba(113,230,195,.1)}
+.sync-status.offline #syncDot{background:#ffd477;box-shadow:0 0 0 3px rgba(255,212,119,.1)}
+.sync-status.pending #syncDot{background:#6ca9ff;box-shadow:0 0 0 3px rgba(108,169,255,.12)}
+.sync-status.failed #syncDot{background:#ff7185;box-shadow:0 0 0 3px rgba(255,113,133,.12)}
+.pending-badge{display:inline-block;margin-left:7px;padding:2px 6px;border-radius:999px;border:1px solid #49647f;color:#8fc2ff;font-size:9px;vertical-align:middle}
+.offline-settings-card{border-color:#345064;background:linear-gradient(180deg,rgba(20,34,48,.97),rgba(17,24,33,.96))}
+.toggle-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:11px 0}.toggle-row input{width:48px;height:26px;accent-color:#71e6c3}
+.offline-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.offline-kpis>div{border:1px solid #243447;background:#0c141d;border-radius:14px;padding:12px}.offline-kpis span,.offline-kpis strong{display:block}.offline-kpis span{font-size:10px;color:var(--muted)}.offline-kpis strong{font-size:17px;margin-top:5px}
+@media(max-width:700px){.sync-status{padding:8px}.sync-status #syncStatusText{display:none}.top-actions{align-items:center}.offline-kpis{grid-template-columns:1fr 1fr}}

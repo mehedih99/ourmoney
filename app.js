@@ -41,7 +41,7 @@ en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",passwo
 bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
 };
 
-let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,currentTxId:null,expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[]};
+let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,currentTxId:null,expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=()=>state.profile?.language||"en",tr=k=>T[lang()]?.[k]||T.en[k]||k;
 const money=(v,c=state.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`;
@@ -60,25 +60,52 @@ async function boot(){
 }
 async function enter(user){
   state.user=user;$("#loginView").classList.add("hidden");$("#app").classList.remove("hidden");
+  await offlineInit();await loadPendingOps();
   await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTargets(),loadPsaMeta()]);
-  applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile.display_name;$("#autoOwner").textContent=state.profile.display_name;
+  applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile.display_name;$("#autoOwner").textContent=state.profile.display_name;updateSyncUI();registerOfflineWorker();if(navigator.onLine&&state.offlineEnabled)syncPending();
 }
 async function ensureProfile(){
-  let {data}=await db.from("profiles").select("*").eq("user_id",state.user.id).maybeSingle();
-  if(!data){
-    const fallback=(state.user.user_metadata?.full_name||state.user.email.split("@")[0]||"User").replace(/[._-]/g," ");
-    const r=await db.from("profiles").insert({user_id:state.user.id,display_name:fallback,language:"en"}).select().single();
-    if(r.error)throw r.error;data=r.data;
-  }state.profile=data;
+  if(navigator.onLine){
+    let {data,error}=await db.from("profiles").select("*").eq("user_id",state.user.id).maybeSingle();
+    if(!error){
+      if(!data){const fallback=(state.user.user_metadata?.full_name||state.user.email.split("@")[0]||"User").replace(/[._-]/g," ");const r=await db.from("profiles").insert({user_id:state.user.id,display_name:fallback,language:"en"}).select().single();if(r.error)throw r.error;data=r.data}
+      state.profile=data;await offlineCachePut("profile",data);return;
+    }
+  }
+  const cached=state.offlineEnabled?await offlineCacheGet("profile"):null;
+  if(cached){state.profile=cached;return}
+  throw new Error("Profile is not available offline yet. Open the app once while online.");
 }
 async function ensureSettings(){
-  const {data,error}=await db.from("app_settings").select("settings").eq("id",1).maybeSingle();if(error)throw error;
-  if(data?.settings){state.settings={...structuredClone(DEFAULT_SETTINGS),...data.settings};if(!state.settings.categories&&state.settings.expense_categories)state.settings.categories=state.settings.expense_categories.map(x=>({name:x,subs:[]}))}
-  else{state.settings={...structuredClone(DEFAULT_SETTINGS),pin_hash:await sha256("9988")};await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id})}
+  if(navigator.onLine){
+    const {data,error}=await db.from("app_settings").select("settings").eq("id",1).maybeSingle();
+    if(!error){
+      if(data?.settings){state.settings={...structuredClone(DEFAULT_SETTINGS),...data.settings};if(!state.settings.categories&&state.settings.expense_categories)state.settings.categories=state.settings.expense_categories.map(x=>({name:x,subs:[]}))}
+      else{state.settings={...structuredClone(DEFAULT_SETTINGS),pin_hash:await sha256("9988")};await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id})}
+      await offlineCachePut("settings",state.settings);return;
+    }
+  }
+  const cached=state.offlineEnabled?await offlineCacheGet("settings"):null;
+  if(cached){state.settings={...structuredClone(DEFAULT_SETTINGS),...cached};return}
+  throw new Error("Settings are not available offline yet. Open the app once while online.");
 }
-async function loadProfiles(){const {data}=await db.from("profiles").select("*");state.profiles=data||[]}
-async function loadTx(){const {data,error}=await db.from("transactions").select("*").is("deleted_at",null).order("transaction_date",{ascending:false}).order("transaction_time",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false});if(error)throw error;state.transactions=data||[]}
-async function loadTargets(){const {data}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});state.targets=data||[]}
+async function loadProfiles(){
+  if(navigator.onLine){const {data,error}=await db.from("profiles").select("*");if(!error){state.profiles=data||[];await offlineCachePut("profiles",state.profiles);return}}
+  state.profiles=state.offlineEnabled?(await offlineCacheGet("profiles")||[]):[];
+}
+async function loadTx(){
+  if(navigator.onLine){
+    const {data,error}=await db.from("transactions").select("*").is("deleted_at",null).order("transaction_date",{ascending:false}).order("transaction_time",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false});
+    if(!error){state.transactions=data||[];await offlineCachePut("transactions",state.transactions);return}
+    if(!state.offlineEnabled)throw error;
+  }
+  if(state.offlineEnabled){state.transactions=await offlineCacheGet("transactions")||[];mergePendingIntoState();return}
+  state.transactions=[];
+}
+async function loadTargets(){
+  if(navigator.onLine){const {data,error}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});if(!error){state.targets=data||[];await offlineCachePut("targets",state.targets);return}}
+  state.targets=state.offlineEnabled?(await offlineCacheGet("targets")||[]):[];
+}
 
 function applyLanguage(){
   document.documentElement.lang=lang()==="bn"?"bn":"en";
@@ -123,12 +150,13 @@ function renderDashboard(){
 }
 function ownerName(uid){return state.profiles.find(p=>p.user_id===uid)?.display_name||"User"}
 function txHtml(x){
-  const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Record"),sign=x.type==="income"?"+":x.type==="expense"?"−":"→";
-  return `<div class="tx" data-tx-id="${x.id}"><div class="tx-icon">${x.type==="income"?"＋":x.type==="expense"?"−":"↗"}</div><div class="tx-main"><strong>${esc(label)}</strong><small>${x.transaction_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.payment_method?` • ${esc(x.payment_method)}`:""}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="icon-btn tx-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
+  const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Record"),sign=x.type==="income"?"+":x.type==="expense"?"−":"→",pending=x._pending?`<span class="pending-badge">Pending Sync</span>`:"";
+  return `<div class="tx" data-tx-id="${x.id}"><div class="tx-icon">${x.type==="income"?"＋":x.type==="expense"?"−":"↗"}</div><div class="tx-main"><strong>${esc(label)} ${pending}</strong><small>${x.transaction_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.payment_method?` • ${esc(x.payment_method)}`:""}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="icon-btn tx-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
 }
 function bindTxMenu(){
   $$(".tx[data-tx-id]").forEach(row=>row.onclick=()=>openTransactionDetail(row.dataset.txId));
-  $$(".tx-menu").forEach(b=>b.onclick=async(e)=>{e.stopPropagation();if(!confirm(lang()==="bn"?"রেকর্ডটি ট্র্যাশে পাঠাবেন?":"Move this record to Trash?"))return;await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",b.dataset.id);await loadTx();renderAll()})
+  $$(".tx-menu").forEach(b=>b.onclick=async(e)=>{e.stopPropagation();if(!confirm(lang()==="bn"?"রেকর্ডটি ট্র্যাশে পাঠাবেন?":"Move this record to Trash?"))return;if(!navigator.onLine&&state.offlineEnabled){await queueOfflineOp({op:"delete",server_id:b.dataset.id});state.transactions=state.transactions.filter(x=>x.id!==b.dataset.id);await offlineCachePut("transactions",state.transactions.filter(x=>!x._pending));renderAll();return toast("Deleted offline • Pending Sync")}
+    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",b.dataset.id);await loadTx();renderAll()})
 }
 function renderHistory(){
   let a=[...state.transactions],q=$("#historySearch").value.toLowerCase(),typ=$("#historyType").value||"all",cat=$("#historyCategory").value||"all";
@@ -146,17 +174,29 @@ function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency
 async function submitEntry(e){
   e.preventDefault();const type=$("#entryType").value,amount=Number($("#entryAmount").value),currency=$("#entryCurrency").value,rate=currency===state.settings.base_currency?1:Number($("#entryRate").value||0);if(!amount||amount<=0)return toast("Enter amount");if(rate<=0)return toast("Enter conversion rate");
   const row={type,amount,currency,exchange_rate:rate,transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),payment_method:$("#entryMethod").value,note:$("#entryNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name};
-  if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value;}
+  if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
   if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
   if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
-  let error;
+
   if(state.editingId){
-    const res=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);error=res.error;
-  }else{
-    const res=await db.from("transactions").insert(row);error=res.error;
+    if(!navigator.onLine&&state.offlineEnabled){
+      await queueOfflineOp({op:"update",server_id:state.editingId,row:{...row,updated_at:new Date().toISOString()}});applyOfflineUpdate(state.editingId,row);state.editingId=null;closeD("entryDialog");renderAll();toast("Saved offline • Pending Sync");return;
+    }
+    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
+    const res=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);if(res.error)return toast(res.error.message);state.editingId=null;closeD("entryDialog");await loadTx();renderAll();return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
   }
-  if(error)return toast(error.message);
-  state.editingId=null;closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved")
+
+  row.client_id=crypto.randomUUID();
+  if(!navigator.onLine){
+    if(!state.offlineEnabled)return toast("No internet. Enable Offline Mode to save without internet.");
+    await queueOfflineOp({op:"insert",client_id:row.client_id,row});addPendingTransaction(row);closeD("entryDialog");renderAll();toast("Saved offline • Pending Sync");return;
+  }
+  const res=await db.from("transactions").upsert(row,{onConflict:"client_id",ignoreDuplicates:true});
+  if(res.error){
+    if(state.offlineEnabled&&isNetworkLikeError(res.error)){await queueOfflineOp({op:"insert",client_id:row.client_id,row});addPendingTransaction(row);closeD("entryDialog");renderAll();toast("Connection lost • Saved offline");return}
+    return toast(res.error.message);
+  }
+  closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved")
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
 
@@ -381,6 +421,29 @@ async function showTrash(){const {data}=await db.from("transactions").select("*"
 async function exportJson(){const {data:trash}=await db.from("transactions").select("*").not("deleted_at","is",null);const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),profiles:state.profiles,settings:state.settings,transactions:[...state.transactions,...(trash||[])],targets:state.targets},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`our-money-backup-${localDate()}.json`;a.click()}
 
 function go(page){$$(".page").forEach(p=>p.classList.remove("active"));$("#"+page+"Page").classList.add("active");$$(".nav-item").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("#pageTitle").textContent={home:tr("dashboard"),history:tr("history"),reports:tr("reports"),targets:tr("targets"),settings:tr("settings")}[page];if(page==="settings"&&!state.unlocked){$("#settingsLock").classList.remove("hidden");$("#settingsContent").classList.add("hidden")}if(page==="reports")renderReport()}
+
+// ---------- SAFE OFFLINE ENGINE ----------
+const OFFLINE_DB="our-money-offline-v1",OFFLINE_STORE="kv",QUEUE_STORE="queue";
+let offlineDb=null;
+function offlineInit(){return new Promise((resolve,reject)=>{if(offlineDb)return resolve(offlineDb);const r=indexedDB.open(OFFLINE_DB,1);r.onupgradeneeded=()=>{const d=r.result;if(!d.objectStoreNames.contains(OFFLINE_STORE))d.createObjectStore(OFFLINE_STORE);if(!d.objectStoreNames.contains(QUEUE_STORE))d.createObjectStore(QUEUE_STORE,{keyPath:"qid"})};r.onsuccess=()=>{offlineDb=r.result;resolve(offlineDb)};r.onerror=()=>reject(r.error)})}
+async function offlineCachePut(key,value){if(!state.offlineEnabled)return;await offlineInit();return new Promise((res,rej)=>{const tx=offlineDb.transaction(OFFLINE_STORE,"readwrite"),rq=tx.objectStore(OFFLINE_STORE).put(value,key);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)})}
+async function offlineCacheGet(key){await offlineInit();return new Promise((res,rej)=>{const tx=offlineDb.transaction(OFFLINE_STORE,"readonly"),rq=tx.objectStore(OFFLINE_STORE).get(key);rq.onsuccess=()=>res(rq.result);rq.onerror=()=>rej(rq.error)})}
+async function loadPendingOps(){await offlineInit();state.pendingOps=await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readonly"),rq=tx.objectStore(QUEUE_STORE).getAll();rq.onsuccess=()=>res(rq.result||[]);rq.onerror=()=>rej(rq.error)});updateSyncUI()}
+async function queueOfflineOp(op){await offlineInit();const item={...op,qid:crypto.randomUUID(),queued_at:new Date().toISOString(),user_id:state.user.id};await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readwrite"),rq=tx.objectStore(QUEUE_STORE).put(item);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)});state.pendingOps.push(item);updateSyncUI();return item}
+async function removeQueued(qid){await offlineInit();await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readwrite"),rq=tx.objectStore(QUEUE_STORE).delete(qid);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)});state.pendingOps=state.pendingOps.filter(x=>x.qid!==qid);updateSyncUI()}
+function mergePendingIntoState(){for(const q of state.pendingOps.filter(x=>x.user_id===state.user.id)){if(q.op==="insert"&&!state.transactions.some(t=>t.client_id===q.client_id)){state.transactions.unshift({...q.row,id:`local:${q.client_id}`,_pending:true})}else if(q.op==="update"){const i=state.transactions.findIndex(t=>t.id===q.server_id);if(i>=0)state.transactions[i]={...state.transactions[i],...q.row,_pending:true}}else if(q.op==="delete")state.transactions=state.transactions.filter(t=>t.id!==q.server_id)}sortStateTransactions()}
+function addPendingTransaction(row){state.transactions.unshift({...row,id:`local:${row.client_id}`,_pending:true,created_at:new Date().toISOString()});sortStateTransactions()}
+function applyOfflineUpdate(id,row){const i=state.transactions.findIndex(x=>x.id===id);if(i>=0)state.transactions[i]={...state.transactions[i],...row,_pending:true};sortStateTransactions()}
+function sortStateTransactions(){state.transactions.sort((a,b)=>`${b.transaction_date} ${b.transaction_time||""}`.localeCompare(`${a.transaction_date} ${a.transaction_time||""}`))}
+function isNetworkLikeError(e){const s=String(e?.message||e||"").toLowerCase();return !navigator.onLine||s.includes("fetch")||s.includes("network")||s.includes("failed")}
+async function syncPending(){if(!state.offlineEnabled||!navigator.onLine||state.syncBusy||!state.user)return;state.syncBusy=true;state.lastSyncError=null;updateSyncUI();try{await loadPendingOps();const mine=state.pendingOps.filter(x=>x.user_id===state.user.id).sort((a,b)=>a.queued_at.localeCompare(b.queued_at));for(const q of mine){let error=null;if(q.op==="insert"){const r=await db.from("transactions").upsert(q.row,{onConflict:"client_id",ignoreDuplicates:true});error=r.error}else if(q.op==="update"){const r=await db.from("transactions").update(q.row).eq("id",q.server_id);error=r.error}else if(q.op==="delete"){const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);error=r.error}if(error){state.lastSyncError=error.message;break}await removeQueued(q.qid)}if(!state.lastSyncError){await loadTx();renderAll()}}catch(e){state.lastSyncError=String(e?.message||e)}finally{state.syncBusy=false;updateSyncUI()}}
+function pendingForUser(){return state.pendingOps.filter(x=>!state.user||x.user_id===state.user.id).length}
+function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF"}
+async function setOfflineMode(enabled){await loadPendingOps();if(!enabled&&pendingForUser()>0){$("#offlineModeToggle").checked=true;return toast("Sync pending records before turning Offline Mode off")};state.offlineEnabled=enabled;localStorage.setItem("ourMoneyOfflineMode",enabled?"on":"off");if(enabled)await registerOfflineWorker();else await unregisterOfflineWorker();updateSyncUI();toast(enabled?"Offline Mode enabled":"Online-only mode enabled")}
+async function registerOfflineWorker(){if(!("serviceWorker" in navigator)||!state.offlineEnabled)return;try{await navigator.serviceWorker.register("./service-worker.js")}catch(e){console.warn("Service worker",e)}}
+async function unregisterOfflineWorker(){if(!("serviceWorker" in navigator))return;for(const r of await navigator.serviceWorker.getRegistrations())if(r.active?.scriptURL.includes("service-worker.js")||r.installing?.scriptURL.includes("service-worker.js"))await r.unregister()}
+window.addEventListener("online",()=>{updateSyncUI();if(state.offlineEnabled)syncPending()});window.addEventListener("offline",updateSyncUI);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&navigator.onLine&&state.offlineEnabled)syncPending()});
+
 function bind(){
   $("#loginForm").addEventListener("submit",async e=>{e.preventDefault();const {data,error}=await db.auth.signInWithPassword({email:$("#loginEmail").value,password:$("#loginPassword").value});if(error)toast(error.message);else if(data.user)await enter(data.user)});
   $("#logoutBtn").onclick=async()=>{await db.auth.signOut();location.reload()};
@@ -407,6 +470,9 @@ function bind(){
   $("#psaEntryForm").onsubmit=savePsaEntry;
   $$("[data-psa-type]").forEach(b=>b.onclick=()=>{$$("#psaEntryForm [data-psa-type]").forEach(x=>x.classList.toggle("active",x===b));$("#psaType").value=b.dataset.psaType});
   $("#editTransactionBtn").onclick=editCurrentTransaction;
+  $("#syncStatusBtn").onclick=()=>{if(navigator.onLine)syncPending();else toast(`${pendingForUser()} pending • will sync automatically when online`)};
+  $("#syncNowBtn").onclick=()=>navigator.onLine?syncPending():toast("No internet. Pending records are safe on this device.");
+  $("#offlineModeToggle").onchange=e=>setOfflineMode(e.target.checked);
   $("#exportBtn").onclick=exportJson;$("#showTrashBtn").onclick=showTrash;
 }
 boot();

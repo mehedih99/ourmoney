@@ -52,6 +52,7 @@
         <h2 id="pageTitle">Dashboard</h2>
       </div>
       <div class="top-actions">
+        <button id="syncStatusBtn" class="sync-status" type="button" title="Sync status"><span id="syncDot"></span><span id="syncStatusText">Synced</span></button>
         <select id="headerLanguage" class="language-switch" aria-label="Language">
           <option value="en">EN</option>
           <option value="bn">বাংলা</option>
@@ -267,6 +268,18 @@
             </div>
             <p class="muted tiny">PSA access is available below the locked Settings card. Only the PSA code-change control is kept inside unlocked Settings.</p>
             <button id="changePsaCodeBtn" class="btn">Set / Change PSA Code</button>
+          </article>
+
+          <article class="panel offline-settings-card">
+            <div class="panel-head"><div><p class="eyebrow">OFFLINE</p><h3>Offline Mode</h3></div><span id="offlineModeBadge" class="badge">ON</span></div>
+            <p class="muted tiny">Income, Expense and Savings can be saved without internet. Pending records stay on this device until Supabase confirms sync.</p>
+            <label class="toggle-row"><span>Enable Offline Mode</span><input id="offlineModeToggle" type="checkbox" checked></label>
+            <div class="offline-kpis">
+              <div><span>Pending Sync</span><strong id="pendingSyncCount">0</strong></div>
+              <div><span>Connection</span><strong id="connectionStatus">Online</strong></div>
+            </div>
+            <button id="syncNowBtn" class="btn">Sync Now</button>
+            <p class="tiny muted">Turning this off returns entry saving to online-only mode. It is blocked while unsynced records exist, so pending data cannot be lost accidentally.</p>
           </article>
 
           <article class="panel">
