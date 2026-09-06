@@ -58,3 +58,18 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
   .expense-slider-card small{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .psa-balance-card strong{font-size:28px}
 }
+
+/* PSA placement update */
+.psa-access-card{
+  max-width:500px;
+  margin:16px auto 28px;
+  border-color:#4a3558;
+  background:linear-gradient(180deg,rgba(41,25,49,.95),rgba(17,24,33,.96));
+}
+.psa-settings-card{
+  border-color:#4a3558;
+  background:linear-gradient(180deg,rgba(36,24,45,.95),rgba(17,24,33,.96));
+}
+@media(max-width:700px){
+  .psa-access-card{margin:14px 0 24px}
+}

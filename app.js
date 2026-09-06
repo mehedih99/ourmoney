@@ -314,8 +314,12 @@ async function savePsaCode(e){
   state.psaHasCode=true;closeD("psaCodeDialog");toast("PSA code saved");
 }
 async function openPsa(){
-  if(!state.psaHasCode)return openPsaCodeChange();
-  $("#psaUnlockCode").value="";openD("psaUnlockDialog");
+  if(!state.psaHasCode){
+    toast(lang()==="bn"?"প্রথমে Settings unlock করে PSA Code সেট করুন":"Unlock Settings first and set a PSA Code");
+    return;
+  }
+  $("#psaUnlockCode").value="";
+  openD("psaUnlockDialog");
 }
 async function unlockPsa(e){
   e.preventDefault();const code=$("#psaUnlockCode").value;

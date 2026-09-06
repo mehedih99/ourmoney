@@ -203,6 +203,15 @@
         <form id="pinForm" class="pin-row"><input id="pinInput" inputmode="numeric" maxlength="8" type="password" placeholder="••••"><button class="btn primary" data-i18n="unlock">Unlock</button></form>
       </div>
 
+      <article id="psaAccessCard" class="panel psa-card psa-access-card">
+        <div class="panel-head">
+          <div><p class="eyebrow">PRIVATE</p><h3>PSA</h3></div>
+          <span class="badge">Private Savings Account</span>
+        </div>
+        <p class="muted tiny" data-i18n="psaHint">Private to your login. It never appears in shared dashboard, history, savings or reports.</p>
+        <button id="openPsaBtn" class="btn primary full">Open PSA</button>
+      </article>
+
       <div id="settingsContent" class="hidden">
         <div class="settings-grid">
           <article class="panel accent-panel">
@@ -252,17 +261,12 @@
             <div id="savingAccountManager" class="manager-list"></div>
             <div class="inline-add three"><input id="newSavingAccount" placeholder="Bangladesh Savings"><select id="newSavingCurrency"></select><button id="addSavingAccountBtn" class="btn" data-i18n="add">Add</button></div>
           </article>
-
-          <article class="panel psa-card">
+          <article class="panel psa-settings-card">
             <div class="panel-head">
-              <div><p class="eyebrow">PRIVATE</p><h3>PSA</h3></div>
-              <span class="badge">Private Savings Account</span>
+              <div><p class="eyebrow">PSA SETTINGS</p><h3>PSA Security</h3></div>
             </div>
-            <p class="muted tiny" data-i18n="psaHint">Private to your login. It never appears in shared dashboard, history, savings or reports.</p>
-            <div class="button-stack">
-              <button id="openPsaBtn" class="btn primary">Open PSA</button>
-              <button id="changePsaCodeBtn" class="btn">Set / Change PSA Code</button>
-            </div>
+            <p class="muted tiny">PSA access is available below the locked Settings card. Only the PSA code-change control is kept inside unlocked Settings.</p>
+            <button id="changePsaCodeBtn" class="btn">Set / Change PSA Code</button>
           </article>
 
           <article class="panel">
