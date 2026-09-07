@@ -550,6 +550,8 @@ window.addEventListener("online",()=>{updateSyncUI();if(state.offlineEnabled)syn
 function bind(){
   $("#loginForm").addEventListener("submit",async e=>{e.preventDefault();const {data,error}=await db.auth.signInWithPassword({email:$("#loginEmail").value,password:$("#loginPassword").value});if(error)toast(error.message);else if(data.user)await enter(data.user)});
   $("#logoutBtn").onclick=async()=>{await db.auth.signOut();location.reload()};
+  const mobileLogout=$("#mobileLogoutBtn");
+  if(mobileLogout)mobileLogout.onclick=async()=>{await db.auth.signOut();location.reload()};
   $$(".nav-item").forEach(b=>b.onclick=()=>go(b.dataset.page));$$("[data-page-jump]").forEach(b=>b.onclick=()=>go(b.dataset.pageJump));
   $("#headerLanguage").onchange=e=>changeLanguage(e.target.value);
   $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>setEntryType(b.dataset.entryType));$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;

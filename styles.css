@@ -85,3 +85,21 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 .toggle-row{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:11px 0}.toggle-row input{width:48px;height:26px;accent-color:#71e6c3}
 .offline-kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}.offline-kpis>div{border:1px solid #243447;background:#0c141d;border-radius:14px;padding:12px}.offline-kpis span,.offline-kpis strong{display:block}.offline-kpis span{font-size:10px;color:var(--muted)}.offline-kpis strong{font-size:17px;margin-top:5px}
 @media(max-width:700px){.sync-status{padding:8px}.sync-status #syncStatusText{display:none}.top-actions{align-items:center}.offline-kpis{grid-template-columns:1fr 1fr}}
+
+/* Mobile Sign Out patch */
+.mobile-signout-card{display:none}
+@media(max-width:700px){
+  .mobile-signout-card{
+    display:block;
+    margin:20px 0 8px;
+    padding:12px;
+    background:rgba(17,24,33,.94);
+    border-color:#382a32
+  }
+  .mobile-signout-btn{
+    background:#26171d;
+    border-color:#55303d;
+    color:#ff9eac;
+    padding:14px 16px
+  }
+}
