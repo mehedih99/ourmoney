@@ -94,13 +94,17 @@ async function loadProfiles(){
   state.profiles=state.offlineEnabled?(await offlineCacheGet("profiles")||[]):[];
 }
 async function loadTx(){
+  let serverRows=null;
   if(navigator.onLine){
-    const {data,error}=await db.from("transactions").select("*").is("deleted_at",null).order("transaction_date",{ascending:false}).order("transaction_time",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false});
-    if(!error){state.transactions=data||[];await offlineCachePut("transactions",state.transactions);return}
-    if(!state.offlineEnabled)throw error;
+    try{
+      const {data,error}=await db.from("transactions").select("*").is("deleted_at",null).order("transaction_date",{ascending:false}).order("transaction_time",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false});
+      if(!error){serverRows=data||[];await offlineCachePut("transactions",serverRows)}
+      else if(!state.offlineEnabled)throw error;
+    }catch(e){if(!state.offlineEnabled)throw e}
   }
-  if(state.offlineEnabled){state.transactions=await offlineCacheGet("transactions")||[];mergePendingIntoState();return}
-  state.transactions=[];
+  if(serverRows!==null)state.transactions=serverRows;
+  else state.transactions=state.offlineEnabled?(await offlineCacheGet("transactions")||[]):[];
+  if(state.offlineEnabled)mergePendingIntoState();
 }
 async function loadTargets(){
   if(navigator.onLine){const {data,error}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});if(!error){state.targets=data||[];await offlineCachePut("targets",state.targets);return}}
@@ -172,31 +176,64 @@ function setEntryType(type){$("#entryType").value=type;$$("[data-entry-type]").f
 function openEntry(type="expense"){state.editingId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
-  e.preventDefault();const type=$("#entryType").value,amount=Number($("#entryAmount").value),currency=$("#entryCurrency").value,rate=currency===state.settings.base_currency?1:Number($("#entryRate").value||0);if(!amount||amount<=0)return toast("Enter amount");if(rate<=0)return toast("Enter conversion rate");
-  const row={type,amount,currency,exchange_rate:rate,transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),payment_method:$("#entryMethod").value,note:$("#entryNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name};
-  if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
-  if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
-  if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
+  e.preventDefault();
+  try{
+    const type=$("#entryType").value;
+    const amount=Number($("#entryAmount").value);
+    const currency=$("#entryCurrency").value;
+    const rate=currency===state.settings.base_currency?1:Number($("#entryRate").value||0);
+    if(!amount||amount<=0)return toast("Enter amount");
+    if(rate<=0)return toast("Enter conversion rate");
 
-  if(state.editingId){
-    if(!navigator.onLine&&state.offlineEnabled){
-      await queueOfflineOp({op:"update",server_id:state.editingId,row:{...row,updated_at:new Date().toISOString()}});applyOfflineUpdate(state.editingId,row);state.editingId=null;closeD("entryDialog");renderAll();toast("Saved offline • Pending Sync");return;
+    const row={
+      type,amount,currency,exchange_rate:rate,
+      transaction_date:$("#entryDate").value,
+      transaction_time:$("#entryTime").value||localTime(),
+      payment_method:$("#entryMethod").value,
+      note:$("#entryNote").value.trim()||null,
+      created_by:state.user.id,
+      owner_name:state.profile.display_name
+    };
+    if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
+    if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
+    if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
+
+    if(state.editingId){
+      if(state.offlineEnabled){
+        await queueOfflineOp({op:"update",server_id:state.editingId,row:{...row,updated_at:new Date().toISOString()}});
+        applyOfflineUpdate(state.editingId,row);
+        state.editingId=null;
+        closeD("entryDialog");renderAll();
+        toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");
+        if(navigator.onLine)syncPending();
+        return;
+      }
+      if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
+      const r=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);
+      if(r.error)return toast(r.error.message);
+      state.editingId=null;closeD("entryDialog");await loadTx();renderAll();return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
     }
-    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
-    const res=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);if(res.error)return toast(res.error.message);state.editingId=null;closeD("entryDialog");await loadTx();renderAll();return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
-  }
 
-  row.client_id=crypto.randomUUID();
-  if(!navigator.onLine){
-    if(!state.offlineEnabled)return toast("No internet. Enable Offline Mode to save without internet.");
-    await queueOfflineOp({op:"insert",client_id:row.client_id,row});addPendingTransaction(row);closeD("entryDialog");renderAll();toast("Saved offline • Pending Sync");return;
+    row.client_id=crypto.randomUUID();
+
+    // SAFE MODE: queue locally first, before any network call.
+    if(state.offlineEnabled){
+      await queueOfflineOp({op:"insert",client_id:row.client_id,row});
+      addPendingTransaction(row);
+      closeD("entryDialog");renderAll();
+      toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");
+      if(navigator.onLine)syncPending();
+      return;
+    }
+
+    if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
+    const r=await db.from("transactions").upsert(row,{onConflict:"client_id",ignoreDuplicates:true});
+    if(r.error)return toast(r.error.message);
+    closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
+  }catch(err){
+    console.error("Save Record failed",err);
+    toast("Save error: "+String(err?.message||err));
   }
-  const res=await db.from("transactions").upsert(row,{onConflict:"client_id",ignoreDuplicates:true});
-  if(res.error){
-    if(state.offlineEnabled&&isNetworkLikeError(res.error)){await queueOfflineOp({op:"insert",client_id:row.client_id,row});addPendingTransaction(row);closeD("entryDialog");renderAll();toast("Connection lost • Saved offline");return}
-    return toast(res.error.message);
-  }
-  closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved")
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
 
@@ -436,9 +473,33 @@ function addPendingTransaction(row){state.transactions.unshift({...row,id:`local
 function applyOfflineUpdate(id,row){const i=state.transactions.findIndex(x=>x.id===id);if(i>=0)state.transactions[i]={...state.transactions[i],...row,_pending:true};sortStateTransactions()}
 function sortStateTransactions(){state.transactions.sort((a,b)=>`${b.transaction_date} ${b.transaction_time||""}`.localeCompare(`${a.transaction_date} ${a.transaction_time||""}`))}
 function isNetworkLikeError(e){const s=String(e?.message||e||"").toLowerCase();return !navigator.onLine||s.includes("fetch")||s.includes("network")||s.includes("failed")}
-async function syncPending(){if(!state.offlineEnabled||!navigator.onLine||state.syncBusy||!state.user)return;state.syncBusy=true;state.lastSyncError=null;updateSyncUI();try{await loadPendingOps();const mine=state.pendingOps.filter(x=>x.user_id===state.user.id).sort((a,b)=>a.queued_at.localeCompare(b.queued_at));for(const q of mine){let error=null;if(q.op==="insert"){const r=await db.from("transactions").upsert(q.row,{onConflict:"client_id",ignoreDuplicates:true});error=r.error}else if(q.op==="update"){const r=await db.from("transactions").update(q.row).eq("id",q.server_id);error=r.error}else if(q.op==="delete"){const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);error=r.error}if(error){state.lastSyncError=error.message;break}await removeQueued(q.qid)}if(!state.lastSyncError){await loadTx();renderAll()}}catch(e){state.lastSyncError=String(e?.message||e)}finally{state.syncBusy=false;updateSyncUI()}}
+async function syncPending(){
+  if(!state.offlineEnabled||!navigator.onLine||state.syncBusy||!state.user)return;
+  state.syncBusy=true;state.lastSyncError=null;updateSyncUI();
+  try{
+    await loadPendingOps();
+    const mine=state.pendingOps.filter(x=>x.user_id===state.user.id).sort((a,b)=>a.queued_at.localeCompare(b.queued_at));
+    for(const q of mine){
+      let error=null;
+      try{
+        if(q.op==="insert"){
+          const r=await db.from("transactions").upsert(q.row,{onConflict:"client_id",ignoreDuplicates:true});error=r.error;
+        }else if(q.op==="update"){
+          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);error=r.error;
+        }else if(q.op==="delete"){
+          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);error=r.error;
+        }
+      }catch(e){error={message:String(e?.message||e)}}
+      if(error){state.lastSyncError=error.message||String(error);console.error("Sync failed; queued record retained",q,state.lastSyncError);break}
+      // Delete the local queue item only AFTER Supabase confirms success.
+      await removeQueued(q.qid);
+    }
+    await loadTx();renderAll();
+  }catch(e){state.lastSyncError=String(e?.message||e);console.error("syncPending",e)}
+  finally{state.syncBusy=false;updateSyncUI()}
+}
 function pendingForUser(){return state.pendingOps.filter(x=>!state.user||x.user_id===state.user.id).length}
-function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF"}
+function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`;btn.title=String(state.lastSyncError).toLowerCase().includes("client_id")?"Run supabase-offline-safe-patch.sql in Supabase SQL Editor":state.lastSyncError}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF"}
 async function setOfflineMode(enabled){await loadPendingOps();if(!enabled&&pendingForUser()>0){$("#offlineModeToggle").checked=true;return toast("Sync pending records before turning Offline Mode off")};state.offlineEnabled=enabled;localStorage.setItem("ourMoneyOfflineMode",enabled?"on":"off");if(enabled)await registerOfflineWorker();else await unregisterOfflineWorker();updateSyncUI();toast(enabled?"Offline Mode enabled":"Online-only mode enabled")}
 async function registerOfflineWorker(){if(!("serviceWorker" in navigator)||!state.offlineEnabled)return;try{await navigator.serviceWorker.register("./service-worker.js")}catch(e){console.warn("Service worker",e)}}
 async function unregisterOfflineWorker(){if(!("serviceWorker" in navigator))return;for(const r of await navigator.serviceWorker.getRegistrations())if(r.active?.scriptURL.includes("service-worker.js")||r.installing?.scriptURL.includes("service-worker.js"))await r.unregister()}
