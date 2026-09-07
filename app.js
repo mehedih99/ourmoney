@@ -177,6 +177,9 @@ function openEntry(type="expense"){state.editingId=null;$("#entryForm button[typ
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
   e.preventDefault();
+  const entrySubmitBtn=e.submitter||$("#entryForm button[type='submit']");
+  if(entrySubmitBtn?.disabled)return;
+  if(entrySubmitBtn){entrySubmitBtn.disabled=true;entrySubmitBtn.dataset.oldText=entrySubmitBtn.textContent;entrySubmitBtn.textContent=lang()==="bn"?"সেভ হচ্ছে…":"Saving…";}
   try{
     const type=$("#entryType").value;
     const amount=Number($("#entryAmount").value);
@@ -237,6 +240,12 @@ async function submitEntry(e){
   }catch(err){
     console.error("Save Record failed",err);
     toast("Save error: "+String(err?.message||err));
+  }finally{
+    if(entrySubmitBtn){
+      entrySubmitBtn.disabled=false;
+      entrySubmitBtn.textContent=entrySubmitBtn.dataset.oldText||tr("saveRecord");
+      delete entrySubmitBtn.dataset.oldText;
+    }
   }
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
@@ -541,7 +550,9 @@ async function syncPending(){
   }
 }
 function pendingForUser(){return state.pendingOps.filter(x=>!state.user||x.user_id===state.user.id).length}
-function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`;btn.title=String(state.lastSyncError).toLowerCase().includes("client_id")?"Run supabase-offline-safe-patch.sql in Supabase SQL Editor":state.lastSyncError}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF"}
+function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`;btn.title=String(state.lastSyncError).toLowerCase().includes("client_id")?"Run supabase-offline-safe-patch.sql in Supabase SQL Editor":state.lastSyncError}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF";
+  if($("#syncNowBtn")){$("#syncNowBtn").disabled=!!state.syncBusy;$("#syncNowBtn").textContent=state.syncBusy?"Syncing…":"Sync Now";}
+}
 async function setOfflineMode(enabled){await loadPendingOps();if(!enabled&&pendingForUser()>0){$("#offlineModeToggle").checked=true;return toast("Sync pending records before turning Offline Mode off")};state.offlineEnabled=enabled;localStorage.setItem("ourMoneyOfflineMode",enabled?"on":"off");if(enabled)await registerOfflineWorker();else await unregisterOfflineWorker();updateSyncUI();toast(enabled?"Offline Mode enabled":"Online-only mode enabled")}
 async function registerOfflineWorker(){if(!("serviceWorker" in navigator)||!state.offlineEnabled)return;try{await navigator.serviceWorker.register("./service-worker.js")}catch(e){console.warn("Service worker",e)}}
 async function unregisterOfflineWorker(){if(!("serviceWorker" in navigator))return;for(const r of await navigator.serviceWorker.getRegistrations())if(r.active?.scriptURL.includes("service-worker.js")||r.installing?.scriptURL.includes("service-worker.js"))await r.unregister()}
@@ -549,9 +560,41 @@ window.addEventListener("online",()=>{updateSyncUI();if(state.offlineEnabled)syn
 
 function bind(){
   $("#loginForm").addEventListener("submit",async e=>{e.preventDefault();const {data,error}=await db.auth.signInWithPassword({email:$("#loginEmail").value,password:$("#loginPassword").value});if(error)toast(error.message);else if(data.user)await enter(data.user)});
-  $("#logoutBtn").onclick=async()=>{await db.auth.signOut();location.reload()};
+  const performSignOut=async()=>{
+    const pending=(typeof pendingForUser==="function")?pendingForUser():0;
+    if(pending>0){
+      const ok=confirm(`${pending} transaction${pending===1?" is":"s are"} still pending sync. Sign out anyway? The pending record will remain safely on this device.`);
+      if(!ok)return;
+    }
+
+    try{
+      // Prefer a local-scope Supabase logout so mobile/offline logout does not wait on remote session revocation.
+      await Promise.race([
+        db.auth.signOut({scope:"local"}),
+        new Promise((_,reject)=>setTimeout(()=>reject(new Error("logout timeout")),1800))
+      ]);
+    }catch(err){
+      console.warn("Supabase local sign out fallback",err);
+    }
+
+    // Guaranteed local-session cleanup fallback.
+    // IMPORTANT: does NOT clear Our Money IndexedDB, pending transactions, PSA, or app preferences.
+    try{
+      for(const key of Object.keys(localStorage)){
+        if(/^sb-.*-auth-token$/.test(key)) localStorage.removeItem(key);
+      }
+      for(const key of Object.keys(sessionStorage)){
+        if(/^sb-.*-auth-token$/.test(key)) sessionStorage.removeItem(key);
+      }
+    }catch(err){ console.warn("Local auth cleanup",err); }
+
+    location.reload();
+  };
+
+  const desktopLogout=$("#logoutBtn");
+  if(desktopLogout)desktopLogout.addEventListener("click",performSignOut);
   const mobileLogout=$("#mobileLogoutBtn");
-  if(mobileLogout)mobileLogout.onclick=async()=>{await db.auth.signOut();location.reload()};
+  if(mobileLogout)mobileLogout.addEventListener("click",performSignOut);
   $$(".nav-item").forEach(b=>b.onclick=()=>go(b.dataset.page));$$("[data-page-jump]").forEach(b=>b.onclick=()=>go(b.dataset.pageJump));
   $("#headerLanguage").onchange=e=>changeLanguage(e.target.value);
   $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>setEntryType(b.dataset.entryType));$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;

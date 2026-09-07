@@ -103,3 +103,19 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
     padding:14px 16px
   }
 }
+
+/* Stable audit patch */
+.btn:disabled,.mobile-signout-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  filter:none;
+}
+.mobile-signout-btn{
+  position:relative;
+  z-index:2;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+.sync-status,.btn,.nav-item,.mobile-add{
+  touch-action:manipulation;
+}
