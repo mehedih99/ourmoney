@@ -227,8 +227,12 @@ async function submitEntry(e){
     }
 
     if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
-    const r=await db.from("transactions").upsert(row,{onConflict:"client_id",ignoreDuplicates:true});
-    if(r.error)return toast(r.error.message);
+    const existing=await db.from("transactions").select("id").eq("client_id",row.client_id).maybeSingle();
+    if(existing.error && existing.error.code!=="PGRST116")return toast(existing.error.message);
+    if(!existing.data){
+      const r=await db.from("transactions").insert(row);
+      if(r.error && r.error.code!=="23505")return toast(r.error.message);
+    }
     closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
   }catch(err){
     console.error("Save Record failed",err);
@@ -475,28 +479,66 @@ function sortStateTransactions(){state.transactions.sort((a,b)=>`${b.transaction
 function isNetworkLikeError(e){const s=String(e?.message||e||"").toLowerCase();return !navigator.onLine||s.includes("fetch")||s.includes("network")||s.includes("failed")}
 async function syncPending(){
   if(!state.offlineEnabled||!navigator.onLine||state.syncBusy||!state.user)return;
-  state.syncBusy=true;state.lastSyncError=null;updateSyncUI();
+  state.syncBusy=true;
+  state.lastSyncError=null;
+  updateSyncUI();
+
   try{
     await loadPendingOps();
     const mine=state.pendingOps.filter(x=>x.user_id===state.user.id).sort((a,b)=>a.queued_at.localeCompare(b.queued_at));
+
     for(const q of mine){
-      let error=null;
+      let ok=false;
+      let errMsg=null;
       try{
         if(q.op==="insert"){
-          const r=await db.from("transactions").upsert(q.row,{onConflict:"client_id",ignoreDuplicates:true});error=r.error;
+          const check=await db.from("transactions").select("id,client_id").eq("client_id",q.client_id).maybeSingle();
+          if(check.error && check.error.code!=="PGRST116") throw check.error;
+          if(check.data){
+            ok=true;
+          }else{
+            const ins=await db.from("transactions").insert(q.row).select("id,client_id").single();
+            if(!ins.error){
+              ok=true;
+            }else if(ins.error.code==="23505"){
+              const verify=await db.from("transactions").select("id").eq("client_id",q.client_id).maybeSingle();
+              if(verify.data) ok=true; else errMsg=ins.error.message;
+            }else{
+              errMsg=ins.error.message;
+            }
+          }
         }else if(q.op==="update"){
-          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);error=r.error;
+          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);
+          if(r.error) errMsg=r.error.message; else ok=true;
         }else if(q.op==="delete"){
-          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);error=r.error;
+          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);
+          if(r.error) errMsg=r.error.message; else ok=true;
         }
-      }catch(e){error={message:String(e?.message||e)}}
-      if(error){state.lastSyncError=error.message||String(error);console.error("Sync failed; queued record retained",q,state.lastSyncError);break}
-      // Delete the local queue item only AFTER Supabase confirms success.
+      }catch(e){
+        errMsg=String(e?.message||e);
+      }
+
+      if(!ok){
+        state.lastSyncError=errMsg||"Unknown sync error";
+        console.error("Our Money sync failed; local queue retained:",q,state.lastSyncError);
+        break;
+      }
+
       await removeQueued(q.qid);
     }
-    await loadTx();renderAll();
-  }catch(e){state.lastSyncError=String(e?.message||e);console.error("syncPending",e)}
-  finally{state.syncBusy=false;updateSyncUI()}
+
+    await loadTx();
+    renderAll();
+    if(!state.lastSyncError && pendingForUser()===0) toast("All pending records synced");
+    else if(state.lastSyncError) toast("Sync failed: "+state.lastSyncError);
+  }catch(e){
+    state.lastSyncError=String(e?.message||e);
+    console.error("syncPending fatal",e);
+    toast("Sync failed: "+state.lastSyncError);
+  }finally{
+    state.syncBusy=false;
+    updateSyncUI();
+  }
 }
 function pendingForUser(){return state.pendingOps.filter(x=>!state.user||x.user_id===state.user.id).length}
 function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`;btn.title=String(state.lastSyncError).toLowerCase().includes("client_id")?"Run supabase-offline-safe-patch.sql in Supabase SQL Editor":state.lastSyncError}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF"}
@@ -532,7 +574,7 @@ function bind(){
   $$("[data-psa-type]").forEach(b=>b.onclick=()=>{$$("#psaEntryForm [data-psa-type]").forEach(x=>x.classList.toggle("active",x===b));$("#psaType").value=b.dataset.psaType});
   $("#editTransactionBtn").onclick=editCurrentTransaction;
   $("#syncStatusBtn").onclick=()=>{if(navigator.onLine)syncPending();else toast(`${pendingForUser()} pending • will sync automatically when online`)};
-  $("#syncNowBtn").onclick=()=>navigator.onLine?syncPending():toast("No internet. Pending records are safe on this device.");
+  $("#syncNowBtn").onclick=async()=>{if(!navigator.onLine)return toast("No internet. Pending records are safe on this device.");await loadPendingOps();if(pendingForUser()===0)return toast("Nothing pending to sync");syncPending()};
   $("#offlineModeToggle").onchange=e=>setOfflineMode(e.target.checked);
   $("#exportBtn").onclick=exportJson;$("#showTrashBtn").onclick=showTrash;
 }
