@@ -231,7 +231,7 @@ function effectiveAccount(x){
   return x?.account==="Bank"||x?.account==="Cash" ? x.account : null;
 }
 function missingAccountCount(){
-  return state.transactions.filter(x=>!effectiveAccount(x)).length;
+  return state.transactions.filter(x=>!(x.type==="expense"&&x.payment_source==="Credit")&&!effectiveAccount(x)).length;
 }
 function calculateAccountBalances(excludeId=null,excludeKind=null){
   const balances={Bank:0,Cash:0};
@@ -407,113 +407,268 @@ function renderEntryAccountHints(){
 }
 function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();if(type==="expense"){$("#expensePayWith").value="Bank";$("#expensePlan").value="full"}updateExpensePayUI();renderEntryAccountHints();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
+
+function dbErrorToError(error){
+  const e=new Error(error?.message||"Database operation failed");
+  e.code=error?.code;e.details=error?.details;e.hint=error?.hint;
+  return e;
+}
+function saveErrorMessage(err){
+  const s=String(err?.message||err||"Save failed");
+  if(/balance is not enough|balance not enough/i.test(s))return s;
+  if(/credit limit/i.test(s))return s;
+  if(/row was not updated|not confirmed|permission|policy|rls/i.test(s))return "Save was not confirmed by the database. Please retry after running the final SQL patch.";
+  return s;
+}
+async function confirmedUpdate(table,id,row){
+  const r=await db.from(table).update(row).eq("id",id).select("id").maybeSingle();
+  if(r.error)throw dbErrorToError(r.error);
+  if(!r.data?.id)throw new Error("Record update was not confirmed. Check database update permission / RLS policy.");
+  return r.data;
+}
+async function confirmedSoftDelete(table,id){
+  return confirmedUpdate(table,id,{deleted_at:new Date().toISOString(),updated_at:new Date().toISOString()});
+}
+async function confirmedInsertOnce(table,row){
+  const check=await db.from(table).select("id,client_id").eq("client_id",row.client_id).maybeSingle();
+  if(check.error&&check.error.code!=="PGRST116")throw dbErrorToError(check.error);
+  if(check.data?.id)return check.data;
+  const ins=await db.from(table).insert(row).select("id,client_id").single();
+  if(!ins.error)return ins.data;
+  if(ins.error.code==="23505"){
+    const verify=await db.from(table).select("id,client_id").eq("client_id",row.client_id).maybeSingle();
+    if(verify.error)throw dbErrorToError(verify.error);
+    if(verify.data?.id)return verify.data;
+  }
+  throw dbErrorToError(ins.error);
+}
+function insufficientMessage(account,available){
+  return available<=0
+    ? `No balance available in ${account}.`
+    : `${account} balance is not enough. Available: ${money(available)}`;
+}
 async function submitEntry(e){
   e.preventDefault();
   const entrySubmitBtn=e.submitter||$("#entryForm button[type='submit']");
   if(entrySubmitBtn?.disabled)return;
-  if(entrySubmitBtn){entrySubmitBtn.disabled=true;entrySubmitBtn.dataset.oldText=entrySubmitBtn.textContent;entrySubmitBtn.textContent=lang()==="bn"?"সেভ হচ্ছে…":"Saving…";}
+  if(entrySubmitBtn){
+    entrySubmitBtn.disabled=true;
+    entrySubmitBtn.dataset.oldText=entrySubmitBtn.textContent;
+    entrySubmitBtn.textContent=lang()==="bn"?"সেভ হচ্ছে…":"Saving…";
+  }
+
   try{
     const type=$("#entryType").value;
     const amount=Number($("#entryAmount").value);
     const currency=$("#entryCurrency").value;
     const rate=currency===state.settings.base_currency?1:Number($("#entryRate").value||0);
+
     if(!amount||amount<=0)return toast("Enter amount");
     if(rate<=0)return toast("Enter conversion rate");
 
+    // ---------------- TRANSFER ----------------
     if(type==="transfer"){
       const from=$("#transferFrom").value,to=$("#transferTo").value;
       if(!["Bank","Cash"].includes(from)||!["Bank","Cash"].includes(to))return toast("Select Bank or Cash");
       if(from===to)return toast("From and To accounts must be different");
-      const transferBase=amount*rate;
+
       const transferEditId=state.editingTransferId||null;
-      if(!canSpendFromAccount(from,transferBase,transferEditId,"transfer")){
-        return toast(`${from} balance is not enough. Available: ${money(accountBalance(from,transferEditId,"transfer"))}`);
-      }
+      const available=accountBalance(from,transferEditId,"transfer");
+      if(available+.000001<amount*rate)return toast(insufficientMessage(from,available));
+
       const row={
         amount,currency,exchange_rate:rate,from_account:from,to_account:to,
         transfer_date:$("#entryDate").value,transfer_time:$("#entryTime").value||localTime(),
-        note:$("#entryNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name
+        note:$("#entryNote").value.trim()||null,
+        created_by:state.user.id,owner_name:state.profile.display_name
       };
 
-      if(state.editingTransferId){
-        const editId=state.editingTransferId;
-        if(String(editId).startsWith("local:")){
-          const clientId=String(editId).slice(6);
-          row.client_id=clientId;
-          await updatePendingInsertRow(clientId,row,"transfer");
-          const i=state.transfers.findIndex(x=>x.id===editId);if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
-        }else if(state.offlineEnabled){
-          await queueOfflineOp({op:"transfer_update",server_id:editId,row:{...row,updated_at:new Date().toISOString()}});
-          const i=state.transfers.findIndex(x=>x.id===editId);if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
-          if(navigator.onLine)syncPending();
-        }else{
-          if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
-          const r=await db.from("transfers").update({...row,updated_at:new Date().toISOString()}).eq("id",editId);if(r.error)return toast(r.error.message);
-        }
-        state.editingTransferId=null;closeD("entryDialog");if(navigator.onLine)await loadTransfers();renderAll();return toast("Transfer updated");
+      // Edit a not-yet-synced local transfer.
+      if(transferEditId&&String(transferEditId).startsWith("local:")){
+        const clientId=String(transferEditId).slice(6);
+        row.client_id=clientId;
+        await updatePendingInsertRow(clientId,row,"transfer");
+        const i=state.transfers.findIndex(x=>x.id===transferEditId);
+        if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
+        state.editingTransferId=null;closeD("entryDialog");renderAll();
+        toast("Pending transfer updated");
+        if(navigator.onLine)syncPending();
+        return;
       }
 
-      row.client_id=crypto.randomUUID();
-      if(state.offlineEnabled){
-        await queueOfflineOp({op:"transfer_insert",client_id:row.client_id,row});
-        addPendingTransfer(row);closeD("entryDialog");renderAll();toast(navigator.onLine?"Transfer saved • Syncing…":"Transfer saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
+      // Existing server transfer: online first. Queue only on genuine network failure.
+      if(transferEditId){
+        const serverRow={...row,updated_at:new Date().toISOString()};
+        if(navigator.onLine){
+          try{
+            await confirmedUpdate("transfers",transferEditId,serverRow);
+            state.editingTransferId=null;closeD("entryDialog");
+            await loadTransfers();renderAll();return toast("Transfer updated");
+          }catch(err){
+            if(!(state.offlineEnabled&&isNetworkLikeError(err)))return toast("Save failed: "+saveErrorMessage(err));
+          }
+        }
+        if(!state.offlineEnabled)return toast("No internet. Offline Mode is disabled.");
+        await queueOfflineOp({op:"transfer_update",server_id:transferEditId,row:serverRow});
+        const i=state.transfers.findIndex(x=>x.id===transferEditId);
+        if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
+        state.editingTransferId=null;closeD("entryDialog");renderAll();
+        toast("Transfer saved offline • Pending Sync");
+        return;
       }
-      if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
-      const ex=await db.from("transfers").select("id").eq("client_id",row.client_id).maybeSingle();if(ex.error&&ex.error.code!=="PGRST116")return toast(ex.error.message);
-      if(!ex.data){const r=await db.from("transfers").insert(row);if(r.error&&r.error.code!=="23505")return toast(r.error.message)}
-      closeD("entryDialog");await loadTransfers();renderAll();return toast("Transfer saved");
+
+      // New transfer: online first, then network-only fallback to offline queue.
+      row.client_id=crypto.randomUUID();
+      if(navigator.onLine){
+        try{
+          await confirmedInsertOnce("transfers",row);
+          closeD("entryDialog");await loadTransfers();renderAll();return toast("Transfer saved");
+        }catch(err){
+          if(!(state.offlineEnabled&&isNetworkLikeError(err)))return toast("Save failed: "+saveErrorMessage(err));
+        }
+      }
+      if(!state.offlineEnabled)return toast("No internet. Enable Offline Mode to save without internet.");
+      await queueOfflineOp({op:"transfer_insert",client_id:row.client_id,row});
+      addPendingTransfer(row);closeD("entryDialog");renderAll();
+      toast("Transfer saved offline • Pending Sync");
+      return;
     }
 
+    // ---------------- INCOME / EXPENSE / SAVINGS ----------------
     const row={
       type,amount,currency,exchange_rate:rate,
-      transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),
-      account:type==="expense"?null:($("#entryAccount").value||null),payment_method:null,payment_source:type==="expense"?$("#expensePayWith").value:null,note:$("#entryNote").value.trim()||null,
-      created_by:state.user.id,owner_name:state.profile.display_name
+      transaction_date:$("#entryDate").value,
+      transaction_time:$("#entryTime").value||localTime(),
+      account:type==="expense"?null:($("#entryAccount").value||null),
+      payment_method:null,
+      payment_source:type==="expense"?$("#expensePayWith").value:null,
+      note:$("#entryNote").value.trim()||null,
+      created_by:state.user.id,
+      owner_name:state.profile.display_name
     };
-    if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
-    if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null;if(row.payment_source==="Credit"){const ca=creditAccount($("#expenseCreditAccount").value);if(!ca)return toast("Select a Credit Account");row.credit_account_id=ca.id;row.account=null;if(amount*rate>creditAvailable(ca.id)+.000001)return toast(`${ca.name} credit limit is not enough. Available: ${money(creditAvailable(ca.id))}`);if($("#expensePlan").value==="installment"){const n=Number($("#installmentCount").value||0);if(n<2||n>24)return toast("Installments must be 2 to 24");if(!$("#firstDueDate").value)return toast("Select first due date");row.installment_count=n;row.first_due_date=$("#firstDueDate").value}else{row.installment_count=1;row.first_due_date=null}}else row.account=row.payment_source}
-    if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
 
-    if(type!=="expense"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank or Cash");if(type==="expense"&&row.payment_source!=="Credit"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank, Cash or Credit");
+    if(type==="income"){
+      row.income_owner=$("#incomeOwner").value;
+      row.source=$("#incomeSource").value;
+    }
 
+    if(type==="expense"){
+      row.category=$("#expenseCategory").value;
+      row.subcategory=$("#expenseSubcategory").value||null;
+
+      if(row.payment_source==="Credit"){
+        const ca=creditAccount($("#expenseCreditAccount").value);
+        if(!ca)return toast("Select a Credit Account");
+        row.credit_account_id=ca.id;
+        row.account=null;
+
+        const oldCredit=state.editingId?state.transactions.find(x=>x.id===state.editingId):null;
+        const paidAlready=state.editingId?creditPurchasePaid(state.editingId):0;
+        if(paidAlready>amount*rate+.000001)return toast(`Cannot reduce this purchase below already paid amount: ${money(paidAlready)}`);
+        if(paidAlready>0&&oldCredit?.credit_account_id&&oldCredit.credit_account_id!==ca.id)return toast("Cannot change Credit Account after a payment exists");
+
+        const reusableOld=(oldCredit?.payment_source==="Credit"&&oldCredit.credit_account_id===ca.id)?creditPurchaseAmount(oldCredit):0;
+        const availableForEdit=creditAvailable(ca.id)+reusableOld;
+        if(amount*rate>availableForEdit+.000001)return toast(`${ca.name} credit limit is not enough. Available for this edit: ${money(availableForEdit)}`);
+
+        if($("#expensePlan").value==="installment"){
+          const n=Number($("#installmentCount").value||0);
+          if(n<2||n>24)return toast("Installments must be 2 to 24");
+          if(!$("#firstDueDate").value)return toast("Select first due date");
+          row.installment_count=n;
+          row.first_due_date=$("#firstDueDate").value;
+        }else{
+          row.installment_count=1;
+          row.first_due_date=null;
+        }
+      }else{
+        row.account=row.payment_source;
+      }
+    }
+
+    if(type==="saving"){
+      row.saving_account=$("#savingAccount").value;
+      row.target_id=$("#savingTarget").value||null;
+    }
+
+    if(type!=="expense"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank or Cash");
+    if(type==="expense"&&row.payment_source!=="Credit"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank, Cash or Credit");
+
+    // Client-side immediate balance protection. Server trigger validates again.
     if(type==="saving"||(type==="expense"&&row.payment_source!=="Credit")){
-      const spendBase=amount*rate;
       const editId=state.editingId||null;
-      if(!canSpendFromAccount(row.account,spendBase,editId,"transaction")){
-        return toast(`${row.account} balance is not enough. Available: ${money(accountBalance(row.account,editId,"transaction"))}`);
-      }
+      const available=accountBalance(row.account,editId,"transaction");
+      if(available+.000001<amount*rate)return toast(insufficientMessage(row.account,available));
     }
 
-    if(state.editingId){
-      const editId=state.editingId;
-      if(String(editId).startsWith("local:")){
-        const clientId=String(editId).slice(6);row.client_id=clientId;
-        await updatePendingInsertRow(clientId,row,"transaction");
-        applyOfflineUpdate(editId,row);
-        state.editingId=null;closeD("entryDialog");renderAll();toast("Pending record updated");if(navigator.onLine)syncPending();return;
-      }
-      if(state.offlineEnabled){
-        await queueOfflineOp({op:"update",server_id:editId,row:{...row,updated_at:new Date().toISOString()}});
-        applyOfflineUpdate(editId,row);state.editingId=null;closeD("entryDialog");renderAll();toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
-      }
-      if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
-      const r=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",editId);if(r.error)return toast(r.error.message);
-      state.editingId=null;closeD("entryDialog");await loadTx();renderAll();return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
+    const editId=state.editingId;
+
+    // Edit a local unsynced insert.
+    if(editId&&String(editId).startsWith("local:")){
+      const clientId=String(editId).slice(6);
+      row.client_id=clientId;
+      await updatePendingInsertRow(clientId,row,"transaction");
+      applyOfflineUpdate(editId,row);
+      state.editingId=null;closeD("entryDialog");renderAll();
+      toast("Pending record updated");
+      if(navigator.onLine)syncPending();
+      return;
     }
 
+    // Existing server record: DIRECT UPDATE while online.
+    // This is the key fix: Offline Mode ON no longer forces online edits into the queue.
+    if(editId){
+      const serverRow={...row,updated_at:new Date().toISOString()};
+      if(navigator.onLine){
+        try{
+          await confirmedUpdate("transactions",editId,serverRow);
+          state.editingId=null;closeD("entryDialog");
+          await Promise.all([loadTx(),loadCreditPayments()]);
+          renderAll();
+          return toast(lang()==="bn"?"পরিবর্তন সেভ হয়েছে":"Changes saved");
+        }catch(err){
+          // Database validation / RLS / insufficient balance errors must NOT be queued.
+          if(!(state.offlineEnabled&&isNetworkLikeError(err)))return toast("Save failed: "+saveErrorMessage(err));
+        }
+      }
+
+      // Actual network outage only.
+      if(!state.offlineEnabled)return toast("No internet. Offline Mode is disabled.");
+      await queueOfflineOp({op:"update",server_id:editId,row:serverRow});
+      applyOfflineUpdate(editId,row);
+      state.editingId=null;closeD("entryDialog");renderAll();
+      toast("Saved offline • Pending Sync");
+      return;
+    }
+
+    // New server record: online first.
     row.client_id=crypto.randomUUID();
-    if(state.offlineEnabled){
-      await queueOfflineOp({op:"insert",client_id:row.client_id,row});
-      addPendingTransaction(row);closeD("entryDialog");renderAll();toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
+    if(navigator.onLine){
+      try{
+        await confirmedInsertOnce("transactions",row);
+        closeD("entryDialog");
+        await Promise.all([loadTx(),loadCreditPayments()]);
+        renderAll();
+        return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
+      }catch(err){
+        // Only a real network failure is eligible for offline fallback.
+        if(!(state.offlineEnabled&&isNetworkLikeError(err)))return toast("Save failed: "+saveErrorMessage(err));
+      }
     }
-    if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
-    const existing=await db.from("transactions").select("id").eq("client_id",row.client_id).maybeSingle();if(existing.error&&existing.error.code!=="PGRST116")return toast(existing.error.message);
-    if(!existing.data){const r=await db.from("transactions").insert(row);if(r.error&&r.error.code!=="23505")return toast(r.error.message)}
-    closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
+
+    if(!state.offlineEnabled)return toast("No internet. Enable Offline Mode to save without internet.");
+    await queueOfflineOp({op:"insert",client_id:row.client_id,row});
+    addPendingTransaction(row);closeD("entryDialog");renderAll();
+    toast("Saved offline • Pending Sync");
   }catch(err){
-    console.error("Save Record failed",err);toast("Save error: "+String(err?.message||err));
+    console.error("Save Record failed",err);
+    toast("Save error: "+saveErrorMessage(err));
   }finally{
-    if(entrySubmitBtn){entrySubmitBtn.disabled=false;entrySubmitBtn.textContent=entrySubmitBtn.dataset.oldText||tr("saveRecord");delete entrySubmitBtn.dataset.oldText;}
+    if(entrySubmitBtn){
+      entrySubmitBtn.disabled=false;
+      entrySubmitBtn.textContent=entrySubmitBtn.dataset.oldText||tr("saveRecord");
+      delete entrySubmitBtn.dataset.oldText;
+    }
   }
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
@@ -566,7 +721,7 @@ function openDrill(kind){
   else if(kind==="expense"){rows=tx.filter(x=>x.type==="expense");title=tr("expense");summary=`<div class="detail-kpi"><span>${tr("totalExpense")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
   else if(kind==="family"){rows=tx.filter(x=>x.type==="expense"&&x.category==="Family Support");title=tr("familySupport");const m=rows.filter(x=>x.subcategory==="Mehedi Family").reduce((s,x)=>s+baseValue(x),0),mo=rows.filter(x=>x.subcategory==="Mou Family").reduce((s,x)=>s+baseValue(x),0);summary=`<div class="detail-kpi"><span>Mehedi Family</span><strong>${money(m)}</strong></div><div class="detail-kpi"><span>Mou Family</span><strong>${money(mo)}</strong></div><div class="detail-kpi"><span>${tr("totalFamily")}</span><strong>${money(m+mo)}</strong></div>`}
   else if(kind==="saving"){rows=tx.filter(x=>x.type==="saving");title=tr("savings");summary=`<div class="detail-kpi"><span>${tr("totalSavings")}</span><strong>${money(rows.reduce((s,x)=>s+baseValue(x),0))}</strong></div><div class="detail-kpi"><span>${tr("entries")}</span><strong>${rows.length}</strong></div>`}
-  else{const inc=state.transactions.filter(x=>x.type==="income").reduce((s,x)=>s+baseValue(x),0),exp=state.transactions.filter(x=>x.type==="expense").reduce((s,x)=>s+baseValue(x),0),sav=state.transactions.filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0);rows=state.transactions;title=tr("balanceBreakdown");summary=`<div class="detail-kpi"><span>${tr("totalIncome")}</span><strong>${money(inc)}</strong></div><div class="detail-kpi"><span>${tr("totalExpense")}</span><strong>${money(exp)}</strong></div><div class="detail-kpi"><span>${tr("totalSavings")}</span><strong>${money(sav)}</strong></div><div class="detail-kpi"><span>${tr("availableBalance")}</span><strong>${money(inc-exp-sav)}</strong></div>`}
+  else{const inc=state.transactions.filter(x=>x.type==="income").reduce((s,x)=>s+baseValue(x),0),exp=state.transactions.filter(x=>x.type==="expense").reduce((s,x)=>s+baseValue(x),0),sav=state.transactions.filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0),ledger=calculateAccountBalances();rows=state.transactions;title=tr("balanceBreakdown");summary=`<div class="detail-kpi"><span>${tr("totalIncome")}</span><strong>${money(inc)}</strong></div><div class="detail-kpi"><span>${tr("totalExpense")}</span><strong>${money(exp)}</strong></div><div class="detail-kpi"><span>${tr("totalSavings")}</span><strong>${money(sav)}</strong></div><div class="detail-kpi"><span>Bank</span><strong>${money(ledger.Bank)}</strong></div><div class="detail-kpi"><span>Cash</span><strong>${money(ledger.Cash)}</strong></div><div class="detail-kpi"><span>${tr("availableBalance")}</span><strong>${ledger.missing?"—":money(ledger.total)}</strong></div>`}
   state.detailFilter=kind;$("#detailTitle").textContent=title;$("#detailSummary").innerHTML=summary;$("#detailList").innerHTML=rows.length?rows.map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();openD("detailDialog")
 }
 
@@ -814,13 +969,17 @@ async function syncPending(){
             else errMsg=ins.error.message;
           }
         }else if(q.op==="update"){
-          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+          const r=await db.from("transactions").update(q.row).eq("id",q.server_id).select("id").maybeSingle();
+          if(r.error)errMsg=r.error.message;else if(!r.data?.id)errMsg="Transaction update was not confirmed by database policy";else ok=true;
         }else if(q.op==="delete"){
-          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+          const r=await db.from("transactions").update({deleted_at:new Date().toISOString(),updated_at:new Date().toISOString()}).eq("id",q.server_id).select("id").maybeSingle();
+          if(r.error)errMsg=r.error.message;else if(!r.data?.id)errMsg="Transaction delete was not confirmed by database policy";else ok=true;
         }else if(q.op==="transfer_update"){
-          const r=await db.from("transfers").update(q.row).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+          const r=await db.from("transfers").update(q.row).eq("id",q.server_id).select("id").maybeSingle();
+          if(r.error)errMsg=r.error.message;else if(!r.data?.id)errMsg="Transfer update was not confirmed by database policy";else ok=true;
         }else if(q.op==="transfer_delete"){
-          const r=await db.from("transfers").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+          const r=await db.from("transfers").update({deleted_at:new Date().toISOString(),updated_at:new Date().toISOString()}).eq("id",q.server_id).select("id").maybeSingle();
+          if(r.error)errMsg=r.error.message;else if(!r.data?.id)errMsg="Transfer delete was not confirmed by database policy";else ok=true;
         }
       }catch(e){errMsg=String(e?.message||e)}
       if(!ok){state.lastSyncError=errMsg||"Unknown sync error";console.error("Sync failed; queued record retained",q,state.lastSyncError);break}

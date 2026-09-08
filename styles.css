@@ -173,3 +173,9 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 .credit-report-summary>div{border:1px solid #29364a;background:#0c141d;border-radius:14px;padding:13px}
 .credit-report-summary span{display:block;color:var(--muted);font-size:11px}.credit-report-summary strong{display:block;font-size:17px;margin-top:5px}
 @media(max-width:800px){.credit-report-summary{grid-template-columns:1fr 1fr}}
+
+/* Save/Edit hotfix */
+.toast{z-index:2147483647!important}
+
+/* Final save engine */
+.toast{z-index:2147483647!important}
