@@ -42,7 +42,7 @@ en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",passwo
 bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",account:"Bank / Cash",accountBreakdown:"টাকা কোথায় আছে",total:"মোট Available",unassigned:"Unassigned",balanceLocationHint:"আপনার available টাকা এখন কোথায় আছে",receivedTo:"যেখানে টাকা এসেছে",paidFrom:"যেখান থেকে পেমেন্ট",savedFrom:"যেখান থেকে সেভিংস",transfer:"ট্রান্সফার",moneyAccounts:"মানি অ্যাকাউন্ট",accountsHint:"Bank ↔ Cash ট্রান্সফারের জন্য ব্যবহার হবে। ট্রান্সফার Income বা Expense হিসেবে গণনা হবে না।",fromAccount:"যেখান থেকে",toAccount:"যেখানে",transferHint:"ট্রান্সফারে শুধু নিজের টাকা এক অ্যাকাউন্ট থেকে অন্যটিতে যায়। মোট ব্যালেন্স, আয়, খরচ বা সেভিংস বদলায় না।",totalTransfer:"মোট ট্রান্সফার",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
 };
 
-let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],transfers:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,editingTransferId:null,currentTxId:null,currentDetailKind:"transaction",expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null,lastDataError:null};
+let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],transfers:[],creditAccounts:[],creditPayments:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,editingTransferId:null,currentTxId:null,currentDetailKind:"transaction",expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null,lastDataError:null};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=()=>state.profile?.language||"en",tr=k=>T[lang()]?.[k]||T.en[k]||k;
 const money=(v,c=state.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`;
@@ -69,7 +69,7 @@ async function enter(user){
   state.user=user;$("#loginView").classList.add("hidden");$("#app").classList.remove("hidden");state.lastDataError=null;
   try{
     await offlineInit();await loadPendingOps();await ensureProfile();await ensureSettings();
-    const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
+    const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadCreditAccounts(),loadCreditPayments(),loadTargets(),loadPsaMeta()]);
     const bad=results.filter(x=>x.status==="rejected");if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
     applyLanguage();initMonthPicker();populate();renderAll();
     $("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();$("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();
@@ -143,6 +143,16 @@ async function loadTransfers(){
   else{const cached=state.offlineEnabled?(await offlineCacheGet("transfers")||null):null;state.transfers=Array.isArray(cached)?cached:[];if(!cached&&lastErr&&!state.lastDataError)state.lastDataError=`Transfers: ${lastErr.message||lastErr}`}
   if(state.offlineEnabled)mergePendingTransfersIntoState();
 }
+async function loadCreditAccounts(){if(navigator.onLine){const {data,error}=await db.from("credit_accounts").select("*").order("created_at");if(!error){state.creditAccounts=data||[];if(state.offlineEnabled)await offlineCachePut("creditAccounts",state.creditAccounts);return}}state.creditAccounts=state.offlineEnabled?(await offlineCacheGet("creditAccounts")||[]):[]}
+async function loadCreditPayments(){if(navigator.onLine){const {data,error}=await db.from("credit_payments").select("*").is("deleted_at",null).order("payment_date",{ascending:false});if(!error){state.creditPayments=data||[];if(state.offlineEnabled)await offlineCachePut("creditPayments",state.creditPayments);return}}state.creditPayments=state.offlineEnabled?(await offlineCacheGet("creditPayments")||[]):[]}
+function creditAccount(id){return state.creditAccounts.find(x=>x.id===id)}
+function creditPurchaseAmount(x){return Number(x.amount||0)*Number(x.exchange_rate||1)}
+function creditPurchasePaid(id){return state.creditPayments.filter(p=>p.credit_purchase_id===id).reduce((s,p)=>s+Number(p.amount||0)*Number(p.exchange_rate||1),0)}
+function creditPurchaseRemaining(x){return Math.max(0,creditPurchaseAmount(x)-creditPurchasePaid(x.id))}
+function creditOutstanding(id){const buy=state.transactions.filter(x=>x.type==="expense"&&x.payment_source==="Credit"&&x.credit_account_id===id).reduce((s,x)=>s+creditPurchaseAmount(x),0),paid=state.creditPayments.filter(p=>p.credit_account_id===id).reduce((s,p)=>s+Number(p.amount||0)*Number(p.exchange_rate||1),0);return Math.max(0,buy-paid)}
+function creditAvailable(id){const a=creditAccount(id);return Math.max(0,Number(a?.credit_limit||0)-creditOutstanding(id))}
+function creditPurchases(id){return state.transactions.filter(x=>x.type==="expense"&&x.payment_source==="Credit"&&x.credit_account_id===id&&creditPurchaseRemaining(x)>0)}
+function nextInstallmentInfo(x){if(!x||Number(x.installment_count||1)<2||!x.first_due_date)return null;const n=Number(x.installment_count),per=creditPurchaseAmount(x)/n,paid=creditPurchasePaid(x.id),done=Math.min(n,Math.floor((paid+.0001)/per)),d=new Date(x.first_due_date+"T00:00:00");d.setMonth(d.getMonth()+done);return {amount:Math.min(per,creditPurchaseRemaining(x)),date:d.toISOString().slice(0,10)}}
 async function loadTargets(){
   if(navigator.onLine){const {data,error}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});if(!error){state.targets=data||[];await offlineCachePut("targets",state.targets);return}}
   state.targets=state.offlineEnabled?(await offlineCacheGet("targets")||[]):[];
@@ -161,7 +171,7 @@ async function retryDataLoad(){
     }catch(e){console.warn("retry refresh",e)}
 
     await Promise.allSettled([ensureProfile(),ensureSettings()]);
-    const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
+    const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadCreditAccounts(),loadCreditPayments(),loadTargets(),loadPsaMeta()]);
     const bad=results.filter(x=>x.status==="rejected");
     if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
 
@@ -203,7 +213,7 @@ function populate(){
   fill($("#historyType"),[{value:"all",label:tr("allTypes")},{value:"income",label:tr("income")},{value:"expense",label:tr("expense")},{value:"saving",label:tr("savings")},{value:"transfer",label:tr("transfer")}],"all");
   fill($("#historyCategory"),[{value:"all",label:tr("allCategories")},...cats.map(x=>({value:x,label:x}))],"all");
   fill($("#expenseCategory"),cats);updateSubs();
-  fill($("#incomeOwner"),state.settings.income_owners||["Mehedi Income","Mousumi Income"]);fill($("#incomeSource"),state.settings.income_sources);fill($("#entryMethod"),state.settings.payment_methods);fill($("#entryAccount"),["Bank","Cash"]);fill($("#transferFrom"),["Bank","Cash"]);fill($("#transferTo"),["Bank","Cash"]);
+  fill($("#incomeOwner"),state.settings.income_owners||["Mehedi Income","Mousumi Income"]);fill($("#incomeSource"),state.settings.income_sources);fill($("#entryAccount"),["Bank","Cash"]);fill($("#transferFrom"),["Bank","Cash"]);fill($("#transferTo"),["Bank","Cash"]);fill($("#expenseCreditAccount"),state.creditAccounts.filter(x=>x.active!==false).map(x=>({value:x.id,label:x.name})));fill($("#creditPayAccount"),state.creditAccounts.filter(x=>x.active!==false).map(x=>({value:x.id,label:x.name})));
   [$("#entryCurrency"),$("#targetCurrency"),$("#newSavingCurrency")].forEach(e=>fill(e,codes,state.settings.base_currency));
   fill($("#savingAccount"),state.settings.saving_accounts.map(x=>({value:x.name,label:`${x.name} (${x.currency})`})));
   fill($("#savingTarget"),[{value:"",label:lang()==="bn"?"কোনো টার্গেট নয়":"No target"},...state.targets.map(x=>({value:x.id,label:x.name}))]);
@@ -229,6 +239,7 @@ function calculateAccountBalances(excludeId=null,excludeKind=null){
 
   for(const x of state.transactions){
     if(excludeKind==="transaction"&&excludeId&&x.id===excludeId)continue;
+    if(x.type==="expense"&&x.payment_source==="Credit")continue;
     const key=effectiveAccount(x);
     if(!key){missing++;continue}
     const v=baseValue(x);
@@ -236,6 +247,7 @@ function calculateAccountBalances(excludeId=null,excludeKind=null){
     else if(x.type==="expense"||x.type==="saving")balances[key]-=v;
   }
 
+  for(const p of state.creditPayments){if(!p.deleted_at)balances.Bank-=Number(p.amount||0)*Number(p.exchange_rate||1);}
   for(const x of state.transfers){
     if(excludeKind==="transfer"&&excludeId&&x.id===excludeId)continue;
     const v=Number(x.amount||0)*Number(x.exchange_rate||1);
@@ -277,21 +289,26 @@ function renderDashboard(){
   $("#incomeTotal").textContent=money(inc);$("#expenseTotal").textContent=money(exp);renderSavingsMasked(sav);$("#availableBalance").textContent=money(allInc-allExp-allSav);$("#totalSavings").textContent=money(allSav);renderHeroAccountBreakdown();prepareExpenseSlides(tx);
   const d=new Date(state.selectedMonth+"-01T00:00:00");$("#monthLabel").textContent=d.toLocaleDateString(lang()==="bn"?"bn-BD":"en-US",{month:"long",year:"numeric"});
   const cmap={};tx.filter(x=>x.type==="expense").forEach(x=>cmap[x.category]=(cmap[x.category]||0)+baseValue(x));const arr=Object.entries(cmap).sort((a,b)=>b[1]-a[1]);$("#expenseCount").textContent=`${tx.filter(x=>x.type==="expense").length} ${tr("entries")}`;$("#categoryBars").innerHTML=arr.length?arr.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(5,v/arr[0][1]*100)}%"></div></div><strong>${money(v)}</strong></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;
-  const recentItems=[...state.transactions.map(x=>({...x,_kind:"transaction",_sortDate:x.transaction_date,_sortTime:x.transaction_time||""})),...state.transfers.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""}))].sort((a,b)=>`${b._sortDate} ${b._sortTime}`.localeCompare(`${a._sortDate} ${a._sortTime}`)).slice(0,7);
+  const recentItems=[...state.transactions.map(x=>({...x,_kind:"transaction",_sortDate:x.transaction_date,_sortTime:x.transaction_time||""})),...state.transfers.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""})),...state.creditPayments.map(x=>({...x,_kind:"credit_payment",_sortDate:x.payment_date,_sortTime:x.payment_time||""}))].sort((a,b)=>`${b._sortDate} ${b._sortTime}`.localeCompare(`${a._sortDate} ${a._sortTime}`)).slice(0,7);
   $("#recentList").innerHTML=recentItems.length?recentItems.map(historyItemHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindHistoryItems();
-  $("#targetPreview").innerHTML=state.targets.slice(0,3).length?state.targets.slice(0,3).map(targetHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;
+  $("#targetPreview").innerHTML=state.targets.slice(0,3).length?state.targets.slice(0,3).map(targetHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;  renderCreditDashboard();
 }
+function renderCreditDashboard(){if(!$("#creditTotalDue"))return;$("#creditTotalDue").textContent=money(state.creditAccounts.reduce((s,a)=>s+creditOutstanding(a.id),0));$("#creditTotalAvailable").textContent=money(state.creditAccounts.filter(a=>a.active!==false).reduce((s,a)=>s+creditAvailable(a.id),0));$("#creditAccountCards").innerHTML=state.creditAccounts.filter(a=>a.active!==false).map(a=>{const used=creditOutstanding(a.id),limit=Number(a.credit_limit||0),pct=limit?Math.min(100,used/limit*100):0;return `<div class="credit-card-row"><div class="credit-card-top"><strong>${esc(a.name)}</strong><span>${a.account_type==="credit_card"?"Credit Card":"BNPL"}</span></div><div class="credit-card-numbers"><div>Limit<b>${money(limit)}</b></div><div>Used<b>${money(used)}</b></div><div>Available<b>${money(creditAvailable(a.id))}</b></div></div><div class="credit-progress"><span style="width:${pct}%"></span></div></div>`}).join("")||`<div class="empty-state">Add Credit Account in Settings</div>`}
+function renderCreditSettings(){if(!$("#creditManager"))return;$("#creditManager").innerHTML=state.creditAccounts.map(a=>`<div class="credit-manager-row"><div><strong>${esc(a.name)}</strong><small>${a.account_type==="credit_card"?"Credit Card":"BNPL"} • Limit ${money(a.credit_limit)} • Used ${money(creditOutstanding(a.id))}</small></div><div class="credit-manager-actions"><button class="btn credit-edit" data-id="${a.id}">Edit</button><button class="btn credit-archive" data-id="${a.id}">${a.active===false?"Activate":"Archive"}</button></div></div>`).join("")||`<div class="empty-state">No credit accounts</div>`;$$('.credit-edit').forEach(b=>b.onclick=()=>editCreditAccount(b.dataset.id));$$('.credit-archive').forEach(b=>b.onclick=()=>toggleCreditAccount(b.dataset.id))}
+async function editCreditAccount(id){const a=creditAccount(id);if(!a)return;const name=prompt("Credit account name",a.name);if(name===null||!name.trim())return;const lim=prompt("Credit limit (AED)",String(a.credit_limit||0));if(lim===null)return;const n=Number(lim);if(!Number.isFinite(n)||n<creditOutstanding(id))return toast("Limit cannot be below current used amount");const {error}=await db.from("credit_accounts").update({name:name.trim(),credit_limit:n,updated_at:new Date().toISOString()}).eq("id",id);if(error)return toast(error.message);await loadCreditAccounts();populate();renderAll()}
+async function toggleCreditAccount(id){const a=creditAccount(id);if(!a)return;if(a.active!==false&&creditOutstanding(id)>0)return toast("Clear outstanding due before archiving");const {error}=await db.from("credit_accounts").update({active:a.active===false,updated_at:new Date().toISOString()}).eq("id",id);if(error)return toast(error.message);await loadCreditAccounts();populate();renderAll()}
 function ownerName(uid){return state.profiles.find(p=>p.user_id===uid)?.display_name||"User"}
 function txHtml(x){
   const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Record"),sign=x.type==="income"?"+":x.type==="expense"?"−":"→",pending=x._pending?`<span class="pending-badge">Pending Sync</span>`:"";
-  return `<div class="tx" data-tx-id="${x.id}"><div class="tx-icon">${x.type==="income"?"＋":x.type==="expense"?"−":"↗"}</div><div class="tx-main"><strong>${esc(label)} ${pending}</strong><small>${x.transaction_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.payment_method?` • ${esc(x.payment_method)}`:""}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="icon-btn tx-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
+  return `<div class="tx" data-tx-id="${x.id}"><div class="tx-icon">${x.type==="income"?"＋":x.type==="expense"?"−":"↗"}</div><div class="tx-main"><strong>${esc(label)} ${pending}</strong><small>${x.transaction_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.payment_source==="Credit"?` • Credit: ${esc(creditAccount(x.credit_account_id)?.name||"Credit")}`:(effectiveAccount(x)?` • ${esc(effectiveAccount(x))}`:"")}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="icon-btn tx-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
 }
 
 function transferHtml(x){
   const pending=x._pending?`<span class="pending-badge">Pending Sync</span>`:"";
   return `<div class="tx transfer-tx" data-transfer-id="${x.id}"><div class="tx-icon">⇄</div><div class="tx-main"><strong>${tr("transfer")}: ${esc(x.from_account)} → ${esc(x.to_account)} ${pending}</strong><small>${x.transfer_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount transfer">${money(x.amount,x.currency)}</div><button class="icon-btn transfer-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
 }
-function historyItemHtml(x){return x._kind==="transfer"||x.from_account?transferHtml(x):txHtml(x)}
+function creditPaymentHtml(x){const a=creditAccount(x.credit_account_id);return `<div class="tx"><div class="tx-icon">▣</div><div class="tx-main"><strong>Credit Payment → ${esc(a?.name||"Credit")}</strong><small>${x.payment_date} • Bank • ${esc(x.owner_name||ownerName(x.created_by))}</small></div><div class="tx-amount transfer">${money(x.amount,x.currency)}</div></div>`}
+function historyItemHtml(x){return x._kind==="credit_payment"?creditPaymentHtml(x):(x._kind==="transfer"||x.from_account?transferHtml(x):txHtml(x))}
 function bindHistoryItems(){
   $$(".tx[data-tx-id]").forEach(row=>row.onclick=()=>openTransactionDetail(row.dataset.txId));
   $$(".tx[data-transfer-id]").forEach(row=>row.onclick=()=>openTransferDetail(row.dataset.transferId));
@@ -340,13 +357,13 @@ function bindHistoryItems(){
 }
 function bindTxMenu(){bindHistoryItems()}
 function renderHistory(){
-  let tx=[...state.transactions],tf=[...state.transfers],q=$("#historySearch").value.toLowerCase(),typ=$("#historyType").value||"all",cat=$("#historyCategory").value||"all";
+  let tx=[...state.transactions],tf=[...state.transfers],cp=[...state.creditPayments],q=$("#historySearch").value.toLowerCase(),typ=$("#historyType").value||"all",cat=$("#historyCategory").value||"all";
   if(typ==="transfer")tx=[];
   else if(typ!=="all")tx=tx.filter(x=>x.type===typ);
   if(cat!=="all")tx=tx.filter(x=>x.category===cat);
   let items=[
     ...tx.map(x=>({...x,_kind:"transaction",_sortDate:x.transaction_date,_sortTime:x.transaction_time||""})),
-    ...(typ==="all"||typ==="transfer"?tf.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""})):[])
+    ...(typ==="all"||typ==="transfer"?tf.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""})):[]),...(typ==="all"?cp.map(x=>({...x,_kind:"credit_payment",_sortDate:x.payment_date,_sortTime:x.payment_time||""})):[])
   ];
   if(q)items=items.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
   items.sort((a,b)=>`${b._sortDate} ${b._sortTime}`.localeCompare(`${a._sortDate} ${a._sortTime}`));
@@ -365,13 +382,13 @@ function setEntryType(type){
   $("#expenseFields").classList.toggle("hidden",type!=="expense");
   $("#savingFields").classList.toggle("hidden",type!=="saving");
   $("#transferFields").classList.toggle("hidden",type!=="transfer");
-  $("#accountWrap").classList.toggle("hidden",type==="transfer");
-  $("#methodWrap").classList.toggle("hidden",type==="transfer");
-  if(type!=="transfer"){
+  $("#accountWrap").classList.toggle("hidden",type==="transfer"||type==="expense");
+  if(type!=="transfer"&&type!=="expense"){
     $("#accountFieldLabel").textContent=type==="income"?tr("receivedTo"):type==="expense"?tr("paidFrom"):tr("savedFrom");
   }
   $("#entryTitle").textContent=type==="income"?tr("income"):type==="expense"?tr("expense"):type==="saving"?tr("savings"):tr("transfer");
 }
+function updateExpensePayUI(){const isCredit=$("#expensePayWith").value==="Credit";$("#creditExpenseFields").classList.toggle("hidden",!isCredit);if(isCredit){const id=$("#expenseCreditAccount").value,a=creditAccount(id);$("#creditLimitHint").textContent=a?`Used ${money(creditOutstanding(id))} • Available ${money(creditAvailable(id))} of ${money(a.credit_limit)}`:"Add a Credit Account in Settings"}$("#installmentFields").classList.toggle("hidden",!isCredit||$("#expensePlan").value!=="installment")}
 function renderEntryAccountHints(){
   if($("#entryAccountBalanceHint")){
     const a=$("#entryAccount").value||"Bank";
@@ -382,7 +399,7 @@ function renderEntryAccountHints(){
     $("#transferFromBalanceHint").textContent=`Available: ${money(accountBalance(a,state.editingTransferId||null,"transfer"))}`;
   }
 }
-function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();renderEntryAccountHints();openD("entryDialog")}
+function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();if(type==="expense"){$("#expensePayWith").value="Bank";$("#expensePlan").value="full"}updateExpensePayUI();renderEntryAccountHints();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
   e.preventDefault();
@@ -444,16 +461,16 @@ async function submitEntry(e){
     const row={
       type,amount,currency,exchange_rate:rate,
       transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),
-      account:$("#entryAccount").value||null,payment_method:$("#entryMethod").value,note:$("#entryNote").value.trim()||null,
+      account:type==="expense"?null:($("#entryAccount").value||null),payment_method:null,payment_source:type==="expense"?$("#expensePayWith").value:null,note:$("#entryNote").value.trim()||null,
       created_by:state.user.id,owner_name:state.profile.display_name
     };
     if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
-    if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
+    if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null;if(row.payment_source==="Credit"){const ca=creditAccount($("#expenseCreditAccount").value);if(!ca)return toast("Select a Credit Account");row.credit_account_id=ca.id;row.account=null;if(amount*rate>creditAvailable(ca.id)+.000001)return toast(`${ca.name} credit limit is not enough. Available: ${money(creditAvailable(ca.id))}`);if($("#expensePlan").value==="installment"){const n=Number($("#installmentCount").value||0);if(n<2||n>24)return toast("Installments must be 2 to 24");if(!$("#firstDueDate").value)return toast("Select first due date");row.installment_count=n;row.first_due_date=$("#firstDueDate").value}else{row.installment_count=1;row.first_due_date=null}}else row.account=row.payment_source}
     if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
 
-    if(!["Bank","Cash"].includes(row.account))return toast("Select Bank or Cash");
+    if(type!=="expense"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank or Cash");if(type==="expense"&&row.payment_source!=="Credit"&&!["Bank","Cash"].includes(row.account))return toast("Select Bank, Cash or Credit");
 
-    if(type==="expense"||type==="saving"){
+    if(type==="saving"||(type==="expense"&&row.payment_source!=="Credit")){
       const spendBase=amount*rate;
       const editId=state.editingId||null;
       if(!canSpendFromAccount(row.account,spendBase,editId,"transaction")){
@@ -507,10 +524,9 @@ function openTransactionDetail(id){
     [tr("amount"),money(x.amount,x.currency)],
     [tr("transactionDateTime"),`${x.transaction_date}${x.transaction_time?` • ${String(x.transaction_time).slice(0,5)}`:""}`],
     [tr("addedBy"),x.owner_name||ownerName(x.created_by)],
-    [tr("method"),x.payment_method||"—"],
-    [tr("createdAt"),formatCreatedAt(x.created_at)]
+        [tr("createdAt"),formatCreatedAt(x.created_at)]
   ];
-  rows.splice(2,0,[tr("account"),effectiveAccount(x)||"Account not set"]);
+  rows.splice(2,0,[x.type==="expense"?"Paid With":tr("account"),x.payment_source==="Credit"?(creditAccount(x.credit_account_id)?.name||"Credit"):(effectiveAccount(x)||"—")]);if(x.payment_source==="Credit"&&Number(x.installment_count||1)>1){const ni=nextInstallmentInfo(x);rows.splice(3,0,["Installment Plan",`${x.installment_count} installments${ni?` • Next ${money(ni.amount)} on ${ni.date}`:""}`])}
   if(x.type==="income"){rows.splice(3,0,[tr("incomeOwner"),x.income_owner||"—"]);rows.splice(4,0,[tr("source"),x.source||"—"]);}
   if(x.type==="expense"){rows.splice(2,0,[tr("category"),x.category||"—"]);rows.splice(3,0,[tr("subcategory"),x.subcategory||"—"])}
   if(x.type==="saving"){rows.splice(2,0,[tr("saveTo"),x.saving_account||"—"]);const tg=state.targets.find(t=>t.id===x.target_id);rows.splice(3,0,[tr("targets"),tg?.name||(lang()==="bn"?"কোনো টার্গেট নয়":"No target")])}
@@ -662,9 +678,9 @@ function editCurrentTransaction(){
   const x=state.transactions.find(r=>r.id===state.currentTxId);if(!x)return;
   closeD("transactionDialog");state.editingTransferId=null;state.editingId=x.id;setEntryType(x.type);
   $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
-  $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);if(effectiveAccount(x))$("#entryAccount").value=effectiveAccount(x);$("#entryMethod").value=x.payment_method||"";$("#entryNote").value=x.note||"";
+  $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);if(effectiveAccount(x))$("#entryAccount").value=effectiveAccount(x);$("#entryNote").value=x.note||"";
   if(x.type==="income"){$("#incomeOwner").value=x.income_owner||"";$("#incomeSource").value=x.source||""}
-  if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||""}
+  if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||"";$("#expensePayWith").value=x.payment_source==="Credit"?"Credit":(effectiveAccount(x)||"Bank");if(x.payment_source==="Credit"){$("#expenseCreditAccount").value=x.credit_account_id||"";$("#expensePlan").value=Number(x.installment_count||1)>1?"installment":"full";$("#installmentCount").value=x.installment_count||4;$("#firstDueDate").value=x.first_due_date||""}updateExpensePayUI()}
   if(x.type==="saving"){$("#savingAccount").value=x.saving_account||"";$("#savingTarget").value=x.target_id||""}
   $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+(x.type==="income"?tr("income"):x.type==="expense"?tr("expense"):tr("savings"));
   $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";renderEntryAccountHints();openD("entryDialog");
@@ -739,7 +755,7 @@ $("#profileName").value=state.profile?.display_name||"";
   $("#currencyManager").innerHTML=state.settings.currencies.map((x,i)=>chip(`${x.code} ${x.symbol}`,"currency",i)).join("");
   $("#incomeOwnerManager").innerHTML=(state.settings.income_owners||[]).map((x,i)=>chip(x,"incomeOwner",i)).join("");
   $("#incomeSourceManager").innerHTML=state.settings.income_sources.map((x,i)=>chip(x,"incomeSource",i)).join("");
-  $("#methodManager").innerHTML=state.settings.payment_methods.map((x,i)=>chip(x,"method",i)).join("");
+  renderCreditSettings();
   $("#savingAccountManager").innerHTML=state.settings.saving_accounts.map((x,i)=>chip(`${x.name} • ${x.currency}`,"saving",i)).join("");
   $("#categoryManager").innerHTML=state.settings.categories.map((c,i)=>`<div class="cat-card"><div class="cat-head"><strong>${esc(c.name)}</strong><div class="cat-actions"><button class="btn cat-toggle" data-i="${i}">Sub</button><button class="icon-btn cat-delete" data-i="${i}">×</button></div></div><div class="cat-body hidden" id="catBody${i}"><div class="subchips">${c.subs.map((s,j)=>`<span class="subchip">${esc(s)}<button data-ci="${i}" data-si="${j}">×</button></span>`).join("")}</div><div class="sub-add"><input id="subInput${i}" placeholder="New subcategory"><button class="btn sub-add-btn" data-i="${i}">${tr("add")}</button></div></div></div>`).join("");
   bindManagers();
@@ -750,8 +766,9 @@ function bindManagers(){
   $$(".cat-delete").forEach(b=>b.onclick=async()=>{if(!confirm("Remove category? Existing history stays unchanged."))return;state.settings.categories.splice(+b.dataset.i,1);await saveSettings()});
   $$("[data-ci]").forEach(b=>b.onclick=async()=>{state.settings.categories[+b.dataset.ci].subs.splice(+b.dataset.si,1);await saveSettings()});
   $$(".sub-add-btn").forEach(b=>b.onclick=async()=>{const i=+b.dataset.i,v=$("#subInput"+i).value.trim();if(v&&!state.settings.categories[i].subs.includes(v))state.settings.categories[i].subs.push(v);await saveSettings()});
-  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",method:"payment_methods",saving:"saving_accounts",incomeOwner:"income_owners",incomeSource:"income_sources"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
+  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",saving:"saving_accounts",incomeOwner:"income_owners",incomeSource:"income_sources"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
 }
+async function addCreditAccount(){if(!navigator.onLine)return toast("Internet required to change Credit Accounts");const name=$("#newCreditName").value.trim(),type=$("#newCreditType").value,limit=Number($("#newCreditLimit").value||0);if(!name)return toast("Enter credit account name");const {error}=await db.from("credit_accounts").insert({name,account_type:type,credit_limit:limit,created_by:state.user.id});if(error)return toast(error.message);$("#newCreditName").value=$("#newCreditLimit").value="";await loadCreditAccounts();populate();renderAll()}
 async function saveSettings(){const {error}=await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id,updated_at:new Date().toISOString()});if(error)return toast(error.message);populate();renderAll();toast(lang()==="bn"?"সেটিংস সেভ হয়েছে":"Settings saved")}
 async function saveProfile(){const n=$("#profileName").value.trim();if(!n)return;const {error}=await db.from("profiles").update({display_name:n}).eq("user_id",state.user.id);if(error)return toast(error.message);state.profile={...state.profile,display_name:n};await loadProfiles();applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=n;$("#autoOwner").textContent=n}
 async function changeLanguage(language){
@@ -762,8 +779,12 @@ async function changeLanguage(language){
   applyLanguage();initMonthPicker();populate();renderAll();
 }
 async function showTrash(){const {data}=await db.from("transactions").select("*").not("deleted_at","is",null).order("deleted_at",{ascending:false});$("#trashList").innerHTML=(data||[]).length?data.map(x=>`<div class="tx"><div class="tx-icon">↶</div><div class="tx-main"><strong>${esc(x.category||x.source||x.saving_account||"Record")}</strong><small>${x.transaction_date}</small></div><div class="tx-amount ${x.type}">${money(x.amount,x.currency)}</div><button class="btn restore" data-id="${x.id}">Restore</button></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;$$(".restore").forEach(b=>b.onclick=async()=>{await db.from("transactions").update({deleted_at:null}).eq("id",b.dataset.id);await loadTx();renderAll();showTrash()});openD("trashDialog")}
-async function exportJson(){const {data:trash}=await db.from("transactions").select("*").not("deleted_at","is",null);const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),profiles:state.profiles,settings:state.settings,transactions:[...state.transactions,...(trash||[])],transfers:state.transfers,targets:state.targets},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`our-money-backup-${localDate()}.json`;a.click()}
+async function exportJson(){const {data:trash}=await db.from("transactions").select("*").not("deleted_at","is",null);const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),profiles:state.profiles,settings:state.settings,transactions:[...state.transactions,...(trash||[])],transfers:state.transfers,credit_accounts:state.creditAccounts,credit_payments:state.creditPayments,targets:state.targets},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`our-money-backup-${localDate()}.json`;a.click()}
 
+function openCreditPay(){if(!state.creditAccounts.some(a=>a.active!==false))return toast("Add a Credit Account in Settings first");fill($("#creditPayAccount"),state.creditAccounts.filter(a=>a.active!==false).map(a=>({value:a.id,label:a.name})));$("#creditPayDate").value=localDate();$("#creditPayTime").value=localTime();$("#creditPayAmount").value="";updateCreditPayPurchases();openD("creditPayDialog")}
+function updateCreditPayPurchases(){const id=$("#creditPayAccount").value,p=creditPurchases(id);fill($("#creditPayPurchase"),[{value:"",label:"General account payment"},...p.map(x=>({value:x.id,label:`${x.category||"Purchase"} • Remaining ${money(creditPurchaseRemaining(x))}${nextInstallmentInfo(x)?` • Next ${nextInstallmentInfo(x).date}`:""}`}))]);updateCreditPayHint()}
+function updateCreditPayHint(){const id=$("#creditPayAccount").value,pid=$("#creditPayPurchase").value,a=creditAccount(id),x=pid?state.transactions.find(t=>t.id===pid):null,due=x?creditPurchaseRemaining(x):creditOutstanding(id);$("#creditPayHint").textContent=a?`${a.name} due: ${money(due)} • Bank available: ${money(accountBalance("Bank"))}`:""}
+async function submitCreditPayment(e){e.preventDefault();if(!navigator.onLine)return toast("Credit payment requires internet");const aid=$("#creditPayAccount").value,pid=$("#creditPayPurchase").value||null,amount=Number($("#creditPayAmount").value||0);if(amount<=0)return toast("Enter amount");const x=pid?state.transactions.find(t=>t.id===pid):null,due=x?creditPurchaseRemaining(x):creditOutstanding(aid);if(amount>due+.000001)return toast(`Payment exceeds due: ${money(due)}`);if(amount>accountBalance("Bank")+.000001)return toast(`Bank balance is not enough: ${money(accountBalance("Bank"))}`);const {error}=await db.from("credit_payments").insert({credit_account_id:aid,credit_purchase_id:pid,amount,currency:state.settings.base_currency,exchange_rate:1,paid_from:"Bank",payment_date:$("#creditPayDate").value,payment_time:$("#creditPayTime").value,note:$("#creditPayNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name,client_id:crypto.randomUUID()});if(error)return toast(error.message);closeD("creditPayDialog");await loadCreditPayments();renderAll();toast("Credit payment saved")}
 function go(page){$$(".page").forEach(p=>p.classList.remove("active"));$("#"+page+"Page").classList.add("active");$$(".nav-item").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("#pageTitle").textContent={home:tr("dashboard"),history:tr("history"),reports:tr("reports"),targets:tr("targets"),settings:tr("settings")}[page];if(page==="settings"&&!state.unlocked){$("#settingsLock").classList.remove("hidden");$("#settingsContent").classList.add("hidden")}if(page==="reports")renderReport()}
 
 // ---------- SAFE OFFLINE ENGINE ----------
@@ -891,7 +912,7 @@ function bind(){
   if(mobileLogout)mobileLogout.addEventListener("click",performSignOut);
   $$(".nav-item").forEach(b=>b.onclick=()=>go(b.dataset.page));$$("[data-page-jump]").forEach(b=>b.onclick=()=>go(b.dataset.pageJump));
   $("#headerLanguage").onchange=e=>changeLanguage(e.target.value);
-  $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>{setEntryType(b.dataset.entryType);renderEntryAccountHints()});$("#entryAccount").onchange=renderEntryAccountHints;$("#transferFrom").onchange=renderEntryAccountHints;$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;
+  $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>{setEntryType(b.dataset.entryType);renderEntryAccountHints()});$("#entryAccount").onchange=renderEntryAccountHints;$("#transferFrom").onchange=renderEntryAccountHints;$("#expensePayWith").onchange=updateExpensePayUI;$("#expenseCreditAccount").onchange=updateExpensePayUI;$("#expensePlan").onchange=updateExpensePayUI;$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;$("#payCreditBtn").onclick=openCreditPay;$("#payCreditQuick").onclick=openCreditPay;$("#creditPayForm").onsubmit=submitCreditPayment;$("#creditPayAccount").onchange=updateCreditPayPurchases;$("#creditPayPurchase").onchange=updateCreditPayHint;
   $("#historySearch").oninput=renderHistory;$("#historyType").onchange=renderHistory;$("#historyCategory").onchange=renderHistory;
   $$(".clickable-card").forEach(b=>b.onclick=()=>openDrill(b.dataset.drill));$("#detailHistoryBtn").onclick=()=>{closeD("detailDialog");go("history");if(state.detailFilter==="income")$("#historyType").value="income";else if(state.detailFilter==="expense"||state.detailFilter==="family")$("#historyType").value="expense";else if(state.detailFilter==="saving")$("#historyType").value="saving";renderHistory()};
   $$("#reportPeriodSegment button").forEach(b=>b.onclick=()=>{state.reportPeriod=b.dataset.period;$$('#reportPeriodSegment button').forEach(x=>x.classList.toggle("active",x===b));$("#customRange").classList.toggle("hidden",state.reportPeriod!=="custom");renderReport()});
@@ -900,8 +921,8 @@ function bind(){
   $("#pinForm").onsubmit=async e=>{e.preventDefault();if(await sha256($("#pinInput").value)===state.settings.pin_hash){state.unlocked=true;$("#settingsLock").classList.add("hidden");$("#settingsContent").classList.remove("hidden");$("#pinInput").value=""}else toast("Wrong PIN")};
   $("#saveProfileBtn").onclick=saveProfile;$("#saveGeneralBtn").onclick=async()=>{state.settings.base_currency=$("#baseCurrency").value;const p=$("#newPin").value.trim();if(p){if(p.length<4)return toast("PIN must be at least 4 digits");state.settings.pin_hash=await sha256(p);$("#newPin").value=""}await saveSettings()};
   $("#addCurrencyBtn").onclick=async()=>{const c=$("#newCurrencyCode").value.trim().toUpperCase(),s=$("#newCurrencySymbol").value.trim()||c;if(!/^[A-Z]{3}$/.test(c))return toast("Use 3-letter currency code");if(!state.settings.currencies.some(x=>x.code===c))state.settings.currencies.push({code:c,symbol:s});$("#newCurrencyCode").value=$("#newCurrencySymbol").value="";await saveSettings()};
+  $("#addCreditBtn").onclick=addCreditAccount;
   $("#addCategoryBtn").onclick=async()=>{const v=$("#newCategory").value.trim();if(v&&!state.settings.categories.some(x=>x.name===v))state.settings.categories.push({name:v,subs:[]});$("#newCategory").value="";await saveSettings()};
-  $("#addMethodBtn").onclick=async()=>{const v=$("#newMethod").value.trim();if(v&&!state.settings.payment_methods.includes(v))state.settings.payment_methods.push(v);$("#newMethod").value="";await saveSettings()};
   $("#addSavingAccountBtn").onclick=async()=>{const n=$("#newSavingAccount").value.trim(),c=$("#newSavingCurrency").value;if(n)state.settings.saving_accounts.push({name:n,currency:c});$("#newSavingAccount").value="";await saveSettings()};
   $("#addIncomeOwnerBtn").onclick=async()=>{const v=$("#newIncomeOwner").value.trim();if(v&&!state.settings.income_owners.includes(v))state.settings.income_owners.push(v);$("#newIncomeOwner").value="";await saveSettings()};
   $("#addIncomeSourceBtn").onclick=async()=>{const v=$("#newIncomeSource").value.trim();if(v&&!state.settings.income_sources.includes(v))state.settings.income_sources.push(v);$("#newIncomeSource").value="";await saveSettings()};
