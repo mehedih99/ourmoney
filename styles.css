@@ -132,3 +132,17 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
   .report-type-grid{grid-template-columns:1fr 1fr}
   .report-type-grid button:last-child{grid-column:auto}
 }
+
+/* Account balance patch */
+.hero-account-mini{min-width:260px;max-width:420px}
+.hero-account-breakdown{display:grid;gap:7px;margin-top:10px}
+.hero-account-row{display:flex;justify-content:space-between;gap:18px;font-size:12px;color:#c7d1dc}
+.hero-account-row span:first-child{color:#91a2b5}
+.hero-account-total{display:flex;justify-content:space-between;gap:18px;align-items:center;border-top:1px solid rgba(255,255,255,.12);margin-top:9px;padding-top:9px}
+.hero-account-total strong{font-size:20px}
+.account-unassigned{color:#ffd477}
+@media(max-width:700px){
+  .hero-card{align-items:stretch;flex-direction:column;gap:14px}
+  .hero-mini.hero-account-mini{display:block;text-align:left;min-width:0;max-width:none;width:100%;border-top:1px solid rgba(255,255,255,.12);padding-top:13px}
+  .hero-account-breakdown{grid-template-columns:1fr 1fr;gap:8px 16px}
+}

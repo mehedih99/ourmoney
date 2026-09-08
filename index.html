@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260907-final2">
+  <link rel="stylesheet" href="styles.css?v=20260908-account1">
 </head>
 <body>
 <div id="toast" class="toast"></div>
@@ -69,9 +69,11 @@
           <h1 id="availableBalance">AED 0</h1>
           <span id="monthLabel" class="chip">—</span>
         </div>
-        <div class="hero-mini">
-          <span data-i18n="tapDetails">Tap for details</span>
-          <strong id="totalSavings">AED 0</strong>
+        <div class="hero-mini hero-account-mini">
+          <span data-i18n="accountBreakdown">Account Balance</span>
+          <div id="heroAccountBreakdown" class="hero-account-breakdown"></div>
+          <div class="hero-account-total"><span data-i18n="total">Total</span><strong id="heroAccountTotal">AED 0</strong></div>
+          <strong id="totalSavings" class="hidden">AED 0</strong>
         </div>
       </button>
 
@@ -159,6 +161,7 @@
             <label><span data-i18n="category">Category</span><select id="reportCategory"></select></label>
             <label><span data-i18n="subcategory">Subcategory</span><select id="reportSubcategory"></select></label>
             <label id="reportIncomeOwnerWrap"><span data-i18n="incomeOwner">Income Owner</span><select id="reportIncomeOwner"></select></label>
+            <label><span data-i18n="account">Account</span><select id="reportAccount"></select></label>
             <label><span data-i18n="addedBy">Added by</span><select id="reportOwner"></select></label>
             <label><span data-i18n="currency">Currency</span><select id="reportCurrency"></select></label>
           </div>
@@ -343,6 +346,7 @@
       </div>
       <p class="tiny muted" data-i18n="transferHint">A transfer only moves your money. It does not change total balance, income, expense or savings.</p>
     </div>
+    <label id="accountWrap"><span data-i18n="account">Account</span><select id="entryAccount"></select></label>
     <label id="methodWrap"><span data-i18n="method">Method</span><select id="entryMethod"></select></label>
     <div class="two-col">
       <label><span data-i18n="date">Date</span><input id="entryDate" type="date" required></label>
@@ -438,6 +442,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 <script src="config.js"></script>
-<script src="app.js?v=20260907-final2"></script>
+<script src="app.js?v=20260908-account1"></script>
 </body>
 </html>
