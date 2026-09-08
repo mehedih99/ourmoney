@@ -73,7 +73,7 @@ async function enter(user){
     const bad=results.filter(x=>x.status==="rejected");if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
     applyLanguage();initMonthPicker();populate();renderAll();
     $("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();$("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();
-    if(!rejected.length)state.lastDataError=null;
+    if(!bad.length && missingAccountCount()===0)state.lastDataError=null;
     updateDataLoadWarning();updateSyncUI();registerOfflineWorker();if(navigator.onLine&&state.offlineEnabled)syncPending();
   }catch(e){
     console.error("Enter failed",e);state.lastDataError=String(e?.message||e);
@@ -152,22 +152,36 @@ function showDataLoadError(err){state.lastDataError=String(err?.message||err||"C
 function updateDataLoadWarning(){const box=$("#dataLoadWarning");if(!box)return;const has=!!state.lastDataError;box.classList.toggle("hidden",!has);if(has)$("#dataLoadWarningText").textContent=state.lastDataError}
 async function retryDataLoad(){
   if(!state.user)return;
-  state.lastDataError=null;updateDataLoadWarning();
+  state.lastDataError=null;
+  updateDataLoadWarning();
   try{
-    try{const rr=await db.auth.refreshSession();if(rr?.data?.session)state.user=rr.data.session.user}catch(e){console.warn("retry refresh",e)}
+    try{
+      const rr=await db.auth.refreshSession();
+      if(rr?.data?.session)state.user=rr.data.session.user;
+    }catch(e){console.warn("retry refresh",e)}
+
     await Promise.allSettled([ensureProfile(),ensureSettings()]);
     const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
     const bad=results.filter(x=>x.status==="rejected");
     if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
-    applyLanguage();initMonthPicker();populate();renderAll();
+
+    applyLanguage();
+    initMonthPicker();
+    populate();
+    renderAll();
+
     $("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();
     $("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();
-    updateDataLoadWarning();updateSyncUI();
+
+    if(!bad.length && missingAccountCount()===0)state.lastDataError=null;
+    updateDataLoadWarning();
+    updateSyncUI();
     if(!state.lastDataError)toast("Data reloaded");
   }catch(e){
     console.error("Retry data load failed",e);
     state.lastDataError=String(e?.message||e);
-    updateDataLoadWarning();updateSyncUI();
+    updateDataLoadWarning();
+    updateSyncUI();
   }
 }
 function applyLanguage(){
@@ -204,38 +218,52 @@ function renderAll(){renderDashboard();renderHistory();renderTargets();renderSet
 function monthRows(){return state.transactions.filter(x=>String(x.transaction_date).slice(0,7)===state.selectedMonth)}
 
 function effectiveAccount(x){
-  if(x?.account==="Cash")return "Cash";
-  if(x?.account==="Bank")return "Bank";
-  // Backward compatibility for old records:
-  // old Cash method => Cash, otherwise default to Bank.
-  // This keeps Bank + Cash equal to Available Balance without losing old history.
-  if(String(x?.payment_method||"").toLowerCase()==="cash")return "Cash";
-  return "Bank";
+  return x?.account==="Bank"||x?.account==="Cash" ? x.account : null;
+}
+function missingAccountCount(){
+  return state.transactions.filter(x=>!effectiveAccount(x)).length;
 }
 function calculateAccountBalances(excludeId=null,excludeKind=null){
   const balances={Bank:0,Cash:0};
+  let missing=0;
+
   for(const x of state.transactions){
     if(excludeKind==="transaction"&&excludeId&&x.id===excludeId)continue;
-    const key=effectiveAccount(x),v=baseValue(x);
+    const key=effectiveAccount(x);
+    if(!key){missing++;continue}
+    const v=baseValue(x);
     if(x.type==="income")balances[key]+=v;
     else if(x.type==="expense"||x.type==="saving")balances[key]-=v;
   }
+
   for(const x of state.transfers){
     if(excludeKind==="transfer"&&excludeId&&x.id===excludeId)continue;
     const v=Number(x.amount||0)*Number(x.exchange_rate||1);
     if(x.from_account==="Bank"||x.from_account==="Cash")balances[x.from_account]-=v;
     if(x.to_account==="Bank"||x.to_account==="Cash")balances[x.to_account]+=v;
   }
-  return {balances,total:balances.Bank+balances.Cash};
+
+  return {balances,total:balances.Bank+balances.Cash,missing};
 }
 function accountBalance(account,excludeId=null,excludeKind=null){
   return Number(calculateAccountBalances(excludeId,excludeKind).balances[account]||0);
 }
 function canSpendFromAccount(account,amountBase,excludeId=null,excludeKind=null){
+  if(account!=="Bank"&&account!=="Cash")return false;
   return accountBalance(account,excludeId,excludeKind)+0.000001>=Number(amountBase||0);
 }
 function renderHeroAccountBreakdown(){
-  const {balances,total}=calculateAccountBalances();
+  const {balances,total,missing}=calculateAccountBalances();
+
+  if(missing>0){
+    $("#heroAccountBreakdown").innerHTML=`<div class="hero-account-row account-unassigned"><span>Account setup required</span><strong>${missing} old record${missing===1?"":"s"}</strong></div>`;
+    $("#heroAccountTotal").textContent="—";
+    if(!state.lastDataError)state.lastDataError=`${missing} existing transaction${missing===1?" is":"s are"} missing Bank/Cash account. Run supabase-final-ledger-migration.sql once.`;
+    updateDataLoadWarning();
+    updateSyncUI();
+    return;
+  }
+
   $("#heroAccountBreakdown").innerHTML=[
     `<div class="hero-account-row"><span>Bank</span><strong>${money(balances.Bank)}</strong></div>`,
     `<div class="hero-account-row"><span>Cash</span><strong>${money(balances.Cash)}</strong></div>`
@@ -371,7 +399,7 @@ async function submitEntry(e){
 
     if(type==="transfer"){
       const from=$("#transferFrom").value,to=$("#transferTo").value;
-      if(!from||!to)return toast("Select From and To accounts");
+      if(!["Bank","Cash"].includes(from)||!["Bank","Cash"].includes(to))return toast("Select Bank or Cash");
       if(from===to)return toast("From and To accounts must be different");
       const transferBase=amount*rate;
       const transferEditId=state.editingTransferId||null;
@@ -422,6 +450,8 @@ async function submitEntry(e){
     if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
     if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
     if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
+
+    if(!["Bank","Cash"].includes(row.account))return toast("Select Bank or Cash");
 
     if(type==="expense"||type==="saving"){
       const spendBase=amount*rate;
@@ -480,7 +510,7 @@ function openTransactionDetail(id){
     [tr("method"),x.payment_method||"—"],
     [tr("createdAt"),formatCreatedAt(x.created_at)]
   ];
-  rows.splice(2,0,[tr("account"),effectiveAccount(x)]);
+  rows.splice(2,0,[tr("account"),effectiveAccount(x)||"Account not set"]);
   if(x.type==="income"){rows.splice(3,0,[tr("incomeOwner"),x.income_owner||"—"]);rows.splice(4,0,[tr("source"),x.source||"—"]);}
   if(x.type==="expense"){rows.splice(2,0,[tr("category"),x.category||"—"]);rows.splice(3,0,[tr("subcategory"),x.subcategory||"—"])}
   if(x.type==="saving"){rows.splice(2,0,[tr("saveTo"),x.saving_account||"—"]);const tg=state.targets.find(t=>t.id===x.target_id);rows.splice(3,0,[tr("targets"),tg?.name||(lang()==="bn"?"কোনো টার্গেট নয়":"No target")])}
@@ -632,7 +662,7 @@ function editCurrentTransaction(){
   const x=state.transactions.find(r=>r.id===state.currentTxId);if(!x)return;
   closeD("transactionDialog");state.editingTransferId=null;state.editingId=x.id;setEntryType(x.type);
   $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
-  $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);$("#entryAccount").value=effectiveAccount(x);$("#entryMethod").value=x.payment_method||"";$("#entryNote").value=x.note||"";
+  $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);if(effectiveAccount(x))$("#entryAccount").value=effectiveAccount(x);$("#entryMethod").value=x.payment_method||"";$("#entryNote").value=x.note||"";
   if(x.type==="income"){$("#incomeOwner").value=x.income_owner||"";$("#incomeSource").value=x.source||""}
   if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||""}
   if(x.type==="saving"){$("#savingAccount").value=x.saving_account||"";$("#savingTarget").value=x.target_id||""}
