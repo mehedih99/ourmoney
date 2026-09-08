@@ -1,9 +1,9 @@
-const CACHE_NAME="our-money-shell-v8";
+const CACHE_NAME="our-money-shell-v9";
 const CORE=[
   "./",
   "./index.html",
-  "./styles.css?v=20260908-ledger-final2",
-  "./app.js?v=20260908-ledger-final2",
+  "./styles.css?v=20260908-recovery1",
+  "./app.js?v=20260908-recovery1",
   "./config.js",
   "./manifest.webmanifest",
   "./icon-64.png",

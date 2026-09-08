@@ -160,3 +160,7 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 
 /* Ledger final */
 .account-balance-hint{font-size:10px;color:#8091a4;margin-top:5px;display:block}
+
+.data-load-warning{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 14px;padding:11px 14px;border:1px solid #6a3944;background:#24151a;border-radius:14px;color:#ffc0c9}
+.data-load-warning span{flex:1;color:#e4a9b2;font-size:12px}
+.data-load-warning .btn{padding:8px 13px}
