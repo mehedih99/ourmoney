@@ -73,6 +73,7 @@ async function enter(user){
     const bad=results.filter(x=>x.status==="rejected");if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
     applyLanguage();initMonthPicker();populate();renderAll();
     $("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();$("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();
+    if(!rejected.length)state.lastDataError=null;
     updateDataLoadWarning();updateSyncUI();registerOfflineWorker();if(navigator.onLine&&state.offlineEnabled)syncPending();
   }catch(e){
     console.error("Enter failed",e);state.lastDataError=String(e?.message||e);
@@ -150,12 +151,24 @@ async function loadTargets(){
 function showDataLoadError(err){state.lastDataError=String(err?.message||err||"Could not load live data");updateDataLoadWarning()}
 function updateDataLoadWarning(){const box=$("#dataLoadWarning");if(!box)return;const has=!!state.lastDataError;box.classList.toggle("hidden",!has);if(has)$("#dataLoadWarningText").textContent=state.lastDataError}
 async function retryDataLoad(){
-  if(!state.user)return;state.lastDataError=null;updateDataLoadWarning();
-  try{const rr=await db.auth.refreshSession();if(rr?.data?.session)state.user=rr.data.session.user}catch(e){}
-  await Promise.allSettled([ensureProfile(),ensureSettings()]);
-  const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
-  const bad=results.filter(x=>x.status==="rejected");if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
-  applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();$("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();updateDataLoadWarning();updateSyncUI();if(!state.lastDataError)toast("Data reloaded");
+  if(!state.user)return;
+  state.lastDataError=null;updateDataLoadWarning();
+  try{
+    try{const rr=await db.auth.refreshSession();if(rr?.data?.session)state.user=rr.data.session.user}catch(e){console.warn("retry refresh",e)}
+    await Promise.allSettled([ensureProfile(),ensureSettings()]);
+    const results=await Promise.allSettled([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
+    const bad=results.filter(x=>x.status==="rejected");
+    if(bad.length)state.lastDataError=bad.map(x=>String(x.reason?.message||x.reason)).join(" | ");
+    applyLanguage();initMonthPicker();populate();renderAll();
+    $("#sidebarUser").textContent=state.profile?.display_name||fallbackDisplayName();
+    $("#autoOwner").textContent=state.profile?.display_name||fallbackDisplayName();
+    updateDataLoadWarning();updateSyncUI();
+    if(!state.lastDataError)toast("Data reloaded");
+  }catch(e){
+    console.error("Retry data load failed",e);
+    state.lastDataError=String(e?.message||e);
+    updateDataLoadWarning();updateSyncUI();
+  }
 }
 function applyLanguage(){
   document.documentElement.lang=lang()==="bn"?"bn":"en";
@@ -691,7 +704,7 @@ async function savePsaEntry(e){
 
 function renderSettings(){
   $("#preferenceTitle").textContent=state.profile?.display_name||"—";
-  renderBalanceSplitSettings();$("#profileName").value=state.profile?.display_name||"";
+$("#profileName").value=state.profile?.display_name||"";
   fill($("#baseCurrency"),state.settings.currencies.map(x=>x.code),state.settings.base_currency);
   $("#currencyManager").innerHTML=state.settings.currencies.map((x,i)=>chip(`${x.code} ${x.symbol}`,"currency",i)).join("");
   $("#incomeOwnerManager").innerHTML=(state.settings.income_owners||[]).map((x,i)=>chip(x,"incomeOwner",i)).join("");
