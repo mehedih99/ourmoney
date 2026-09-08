@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260908-credit-final">
+  <link rel="stylesheet" href="styles.css?v=20260908-complete-final">
 </head>
 <body>
 <div id="toast" class="toast"></div>
@@ -162,7 +162,7 @@
             <button data-report-type="expense"><span class="report-type-icon">−</span><span data-i18n="expense">Expense</span></button>
             <button data-report-type="saving"><span class="report-type-icon">↗</span><span data-i18n="savings">Savings</span></button>
             <button data-report-type="family"><span class="report-type-icon">⌂</span><span data-i18n="familySupport">Family Support</span></button>
-            <button data-report-type="transfer"><span class="report-type-icon">⇄</span><span data-i18n="transfer">Transfer</span></button>
+            <button data-report-type="transfer"><span class="report-type-icon">⇄</span><span data-i18n="transfer">Transfer</span></button><button data-report-type="credit"><span class="report-type-icon">▣</span><span>Credit</span></button>
             <button data-report-type="all"><span class="report-type-icon">≡</span><span data-i18n="all">All</span></button>
           </div>
 
@@ -170,14 +170,14 @@
             <label><span data-i18n="category">Category</span><select id="reportCategory"></select></label>
             <label><span data-i18n="subcategory">Subcategory</span><select id="reportSubcategory"></select></label>
             <label id="reportIncomeOwnerWrap"><span data-i18n="incomeOwner">Income Owner</span><select id="reportIncomeOwner"></select></label>
-            <label><span data-i18n="account">Bank / Cash</span><select id="reportAccount"></select></label>
+            <label id="reportPayWithWrap"><span>Pay With</span><select id="reportPayWith"></select></label><label id="reportCreditAccountWrap" class="hidden"><span>Credit Account</span><select id="reportCreditAccount"></select></label>
             <label><span data-i18n="addedBy">Added by</span><select id="reportOwner"></select></label>
             <label><span data-i18n="currency">Currency</span><select id="reportCurrency"></select></label>
           </div>
         </div>
       </article>
 
-      <article class="panel report-summary-card">
+      <article id="creditReportSummary" class="panel credit-report-summary hidden"><div><span>Credit Purchases</span><strong id="creditReportPurchases">AED 0</strong></div><div><span>Paid to Credit</span><strong id="creditReportPaid">AED 0</strong></div><div><span>Outstanding Due</span><strong id="creditReportDue">AED 0</strong></div><div><span>Available Limit</span><strong id="creditReportAvailable">AED 0</strong></div></article><article class="panel report-summary-card">
         <div class="report-summary-label" id="reportSummaryLabel">Total Income</div>
         <div class="report-summary-value" id="reportSummaryValue">AED 0</div>
         <div class="report-summary-meta" id="reportSummaryMeta">0 entries</div>
@@ -263,7 +263,7 @@
             <div id="incomeSourceManager" class="manager-list"></div>
             <div class="inline-add two"><input id="newIncomeSource" placeholder="e.g. Salary"><button id="addIncomeSourceBtn" class="btn" data-i18n="add">Add</button></div>
           </article>
-<article class="panel credit-settings-panel"><div class="panel-head"><div><p class="eyebrow">CREDIT</p><h3>Credit Accounts</h3></div></div><p class="muted tiny">Tabby, Tamara or credit cards. Rename and change limits anytime.</p><div id="creditManager" class="credit-manager"></div><div class="credit-add-grid"><input id="newCreditName" placeholder="Tabby"><select id="newCreditType"><option value="bnpl">BNPL</option><option value="credit_card">Credit Card</option></select><input id="newCreditLimit" type="number" min="0" step="0.01" placeholder="Credit limit"><button id="addCreditBtn" class="btn">Add Credit Account</button></div></article>
+<article class="panel credit-settings-panel"><div class="panel-head"><div><p class="eyebrow">CREDIT</p><h3>Credit Accounts</h3></div></div><p class="muted tiny">Tabby, Tamara or credit cards. Rename, change limits, archive or safely delete unused accounts.</p><div id="creditManager" class="credit-manager"></div><div class="credit-add-grid"><input id="newCreditName" placeholder="Tabby"><select id="newCreditType"><option value="bnpl">Installment Service</option><option value="credit_card">Credit Card</option></select><input id="newCreditLimit" type="number" min="0" step="0.01" placeholder="Credit limit"><button id="addCreditBtn" class="btn">Add Credit Account</button></div></article>
 
           <article class="panel">
             <div class="panel-head"><div><p class="eyebrow" data-i18n="savings">SAVINGS</p><h3 data-i18n="savingsAccounts">Savings accounts</h3></div></div>
@@ -330,7 +330,7 @@
       <label><span data-i18n="incomeOwner">Income Owner</span><select id="incomeOwner"></select></label>
       <label><span data-i18n="source">Source</span><select id="incomeSource"></select></label>
     </div>
-    <div id="expenseFields"><label><span data-i18n="category">Category</span><select id="expenseCategory"></select></label><label id="subcategoryWrap"><span data-i18n="subcategory">Subcategory</span><select id="expenseSubcategory"></select></label><label><span>Pay With</span><select id="expensePayWith"><option value="Bank">Bank</option><option value="Cash">Cash</option><option value="Credit">Credit</option></select></label><div id="creditExpenseFields" class="hidden credit-expense-box"><label><span>Credit Account</span><select id="expenseCreditAccount"></select><small id="creditLimitHint" class="account-balance-hint"></small></label><label><span>Payment Plan</span><select id="expensePlan"><option value="full">Full / No installment</option><option value="installment">Installment</option></select></label><div id="installmentFields" class="two-col hidden"><label><span>Number of Installments</span><input id="installmentCount" type="number" min="2" max="24" value="4"></label><label><span>First Due Date</span><input id="firstDueDate" type="date"></label></div><small class="muted tiny">Credit purchase counts as Expense now; Bank/Cash decreases only when you pay the credit due.</small></div></div>
+    <div id="expenseFields"><label><span data-i18n="category">Category</span><select id="expenseCategory"></select></label><label id="subcategoryWrap"><span data-i18n="subcategory">Subcategory</span><select id="expenseSubcategory"></select></label><label><span>Pay With</span><select id="expensePayWith"><option value="Bank">Bank</option><option value="Cash">Cash</option><option value="Credit">Credit</option></select></label><div id="creditExpenseFields" class="hidden credit-expense-box"><label><span>Credit Account</span><select id="expenseCreditAccount"></select><small id="creditLimitHint" class="account-balance-hint"></small></label><label><span>Payment Plan</span><select id="expensePlan"><option value="full">Full / No installment</option><option value="installment">Installment</option></select></label><div id="installmentFields" class="two-col hidden"><label><span>Number of Installments</span><input id="installmentCount" type="number" min="2" max="24" value="4"></label><label><span>First Due Date</span><input id="firstDueDate" type="date"></label></div><div id="installmentPreview" class="installment-preview hidden"></div><small class="muted tiny">Credit purchase counts as Expense now; Bank/Cash decreases only when you pay the credit due.</small></div></div>
     <div id="savingFields" class="hidden">
       <label><span data-i18n="saveTo">Save to</span><select id="savingAccount"></select></label>
       <label><span data-i18n="targetOptional">Target (optional)</span><select id="savingTarget"></select></label>
@@ -440,6 +440,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 <script src="config.js"></script>
-<script src="app.js?v=20260908-credit-final"></script>
+<script src="app.js?v=20260908-complete-final"></script>
 </body>
 </html>
