@@ -156,3 +156,10 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 @media(max-width:700px){
   .hero-account-breakdown{grid-template-columns:1fr 1fr}
 }
+
+/* Current Bank/Cash calibration */
+.balance-split-card{border-color:#365363;background:linear-gradient(180deg,rgba(17,35,46,.98),rgba(17,24,33,.96))}
+.balance-split-check{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid #29394b;border-radius:13px;background:#0c141d}
+.balance-split-check span{color:var(--muted);font-size:12px}
+#splitValidation.ok{color:#71e6c3}
+#splitValidation.bad{color:#ff8c9b}
