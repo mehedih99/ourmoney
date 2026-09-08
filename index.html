@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260908-account1">
+  <link rel="stylesheet" href="styles.css?v=20260908-bankcash-final">
 </head>
 <body>
 <div id="toast" class="toast"></div>
@@ -71,7 +71,7 @@
         </div>
         <div class="hero-mini hero-account-mini">
           <span data-i18n="accountBreakdown">Account Balance</span>
-          <div id="heroAccountBreakdown" class="hero-account-breakdown"></div>
+          <div id="heroAccountBreakdown" class="hero-account-breakdown"></div><small class="hero-account-note" data-i18n="balanceLocationHint">Where your available money is now</small>
           <div class="hero-account-total"><span data-i18n="total">Total</span><strong id="heroAccountTotal">AED 0</strong></div>
           <strong id="totalSavings" class="hidden">AED 0</strong>
         </div>
@@ -161,7 +161,7 @@
             <label><span data-i18n="category">Category</span><select id="reportCategory"></select></label>
             <label><span data-i18n="subcategory">Subcategory</span><select id="reportSubcategory"></select></label>
             <label id="reportIncomeOwnerWrap"><span data-i18n="incomeOwner">Income Owner</span><select id="reportIncomeOwner"></select></label>
-            <label><span data-i18n="account">Account</span><select id="reportAccount"></select></label>
+            <label><span data-i18n="account">Bank / Cash</span><select id="reportAccount"></select></label>
             <label><span data-i18n="addedBy">Added by</span><select id="reportOwner"></select></label>
             <label><span data-i18n="currency">Currency</span><select id="reportCurrency"></select></label>
           </div>
@@ -254,15 +254,7 @@
             <div id="incomeSourceManager" class="manager-list"></div>
             <div class="inline-add two"><input id="newIncomeSource" placeholder="e.g. Salary"><button id="addIncomeSourceBtn" class="btn" data-i18n="add">Add</button></div>
           </article>
-
-          <article class="panel">
-            <div class="panel-head"><div><p class="eyebrow">ACCOUNTS</p><h3 data-i18n="moneyAccounts">Money Accounts</h3></div></div>
-            <p class="tiny muted" data-i18n="accountsHint">Used for Bank ↔ Cash transfers. Transfers do not count as Income or Expense.</p>
-            <div id="accountManager" class="manager-list"></div>
-            <div class="inline-add two"><input id="newAccount" placeholder="e.g. Bank"><button id="addAccountBtn" class="btn" data-i18n="add">Add</button></div>
-          </article>
-
-          <article class="panel">
+<article class="panel">
             <div class="panel-head"><div><p class="eyebrow" data-i18n="methods">METHODS</p><h3 data-i18n="paymentMethods">Payment methods</h3></div></div>
             <div id="methodManager" class="manager-list"></div>
             <div class="inline-add two"><input id="newMethod" placeholder="ENBD Card"><button id="addMethodBtn" class="btn" data-i18n="add">Add</button></div>
@@ -346,7 +338,7 @@
       </div>
       <p class="tiny muted" data-i18n="transferHint">A transfer only moves your money. It does not change total balance, income, expense or savings.</p>
     </div>
-    <label id="accountWrap"><span data-i18n="account">Account</span><select id="entryAccount"></select></label>
+    <label id="accountWrap"><span id="accountFieldLabel">Account</span><select id="entryAccount"></select></label>
     <label id="methodWrap"><span data-i18n="method">Method</span><select id="entryMethod"></select></label>
     <div class="two-col">
       <label><span data-i18n="date">Date</span><input id="entryDate" type="date" required></label>
@@ -442,6 +434,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 <script src="config.js"></script>
-<script src="app.js?v=20260908-account1"></script>
+<script src="app.js?v=20260908-bankcash-final"></script>
 </body>
 </html>
