@@ -38,11 +38,11 @@ saving_accounts:[{name:"Future Savings",currency:"AED"},{name:"Bangladesh Saving
 };
 
 const T={
-en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",incomeOwner:"Income Owner",incomeSetup:"Income Owners & Sources",incomeOwners:"Income Owners",incomeSources:"Income Sources",editRecord:"Edit Record",account:"Bank / Cash",accountBreakdown:"Where Your Money Is",total:"Total Available",unassigned:"Unassigned",balanceLocationHint:"Where your available money is now",receivedTo:"Received To",paidFrom:"Paid From",savedFrom:"Saved From",currentBalanceSplit:"Current Bank / Cash Split",balanceSplitHelp:"Set where your current Available Balance is right now. Old history stays unchanged. After this, new Income, Expense, Savings and Transfers update Bank/Cash automatically.",saveBalanceSplit:"Save Current Split",transfer:"Transfer",moneyAccounts:"Money Accounts",accountsHint:"Used for Bank ↔ Cash transfers. Transfers do not count as Income or Expense.",fromAccount:"From Account",toAccount:"To Account",transferHint:"A transfer only moves your money. It does not change total balance, income, expense or savings.",totalTransfer:"Total Transferred",psaHint:"Private to your login. It never appears in shared dashboard, history, savings or reports.",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
-bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",account:"Bank / Cash",accountBreakdown:"টাকা কোথায় আছে",total:"মোট Available",unassigned:"Unassigned",balanceLocationHint:"আপনার available টাকা এখন কোথায় আছে",receivedTo:"যেখানে টাকা এসেছে",paidFrom:"যেখান থেকে পেমেন্ট",savedFrom:"যেখান থেকে সেভিংস",currentBalanceSplit:"বর্তমান Bank / Cash ভাগ",balanceSplitHelp:"এই মুহূর্তে আপনার Available Balance কোথায় আছে সেটি সেট করুন। পুরনো history বদলাবে না। এরপর নতুন Income, Expense, Savings এবং Transfer Bank/Cash অটো আপডেট করবে।",saveBalanceSplit:"বর্তমান ভাগ সেভ করুন",transfer:"ট্রান্সফার",moneyAccounts:"মানি অ্যাকাউন্ট",accountsHint:"Bank ↔ Cash ট্রান্সফারের জন্য ব্যবহার হবে। ট্রান্সফার Income বা Expense হিসেবে গণনা হবে না।",fromAccount:"যেখান থেকে",toAccount:"যেখানে",transferHint:"ট্রান্সফারে শুধু নিজের টাকা এক অ্যাকাউন্ট থেকে অন্যটিতে যায়। মোট ব্যালেন্স, আয়, খরচ বা সেভিংস বদলায় না।",totalTransfer:"মোট ট্রান্সফার",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
+en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",incomeOwner:"Income Owner",incomeSetup:"Income Owners & Sources",incomeOwners:"Income Owners",incomeSources:"Income Sources",editRecord:"Edit Record",account:"Bank / Cash",accountBreakdown:"Where Your Money Is",total:"Total Available",unassigned:"Unassigned",balanceLocationHint:"Where your available money is now",receivedTo:"Received To",paidFrom:"Paid From",savedFrom:"Saved From",transfer:"Transfer",moneyAccounts:"Money Accounts",accountsHint:"Used for Bank ↔ Cash transfers. Transfers do not count as Income or Expense.",fromAccount:"From Account",toAccount:"To Account",transferHint:"A transfer only moves your money. It does not change total balance, income, expense or savings.",totalTransfer:"Total Transferred",psaHint:"Private to your login. It never appears in shared dashboard, history, savings or reports.",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
+bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",account:"Bank / Cash",accountBreakdown:"টাকা কোথায় আছে",total:"মোট Available",unassigned:"Unassigned",balanceLocationHint:"আপনার available টাকা এখন কোথায় আছে",receivedTo:"যেখানে টাকা এসেছে",paidFrom:"যেখান থেকে পেমেন্ট",savedFrom:"যেখান থেকে সেভিংস",transfer:"ট্রান্সফার",moneyAccounts:"মানি অ্যাকাউন্ট",accountsHint:"Bank ↔ Cash ট্রান্সফারের জন্য ব্যবহার হবে। ট্রান্সফার Income বা Expense হিসেবে গণনা হবে না।",fromAccount:"যেখান থেকে",toAccount:"যেখানে",transferHint:"ট্রান্সফারে শুধু নিজের টাকা এক অ্যাকাউন্ট থেকে অন্যটিতে যায়। মোট ব্যালেন্স, আয়, খরচ বা সেভিংস বদলায় না।",totalTransfer:"মোট ট্রান্সফার",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
 };
 
-let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],transfers:[],targets:[],balanceBaseline:null,selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,editingTransferId:null,currentTxId:null,currentDetailKind:"transaction",expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null};
+let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],transfers:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,editingTransferId:null,currentTxId:null,currentDetailKind:"transaction",expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=()=>state.profile?.language||"en",tr=k=>T[lang()]?.[k]||T.en[k]||k;
 const money=(v,c=state.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`;
@@ -62,7 +62,7 @@ async function boot(){
 async function enter(user){
   state.user=user;$("#loginView").classList.add("hidden");$("#app").classList.remove("hidden");
   await offlineInit();await loadPendingOps();
-  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta(),loadBalanceBaseline()]);
+  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
   applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile.display_name;$("#autoOwner").textContent=state.profile.display_name;updateSyncUI();registerOfflineWorker();if(navigator.onLine&&state.offlineEnabled)syncPending();
 }
 async function ensureProfile(){
@@ -122,17 +122,6 @@ async function loadTransfers(){
   if(state.offlineEnabled)mergePendingTransfersIntoState();
 }
 
-async function loadBalanceBaseline(){
-  if(navigator.onLine){
-    const {data,error}=await db.from("balance_baseline").select("*").eq("id",1).maybeSingle();
-    if(!error){
-      state.balanceBaseline=data||null;
-      if(state.offlineEnabled)await offlineCachePut("balanceBaseline",state.balanceBaseline);
-      return;
-    }
-  }
-  state.balanceBaseline=state.offlineEnabled?(await offlineCacheGet("balanceBaseline")||null):null;
-}
 async function loadTargets(){
   if(navigator.onLine){const {data,error}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});if(!error){state.targets=data||[];await offlineCachePut("targets",state.targets);return}}
   state.targets=state.offlineEnabled?(await offlineCacheGet("targets")||[]):[];
@@ -180,53 +169,35 @@ function effectiveAccount(x){
   if(String(x?.payment_method||"").toLowerCase()==="cash")return "Cash";
   return "Bank";
 }
-function calculateAccountBalances(){
-  // Before calibration, preserve legacy estimate.
-  if(!state.balanceBaseline){
-    const balances={Bank:0,Cash:0};
-    for(const x of state.transactions){
-      const key=effectiveAccount(x),v=baseValue(x);
-      if(x.type==="income")balances[key]+=v;
-      else if(x.type==="expense"||x.type==="saving")balances[key]-=v;
-    }
-    for(const x of state.transfers){
-      const v=Number(x.amount||0)*Number(x.exchange_rate||1);
-      if(x.from_account==="Bank"||x.from_account==="Cash")balances[x.from_account]-=v;
-      if(x.to_account==="Bank"||x.to_account==="Cash")balances[x.to_account]+=v;
-    }
-    return {balances,total:balances.Bank+balances.Cash,calibrated:false};
-  }
-
-  const balances={
-    Bank:Number(state.balanceBaseline.bank_amount||0),
-    Cash:Number(state.balanceBaseline.cash_amount||0)
-  };
-  const cutoff=new Date(state.balanceBaseline.created_at).getTime();
-
-  // Only records CREATED after calibration modify the calibrated current position.
+function calculateAccountBalances(excludeId=null,excludeKind=null){
+  const balances={Bank:0,Cash:0};
   for(const x of state.transactions){
-    if(new Date(x.created_at||0).getTime()<=cutoff)continue;
+    if(excludeKind==="transaction"&&excludeId&&x.id===excludeId)continue;
     const key=effectiveAccount(x),v=baseValue(x);
     if(x.type==="income")balances[key]+=v;
     else if(x.type==="expense"||x.type==="saving")balances[key]-=v;
   }
   for(const x of state.transfers){
-    if(new Date(x.created_at||0).getTime()<=cutoff)continue;
+    if(excludeKind==="transfer"&&excludeId&&x.id===excludeId)continue;
     const v=Number(x.amount||0)*Number(x.exchange_rate||1);
     if(x.from_account==="Bank"||x.from_account==="Cash")balances[x.from_account]-=v;
     if(x.to_account==="Bank"||x.to_account==="Cash")balances[x.to_account]+=v;
   }
-  return {balances,total:balances.Bank+balances.Cash,calibrated:true};
+  return {balances,total:balances.Bank+balances.Cash};
+}
+function accountBalance(account,excludeId=null,excludeKind=null){
+  return Number(calculateAccountBalances(excludeId,excludeKind).balances[account]||0);
+}
+function canSpendFromAccount(account,amountBase,excludeId=null,excludeKind=null){
+  return accountBalance(account,excludeId,excludeKind)+0.000001>=Number(amountBase||0);
 }
 function renderHeroAccountBreakdown(){
-  const {balances,total,calibrated}=calculateAccountBalances();
+  const {balances,total}=calculateAccountBalances();
   $("#heroAccountBreakdown").innerHTML=[
     `<div class="hero-account-row"><span>Bank</span><strong>${money(balances.Bank)}</strong></div>`,
     `<div class="hero-account-row"><span>Cash</span><strong>${money(balances.Cash)}</strong></div>`
   ].join("");
   $("#heroAccountTotal").textContent=money(total);
-  const status=$("#accountBalanceStatus");
-  if(status)status.textContent=calibrated?(lang()==="bn"?"Current split set করা আছে":"Current split is calibrated"):(lang()==="bn"?"Settings থেকে একবার Bank/Cash current split set করুন":"Set the current Bank/Cash split once in Settings");
 }
 function renderDashboard(){
   const tx=monthRows(),sum=t=>tx.filter(x=>x.type===t).reduce((s,x)=>s+baseValue(x),0),inc=sum("income"),exp=sum("expense"),sav=sum("saving");
@@ -330,7 +301,17 @@ function setEntryType(type){
   }
   $("#entryTitle").textContent=type==="income"?tr("income"):type==="expense"?tr("expense"):type==="saving"?tr("savings"):tr("transfer");
 }
-function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
+function renderEntryAccountHints(){
+  if($("#entryAccountBalanceHint")){
+    const a=$("#entryAccount").value||"Bank";
+    $("#entryAccountBalanceHint").textContent=`Available: ${money(accountBalance(a,state.editingId||null,"transaction"))}`;
+  }
+  if($("#transferFromBalanceHint")){
+    const a=$("#transferFrom").value||"Bank";
+    $("#transferFromBalanceHint").textContent=`Available: ${money(accountBalance(a,state.editingTransferId||null,"transfer"))}`;
+  }
+}
+function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();renderEntryAccountHints();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
   e.preventDefault();
@@ -349,6 +330,11 @@ async function submitEntry(e){
       const from=$("#transferFrom").value,to=$("#transferTo").value;
       if(!from||!to)return toast("Select From and To accounts");
       if(from===to)return toast("From and To accounts must be different");
+      const transferBase=amount*rate;
+      const transferEditId=state.editingTransferId||null;
+      if(!canSpendFromAccount(from,transferBase,transferEditId,"transfer")){
+        return toast(`${from} balance is not enough. Available: ${money(accountBalance(from,transferEditId,"transfer"))}`);
+      }
       const row={
         amount,currency,exchange_rate:rate,from_account:from,to_account:to,
         transfer_date:$("#entryDate").value,transfer_time:$("#entryTime").value||localTime(),
@@ -393,6 +379,14 @@ async function submitEntry(e){
     if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
     if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
     if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
+
+    if(type==="expense"||type==="saving"){
+      const spendBase=amount*rate;
+      const editId=state.editingId||null;
+      if(!canSpendFromAccount(row.account,spendBase,editId,"transaction")){
+        return toast(`${row.account} balance is not enough. Available: ${money(accountBalance(row.account,editId,"transaction"))}`);
+      }
+    }
 
     if(state.editingId){
       const editId=state.editingId;
@@ -590,7 +584,7 @@ function editCurrentTransaction(){
     $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
     $("#entryDate").value=x.transfer_date;$("#entryTime").value=(x.transfer_time||localTime()).slice(0,5);$("#entryNote").value=x.note||"";
     $("#transferFrom").value=x.from_account||"";$("#transferTo").value=x.to_account||"";
-    $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+tr("transfer");$("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";openD("entryDialog");return;
+    $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+tr("transfer");$("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";renderEntryAccountHints();openD("entryDialog");return;
   }
   const x=state.transactions.find(r=>r.id===state.currentTxId);if(!x)return;
   closeD("transactionDialog");state.editingTransferId=null;state.editingId=x.id;setEntryType(x.type);
@@ -600,7 +594,7 @@ function editCurrentTransaction(){
   if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||""}
   if(x.type==="saving"){$("#savingAccount").value=x.saving_account||"";$("#savingTarget").value=x.target_id||""}
   $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+(x.type==="income"?tr("income"):x.type==="expense"?tr("expense"):tr("savings"));
-  $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";openD("entryDialog");
+  $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";renderEntryAccountHints();openD("entryDialog");
 }
 
 async function loadPsaMeta(){
@@ -665,53 +659,6 @@ async function savePsaEntry(e){
 }
 
 
-function currentAvailableTotal(){
-  const inc=state.transactions.filter(x=>x.type==="income").reduce((s,x)=>s+baseValue(x),0);
-  const exp=state.transactions.filter(x=>x.type==="expense").reduce((s,x)=>s+baseValue(x),0);
-  const sav=state.transactions.filter(x=>x.type==="saving").reduce((s,x)=>s+baseValue(x),0);
-  return inc-exp-sav;
-}
-function renderBalanceSplitSettings(){
-  const available=currentAvailableTotal();
-  if($("#splitAvailableTotal"))$("#splitAvailableTotal").textContent=money(available);
-  if(state.balanceBaseline){
-    $("#splitBank").value=Number(state.balanceBaseline.bank_amount||0);
-    $("#splitCash").value=Number(state.balanceBaseline.cash_amount||0);
-    $("#balanceSplitBadge").textContent="SET";
-  }else{
-    if(!$("#splitBank").value&&!$("#splitCash").value){$("#splitBank").value="";$("#splitCash").value="";}
-    $("#balanceSplitBadge").textContent="NOT SET";
-  }
-  validateBalanceSplit();
-}
-function validateBalanceSplit(){
-  if(!$("#splitValidation"))return true;
-  const bank=Number($("#splitBank").value||0),cash=Number($("#splitCash").value||0),available=currentAvailableTotal();
-  const diff=Math.abs((bank+cash)-available);
-  const ok=diff<0.005;
-  $("#splitValidation").className="tiny "+(ok?"ok":"bad");
-  $("#splitValidation").textContent=ok
-    ? (lang()==="bn"?"Bank + Cash = Available Balance ✓":"Bank + Cash = Available Balance ✓")
-    : `${lang()==="bn"?"আরও মিলাতে হবে":"Difference"}: ${money(diff)}`;
-  return ok;
-}
-async function saveBalanceSplit(){
-  if(!navigator.onLine)return toast("Internet required to set current balance split");
-  if(!validateBalanceSplit())return toast("Bank + Cash must equal Available Balance");
-  const row={
-    id:1,
-    bank_amount:Number($("#splitBank").value||0),
-    cash_amount:Number($("#splitCash").value||0),
-    set_by:state.user.id,
-    created_at:new Date().toISOString()
-  };
-  const {data,error}=await db.from("balance_baseline").upsert(row).select().single();
-  if(error)return toast(error.message);
-  state.balanceBaseline=data;
-  if(state.offlineEnabled)await offlineCachePut("balanceBaseline",data);
-  renderAll();
-  toast("Current Bank/Cash split saved");
-}
 function renderSettings(){
   $("#preferenceTitle").textContent=state.profile?.display_name||"—";
   renderBalanceSplitSettings();$("#profileName").value=state.profile?.display_name||"";
@@ -871,16 +818,13 @@ function bind(){
   if(mobileLogout)mobileLogout.addEventListener("click",performSignOut);
   $$(".nav-item").forEach(b=>b.onclick=()=>go(b.dataset.page));$$("[data-page-jump]").forEach(b=>b.onclick=()=>go(b.dataset.pageJump));
   $("#headerLanguage").onchange=e=>changeLanguage(e.target.value);
-  $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>setEntryType(b.dataset.entryType));$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;
+  $("#monthPicker").onchange=e=>{state.selectedMonth=e.target.value;renderDashboard()};$("#quickAddBtn").onclick=()=>openEntry();$("#mobileAdd").onclick=()=>openEntry();$$(".quick-action").forEach(b=>b.onclick=()=>openEntry(b.dataset.kind));$$("[data-entry-type]").forEach(b=>b.onclick=()=>{setEntryType(b.dataset.entryType);renderEntryAccountHints()});$("#entryAccount").onchange=renderEntryAccountHints;$("#transferFrom").onchange=renderEntryAccountHints;$("#expenseCategory").onchange=updateSubs;$("#entryCurrency").onchange=updateRate;$("#entryForm").onsubmit=submitEntry;$$("[data-close]").forEach(b=>b.onclick=()=>closeD(b.dataset.close));$("#addTargetBtn").onclick=()=>openD("targetDialog");$("#targetForm").onsubmit=submitTarget;
   $("#historySearch").oninput=renderHistory;$("#historyType").onchange=renderHistory;$("#historyCategory").onchange=renderHistory;
   $$(".clickable-card").forEach(b=>b.onclick=()=>openDrill(b.dataset.drill));$("#detailHistoryBtn").onclick=()=>{closeD("detailDialog");go("history");if(state.detailFilter==="income")$("#historyType").value="income";else if(state.detailFilter==="expense"||state.detailFilter==="family")$("#historyType").value="expense";else if(state.detailFilter==="saving")$("#historyType").value="saving";renderHistory()};
   $$("#reportPeriodSegment button").forEach(b=>b.onclick=()=>{state.reportPeriod=b.dataset.period;$$('#reportPeriodSegment button').forEach(x=>x.classList.toggle("active",x===b));$("#customRange").classList.toggle("hidden",state.reportPeriod!=="custom");renderReport()});
   $$("#reportTypeGrid button").forEach(b=>b.onclick=()=>{state.reportType=b.dataset.reportType;$$('#reportTypeGrid button').forEach(x=>x.classList.toggle("active",x===b));renderReport()});
   $("#reportCategory").onchange=()=>{updateReportSubs();renderReport()};["reportSubcategory","reportIncomeOwner","reportAccount","reportOwner","reportCurrency","reportFrom","reportTo"].forEach(id=>$("#"+id).onchange=renderReport);$("#downloadPdfBtn").onclick=pdfReport;
   $("#pinForm").onsubmit=async e=>{e.preventDefault();if(await sha256($("#pinInput").value)===state.settings.pin_hash){state.unlocked=true;$("#settingsLock").classList.add("hidden");$("#settingsContent").classList.remove("hidden");$("#pinInput").value=""}else toast("Wrong PIN")};
-  $("#splitBank").oninput=validateBalanceSplit;
-  $("#splitCash").oninput=validateBalanceSplit;
-  $("#saveBalanceSplitBtn").onclick=saveBalanceSplit;
   $("#saveProfileBtn").onclick=saveProfile;$("#saveGeneralBtn").onclick=async()=>{state.settings.base_currency=$("#baseCurrency").value;const p=$("#newPin").value.trim();if(p){if(p.length<4)return toast("PIN must be at least 4 digits");state.settings.pin_hash=await sha256(p);$("#newPin").value=""}await saveSettings()};
   $("#addCurrencyBtn").onclick=async()=>{const c=$("#newCurrencyCode").value.trim().toUpperCase(),s=$("#newCurrencySymbol").value.trim()||c;if(!/^[A-Z]{3}$/.test(c))return toast("Use 3-letter currency code");if(!state.settings.currencies.some(x=>x.code===c))state.settings.currencies.push({code:c,symbol:s});$("#newCurrencyCode").value=$("#newCurrencySymbol").value="";await saveSettings()};
   $("#addCategoryBtn").onclick=async()=>{const v=$("#newCategory").value.trim();if(v&&!state.settings.categories.some(x=>x.name===v))state.settings.categories.push({name:v,subs:[]});$("#newCategory").value="";await saveSettings()};

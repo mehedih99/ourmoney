@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260908-calibration1">
+  <link rel="stylesheet" href="styles.css?v=20260908-ledger-final2">
 </head>
 <body>
 <div id="toast" class="toast"></div>
@@ -72,7 +72,7 @@
         <div class="hero-mini hero-account-mini">
           <span data-i18n="accountBreakdown">Account Balance</span>
           <div id="heroAccountBreakdown" class="hero-account-breakdown"></div>
-          <small class="hero-account-note" id="accountBalanceStatus" data-i18n="balanceLocationHint">Where your available money is now</small>
+          <small class="hero-account-note" data-i18n="balanceLocationHint">Calculated automatically from Income, Expense, Savings and Transfers</small>
           <div class="hero-account-total"><span data-i18n="total">Total</span><strong id="heroAccountTotal">AED 0</strong></div>
           <strong id="totalSavings" class="hidden">AED 0</strong>
         </div>
@@ -274,23 +274,7 @@
             <button id="changePsaCodeBtn" class="btn">Set / Change PSA Code</button>
           </article>
 
-          <article class="panel balance-split-card">
-            <div class="panel-head">
-              <div><p class="eyebrow">BALANCE</p><h3 data-i18n="currentBalanceSplit">Current Bank / Cash Split</h3></div>
-              <span id="balanceSplitBadge" class="badge">Not Set</span>
-            </div>
-            <p class="muted tiny" data-i18n="balanceSplitHelp">Set where your current Available Balance is right now. Old history stays unchanged. After this, new Income, Expense, Savings and Transfers update Bank/Cash automatically.</p>
-            <div class="two-col">
-              <label><span>Bank</span><input id="splitBank" type="number" step="0.01" placeholder="0.00"></label>
-              <label><span>Cash</span><input id="splitCash" type="number" step="0.01" placeholder="0.00"></label>
-            </div>
-            <div class="balance-split-check">
-              <span data-i18n="availableBalance">Available Balance</span>
-              <strong id="splitAvailableTotal">AED 0</strong>
-            </div>
-            <p id="splitValidation" class="tiny muted"></p>
-            <button id="saveBalanceSplitBtn" class="btn primary full" data-i18n="saveBalanceSplit">Save Current Split</button>
-          </article>
+          
 
           <article class="panel offline-settings-card">
             <div class="panel-head"><div><p class="eyebrow">OFFLINE</p><h3>Offline Mode</h3></div><span id="offlineModeBadge" class="badge">ON</span></div>
@@ -352,12 +336,12 @@
     </div>
     <div id="transferFields" class="hidden">
       <div class="two-col">
-        <label><span data-i18n="fromAccount">From Account</span><select id="transferFrom"></select></label>
+        <label><span data-i18n="fromAccount">From Account</span><select id="transferFrom"></select><small id="transferFromBalanceHint" class="account-balance-hint"></small></label>
         <label><span data-i18n="toAccount">To Account</span><select id="transferTo"></select></label>
       </div>
       <p class="tiny muted" data-i18n="transferHint">A transfer only moves your money. It does not change total balance, income, expense or savings.</p>
     </div>
-    <label id="accountWrap"><span id="accountFieldLabel">Account</span><select id="entryAccount"></select></label>
+    <label id="accountWrap"><span id="accountFieldLabel">Account</span><select id="entryAccount"></select><small id="entryAccountBalanceHint" class="account-balance-hint"></small></label>
     <label id="methodWrap"><span data-i18n="method">Method</span><select id="entryMethod"></select></label>
     <div class="two-col">
       <label><span data-i18n="date">Date</span><input id="entryDate" type="date" required></label>
@@ -453,6 +437,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.2/dist/jspdf.plugin.autotable.min.js"></script>
 <script src="config.js"></script>
-<script src="app.js?v=20260908-calibration1"></script>
+<script src="app.js?v=20260908-ledger-final2"></script>
 </body>
 </html>
