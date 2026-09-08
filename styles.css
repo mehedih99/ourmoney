@@ -119,3 +119,16 @@ body{padding-bottom:78px}.app{display:block}.sidebar{display:none}.main{padding:
 .sync-status,.btn,.nav-item,.mobile-add{
   touch-action:manipulation;
 }
+
+/* Final transfer + stability patch */
+.type-switch.four-way{grid-template-columns:repeat(4,1fr)}
+.transfer-tx .tx-icon{color:#b995ff}
+.tx-amount.transfer{color:#b995ff}
+.account-transfer-label{color:#b9c5d2}
+.report-type-grid{grid-template-columns:repeat(6,1fr)}
+@media(max-width:1050px){.report-type-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){
+  .type-switch.four-way{grid-template-columns:1fr 1fr}
+  .report-type-grid{grid-template-columns:1fr 1fr}
+  .report-type-grid button:last-child{grid-column:auto}
+}

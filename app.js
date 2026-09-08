@@ -32,16 +32,17 @@ categories:[
 ],
 income_owners:["Mehedi Income","Mousumi Income"],
 income_sources:["Salary","Overtime","Bonus","Refund","Other"],
+money_accounts:["Bank","Cash"],
 payment_methods:["Bank","Cash","Card","Bank Transfer","Tabby"],
 saving_accounts:[{name:"Future Savings",currency:"AED"},{name:"Bangladesh Savings",currency:"BDT"}]
 };
 
 const T={
-en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",incomeOwner:"Income Owner",incomeSetup:"Income Owners & Sources",incomeOwners:"Income Owners",incomeSources:"Income Sources",editRecord:"Edit Record",psaHint:"Private to your login. It never appears in shared dashboard, history, savings or reports.",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
-bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
+en:{privateFinance:"Private daily finance for Mehedi & Mou",email:"Email",password:"Password",signIn:"Sign in",signOut:"Sign out",home:"Home",history:"History",reports:"Reports",targets:"Targets",settings:"Settings",dashboard:"Dashboard",add:"Add",availableBalance:"Available Balance",tapDetails:"Tap for details",income:"Income",expense:"Expense",savings:"Savings",familySupport:"Family Support",incomeAction:"Salary or other money in",expenseAction:"Daily & monthly spending",savingAction:"Move money to future",spending:"SPENDING",whereMoneyWent:"Where money went",futurePlans:"Future plans",viewAll:"View all",recent:"RECENT",latestActivity:"Latest activity",fullHistory:"Full history",searchHistory:"Search amount, note, category...",allTypes:"All types",allCategories:"All categories",simpleReportTitle:"See the full calculation instantly",simpleReportHelp:"Choose a period and type. All entries appear first, and the total is calculated automatically at the bottom.",thisMonth:"This Month",lastMonth:"Last Month",thisYear:"This Year",lastYear:"Last Year",custom:"Custom",from:"From",to:"To",all:"All",category:"Category",subcategory:"Subcategory",addedBy:"Added by",currency:"Currency",breakdown:"BREAKDOWN",categoryBreakdown:"Category breakdown",subcategories:"SUBCATEGORIES",subcategoryBreakdown:"Subcategory breakdown",details:"DETAILS",reportTransactions:"Entries",targetsIntro:"Track future plans.",newTarget:"New Target",settingsLocked:"Settings Locked",enterPin:"Enter your settings PIN.",unlock:"Unlock",myPreferences:"MY PREFERENCES",displayName:"Display name",language:"Language",savePreferences:"Save Preferences",profileHint:"Language changes only your screen. Financial data stays shared.",general:"GENERAL",sharedSettings:"Shared Settings",baseCurrency:"Base currency",newSettingsPin:"New Settings PIN",saveSettings:"Save Settings",currencies:"CURRENCIES",activeCurrencies:"Active currencies",expenseStructure:"EXPENSE STRUCTURE",categoriesSubcategories:"Categories & subcategories",newCategory:"New category",addCategory:"Add Category",methods:"METHODS",paymentMethods:"Payment methods",data:"DATA",backupDeleted:"Backup & deleted records",exportBackup:"Export JSON Backup",openTrash:"Open Trash",newRecord:"NEW RECORD",amount:"Amount",rateToBase:"Rate to base currency",source:"Source",incomeOwner:"Income Owner",incomeSetup:"Income Owners & Sources",incomeOwners:"Income Owners",incomeSources:"Income Sources",editRecord:"Edit Record",transfer:"Transfer",moneyAccounts:"Money Accounts",accountsHint:"Used for Bank ↔ Cash transfers. Transfers do not count as Income or Expense.",fromAccount:"From Account",toAccount:"To Account",transferHint:"A transfer only moves your money. It does not change total balance, income, expense or savings.",totalTransfer:"Total Transferred",psaHint:"Private to your login. It never appears in shared dashboard, history, savings or reports.",saveTo:"Save to",targetOptional:"Target (optional)",method:"Method",date:"Date",time:"Time",createdAt:"Created At",transactionDateTime:"Transaction Date & Time",noteOptional:"Note (optional)",shortNote:"Short note",cancel:"Cancel",saveRecord:"Save Record",targetName:"Target name",targetAmount:"Target amount",targetDateOptional:"Target date (optional)",createTarget:"Create Target",recovery:"RECOVERY",trash:"Trash",viewInHistory:"View in History",totalIncome:"Total Income",totalExpense:"Total Expense",totalSavings:"Total Savings",totalFamily:"Total Family Support",balanceBreakdown:"Balance Breakdown",entries:"entries",noData:"No data yet."},
+bn:{privateFinance:"মেহেদী ও মৌ-এর দৈনন্দিন ব্যক্তিগত হিসাব",email:"ইমেইল",password:"পাসওয়ার্ড",signIn:"লগইন",signOut:"লগআউট",home:"হোম",history:"হিস্টোরি",reports:"রিপোর্ট",targets:"টার্গেট",settings:"সেটিংস",dashboard:"ড্যাশবোর্ড",add:"যোগ করুন",availableBalance:"বর্তমান ব্যালেন্স",tapDetails:"বিস্তারিত দেখতে চাপুন",income:"আয়",expense:"খরচ",savings:"সঞ্চয়",familySupport:"ফ্যামিলি সাপোর্ট",incomeAction:"বেতন বা অন্য আয়",expenseAction:"দৈনিক ও মাসিক খরচ",savingAction:"ভবিষ্যতের জন্য সঞ্চয়",spending:"খরচ",whereMoneyWent:"কোথায় টাকা খরচ হয়েছে",futurePlans:"ভবিষ্যৎ পরিকল্পনা",viewAll:"সব দেখুন",recent:"সাম্প্রতিক",latestActivity:"সর্বশেষ লেনদেন",fullHistory:"পুরো হিস্টোরি",searchHistory:"পরিমাণ, নোট বা ক্যাটাগরি খুঁজুন...",allTypes:"সব ধরন",allCategories:"সব ক্যাটাগরি",simpleReportTitle:"ডাউনলোড ছাড়াই পুরো হিসাব দেখুন",simpleReportHelp:"সময়কাল ও ধরন বাছুন। সব এন্ট্রি আগে দেখাবে এবং নিচে মোট পরিমাণ অটো হিসাব হবে।",thisMonth:"এই মাস",lastMonth:"গত মাস",thisYear:"এই বছর",lastYear:"গত বছর",custom:"কাস্টম",from:"শুরু",to:"শেষ",all:"সব",category:"ক্যাটাগরি",subcategory:"সাবক্যাটাগরি",addedBy:"যোগ করেছেন",currency:"কারেন্সি",breakdown:"বিস্তারিত",categoryBreakdown:"ক্যাটাগরি অনুযায়ী",subcategories:"সাবক্যাটাগরি",subcategoryBreakdown:"সাবক্যাটাগরি অনুযায়ী",details:"বিস্তারিত",reportTransactions:"এন্ট্রি",targetsIntro:"ভবিষ্যৎ পরিকল্পনা ট্র্যাক করুন।",newTarget:"নতুন টার্গেট",settingsLocked:"সেটিংস লক করা",enterPin:"সেটিংস PIN দিন।",unlock:"আনলক",myPreferences:"আমার পছন্দ",displayName:"নাম",language:"ভাষা",savePreferences:"পছন্দ সেভ করুন",profileHint:"ভাষা শুধু আপনার স্ক্রিনে বদলাবে। হিসাব দুইজনের জন্য একই থাকবে।",general:"সাধারণ",sharedSettings:"শেয়ার্ড সেটিংস",baseCurrency:"মূল কারেন্সি",newSettingsPin:"নতুন সেটিংস PIN",saveSettings:"সেটিংস সেভ করুন",currencies:"কারেন্সি",activeCurrencies:"সক্রিয় কারেন্সি",expenseStructure:"খরচের ধরন",categoriesSubcategories:"ক্যাটাগরি ও সাবক্যাটাগরি",newCategory:"নতুন ক্যাটাগরি",addCategory:"ক্যাটাগরি যোগ করুন",methods:"মেথড",paymentMethods:"পেমেন্ট মেথড",data:"ডাটা",backupDeleted:"ব্যাকআপ ও ডিলিটেড রেকর্ড",exportBackup:"JSON ব্যাকআপ",openTrash:"ট্র্যাশ খুলুন",newRecord:"নতুন রেকর্ড",amount:"পরিমাণ",rateToBase:"বেস কারেন্সিতে রেট",source:"উৎস",incomeOwner:"আয়ের মালিক",incomeSetup:"আয়ের মালিক ও উৎস",incomeOwners:"আয়ের মালিক",incomeSources:"আয়ের উৎস",editRecord:"রেকর্ড এডিট করুন",transfer:"ট্রান্সফার",moneyAccounts:"মানি অ্যাকাউন্ট",accountsHint:"Bank ↔ Cash ট্রান্সফারের জন্য ব্যবহার হবে। ট্রান্সফার Income বা Expense হিসেবে গণনা হবে না।",fromAccount:"যেখান থেকে",toAccount:"যেখানে",transferHint:"ট্রান্সফারে শুধু নিজের টাকা এক অ্যাকাউন্ট থেকে অন্যটিতে যায়। মোট ব্যালেন্স, আয়, খরচ বা সেভিংস বদলায় না।",totalTransfer:"মোট ট্রান্সফার",psaHint:"এটি শুধু আপনার লগইনে দেখা যাবে। শেয়ার্ড ড্যাশবোর্ড, হিস্টোরি, সেভিংস বা রিপোর্টে দেখাবে না।",saveTo:"যেখানে সেভ করবেন",targetOptional:"টার্গেট (ঐচ্ছিক)",method:"মেথড",date:"তারিখ",time:"সময়",createdAt:"অ্যাপে যোগ করার সময়",transactionDateTime:"লেনদেনের তারিখ ও সময়",noteOptional:"নোট (ঐচ্ছিক)",shortNote:"ছোট নোট",cancel:"বাতিল",saveRecord:"রেকর্ড সেভ করুন",targetName:"টার্গেটের নাম",targetAmount:"টার্গেট পরিমাণ",targetDateOptional:"টার্গেট তারিখ (ঐচ্ছিক)",createTarget:"টার্গেট তৈরি করুন",recovery:"রিকভারি",trash:"ট্র্যাশ",viewInHistory:"হিস্টোরিতে দেখুন",totalIncome:"মোট আয়",totalExpense:"মোট খরচ",totalSavings:"মোট সঞ্চয়",totalFamily:"মোট ফ্যামিলি সাপোর্ট",balanceBreakdown:"ব্যালেন্সের হিসাব",entries:"এন্ট্রি",noData:"এখনও কোনো ডাটা নেই।"}
 };
 
-let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,currentTxId:null,expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null};
+let state={user:null,profile:null,profiles:[],settings:structuredClone(DEFAULT_SETTINGS),transactions:[],transfers:[],targets:[],selectedMonth:new Date().toISOString().slice(0,7),unlocked:false,reportPeriod:"thisMonth",reportType:"income",reportRows:[],detailFilter:null,editingId:null,editingTransferId:null,currentTxId:null,currentDetailKind:"transaction",expenseSlides:[],expenseSlideIndex:0,expenseSlideTimer:null,savingsRevealTimer:null,psaUnlocked:false,psaHasCode:false,psaEntries:[],offlineEnabled:localStorage.getItem("ourMoneyOfflineMode")!=="off",pendingOps:[],syncBusy:false,lastSyncError:null};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const lang=()=>state.profile?.language||"en",tr=k=>T[lang()]?.[k]||T.en[k]||k;
 const money=(v,c=state.settings.base_currency)=>`${c} ${Number(v||0).toLocaleString(undefined,{maximumFractionDigits:2})}`;
@@ -61,7 +62,7 @@ async function boot(){
 async function enter(user){
   state.user=user;$("#loginView").classList.add("hidden");$("#app").classList.remove("hidden");
   await offlineInit();await loadPendingOps();
-  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTargets(),loadPsaMeta()]);
+  await ensureProfile();await ensureSettings();await Promise.all([loadProfiles(),loadTx(),loadTransfers(),loadTargets(),loadPsaMeta()]);
   applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=state.profile.display_name;$("#autoOwner").textContent=state.profile.display_name;updateSyncUI();registerOfflineWorker();if(navigator.onLine&&state.offlineEnabled)syncPending();
 }
 async function ensureProfile(){
@@ -82,11 +83,11 @@ async function ensureSettings(){
     if(!error){
       if(data?.settings){state.settings={...structuredClone(DEFAULT_SETTINGS),...data.settings};if(!state.settings.categories&&state.settings.expense_categories)state.settings.categories=state.settings.expense_categories.map(x=>({name:x,subs:[]}))}
       else{state.settings={...structuredClone(DEFAULT_SETTINGS),pin_hash:await sha256("9988")};await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id})}
-      await offlineCachePut("settings",state.settings);return;
+      if(!Array.isArray(state.settings.money_accounts))state.settings.money_accounts=["Bank","Cash"];await offlineCachePut("settings",state.settings);return;
     }
   }
   const cached=state.offlineEnabled?await offlineCacheGet("settings"):null;
-  if(cached){state.settings={...structuredClone(DEFAULT_SETTINGS),...cached};return}
+  if(cached){state.settings={...structuredClone(DEFAULT_SETTINGS),...cached};if(!Array.isArray(state.settings.money_accounts))state.settings.money_accounts=["Bank","Cash"];return}
   throw new Error("Settings are not available offline yet. Open the app once while online.");
 }
 async function loadProfiles(){
@@ -105,6 +106,20 @@ async function loadTx(){
   if(serverRows!==null)state.transactions=serverRows;
   else state.transactions=state.offlineEnabled?(await offlineCacheGet("transactions")||[]):[];
   if(state.offlineEnabled)mergePendingIntoState();
+}
+
+async function loadTransfers(){
+  let serverRows=null;
+  if(navigator.onLine){
+    try{
+      const {data,error}=await db.from("transfers").select("*").is("deleted_at",null).order("transfer_date",{ascending:false}).order("transfer_time",{ascending:false,nullsFirst:false}).order("created_at",{ascending:false});
+      if(!error){serverRows=data||[];await offlineCachePut("transfers",serverRows)}
+      else if(!state.offlineEnabled)throw error;
+    }catch(e){if(!state.offlineEnabled)throw e}
+  }
+  if(serverRows!==null)state.transfers=serverRows;
+  else state.transfers=state.offlineEnabled?(await offlineCacheGet("transfers")||[]):[];
+  if(state.offlineEnabled)mergePendingTransfersIntoState();
 }
 async function loadTargets(){
   if(navigator.onLine){const {data,error}=await db.from("targets").select("*").is("deleted_at",null).order("created_at",{ascending:false});if(!error){state.targets=data||[];await offlineCachePut("targets",state.targets);return}}
@@ -127,10 +142,10 @@ function fill(el,items,selected){
 }
 function populate(){
   const cats=state.settings.categories.map(x=>x.name),codes=state.settings.currencies.map(x=>x.code);
-  fill($("#historyType"),[{value:"all",label:tr("allTypes")},{value:"income",label:tr("income")},{value:"expense",label:tr("expense")},{value:"saving",label:tr("savings")}],"all");
+  fill($("#historyType"),[{value:"all",label:tr("allTypes")},{value:"income",label:tr("income")},{value:"expense",label:tr("expense")},{value:"saving",label:tr("savings")},{value:"transfer",label:tr("transfer")}],"all");
   fill($("#historyCategory"),[{value:"all",label:tr("allCategories")},...cats.map(x=>({value:x,label:x}))],"all");
   fill($("#expenseCategory"),cats);updateSubs();
-  fill($("#incomeOwner"),state.settings.income_owners||["Mehedi Income","Mousumi Income"]);fill($("#incomeSource"),state.settings.income_sources);fill($("#entryMethod"),state.settings.payment_methods);
+  fill($("#incomeOwner"),state.settings.income_owners||["Mehedi Income","Mousumi Income"]);fill($("#incomeSource"),state.settings.income_sources);fill($("#entryMethod"),state.settings.payment_methods);fill($("#transferFrom"),state.settings.money_accounts||["Bank","Cash"]);fill($("#transferTo"),state.settings.money_accounts||["Bank","Cash"]);
   [$("#entryCurrency"),$("#targetCurrency"),$("#newSavingCurrency")].forEach(e=>fill(e,codes,state.settings.base_currency));
   fill($("#savingAccount"),state.settings.saving_accounts.map(x=>({value:x.name,label:`${x.name} (${x.currency})`})));
   fill($("#savingTarget"),[{value:"",label:lang()==="bn"?"কোনো টার্গেট নয়":"No target"},...state.targets.map(x=>({value:x.id,label:x.name}))]);
@@ -149,7 +164,8 @@ function renderDashboard(){
   $("#incomeTotal").textContent=money(inc);$("#expenseTotal").textContent=money(exp);renderSavingsMasked(sav);$("#availableBalance").textContent=money(allInc-allExp-allSav);$("#totalSavings").textContent=money(allSav);prepareExpenseSlides(tx);
   const d=new Date(state.selectedMonth+"-01T00:00:00");$("#monthLabel").textContent=d.toLocaleDateString(lang()==="bn"?"bn-BD":"en-US",{month:"long",year:"numeric"});
   const cmap={};tx.filter(x=>x.type==="expense").forEach(x=>cmap[x.category]=(cmap[x.category]||0)+baseValue(x));const arr=Object.entries(cmap).sort((a,b)=>b[1]-a[1]);$("#expenseCount").textContent=`${tx.filter(x=>x.type==="expense").length} ${tr("entries")}`;$("#categoryBars").innerHTML=arr.length?arr.map(([k,v])=>`<div class="bar-row"><span>${esc(k)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(5,v/arr[0][1]*100)}%"></div></div><strong>${money(v)}</strong></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;
-  $("#recentList").innerHTML=state.transactions.slice(0,7).length?state.transactions.slice(0,7).map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();
+  const recentItems=[...state.transactions.map(x=>({...x,_kind:"transaction",_sortDate:x.transaction_date,_sortTime:x.transaction_time||""})),...state.transfers.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""}))].sort((a,b)=>`${b._sortDate} ${b._sortTime}`.localeCompare(`${a._sortDate} ${a._sortTime}`)).slice(0,7);
+  $("#recentList").innerHTML=recentItems.length?recentItems.map(historyItemHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindHistoryItems();
   $("#targetPreview").innerHTML=state.targets.slice(0,3).length?state.targets.slice(0,3).map(targetHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;
 }
 function ownerName(uid){return state.profiles.find(p=>p.user_id===uid)?.display_name||"User"}
@@ -157,23 +173,89 @@ function txHtml(x){
   const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Record"),sign=x.type==="income"?"+":x.type==="expense"?"−":"→",pending=x._pending?`<span class="pending-badge">Pending Sync</span>`:"";
   return `<div class="tx" data-tx-id="${x.id}"><div class="tx-icon">${x.type==="income"?"＋":x.type==="expense"?"−":"↗"}</div><div class="tx-main"><strong>${esc(label)} ${pending}</strong><small>${x.transaction_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.payment_method?` • ${esc(x.payment_method)}`:""}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.type}">${sign} ${money(x.amount,x.currency)}</div><button class="icon-btn tx-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
 }
-function bindTxMenu(){
-  $$(".tx[data-tx-id]").forEach(row=>row.onclick=()=>openTransactionDetail(row.dataset.txId));
-  $$(".tx-menu").forEach(b=>b.onclick=async(e)=>{e.stopPropagation();if(!confirm(lang()==="bn"?"রেকর্ডটি ট্র্যাশে পাঠাবেন?":"Move this record to Trash?"))return;if(!navigator.onLine&&state.offlineEnabled){await queueOfflineOp({op:"delete",server_id:b.dataset.id});state.transactions=state.transactions.filter(x=>x.id!==b.dataset.id);await offlineCachePut("transactions",state.transactions.filter(x=>!x._pending));renderAll();return toast("Deleted offline • Pending Sync")}
-    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",b.dataset.id);await loadTx();renderAll()})
+
+function transferHtml(x){
+  const pending=x._pending?`<span class="pending-badge">Pending Sync</span>`:"";
+  return `<div class="tx transfer-tx" data-transfer-id="${x.id}"><div class="tx-icon">⇄</div><div class="tx-main"><strong>${tr("transfer")}: ${esc(x.from_account)} → ${esc(x.to_account)} ${pending}</strong><small>${x.transfer_date} • ${tr("addedBy")}: ${esc(x.owner_name||ownerName(x.created_by))}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount transfer">${money(x.amount,x.currency)}</div><button class="icon-btn transfer-menu" data-id="${x.id}" aria-label="More">⋯</button></div>`;
 }
+function historyItemHtml(x){return x._kind==="transfer"||x.from_account?transferHtml(x):txHtml(x)}
+function bindHistoryItems(){
+  $$(".tx[data-tx-id]").forEach(row=>row.onclick=()=>openTransactionDetail(row.dataset.txId));
+  $$(".tx[data-transfer-id]").forEach(row=>row.onclick=()=>openTransferDetail(row.dataset.transferId));
+
+  $$(".tx-menu").forEach(b=>b.onclick=async(e)=>{
+    e.stopPropagation();
+    if(!confirm(lang()==="bn"?"রেকর্ডটি ট্র্যাশে পাঠাবেন?":"Move this record to Trash?"))return;
+    const id=b.dataset.id;
+    if(String(id).startsWith("local:")){
+      const clientId=String(id).slice(6);
+      await removePendingInsertByClientId(clientId,"transaction");
+      state.transactions=state.transactions.filter(x=>x.id!==id);
+      renderAll();
+      return toast("Pending record removed");
+    }
+    if(!navigator.onLine&&state.offlineEnabled){
+      await queueOfflineOp({op:"delete",server_id:id});
+      state.transactions=state.transactions.filter(x=>x.id!==id);
+      await offlineCachePut("transactions",state.transactions.filter(x=>!x._pending));
+      renderAll();return toast("Deleted offline • Pending Sync");
+    }
+    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
+    await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",id);await loadTx();renderAll()
+  });
+
+  $$(".transfer-menu").forEach(b=>b.onclick=async(e)=>{
+    e.stopPropagation();
+    if(!confirm(lang()==="bn"?"ট্রান্সফারটি ট্র্যাশে পাঠাবেন?":"Move this transfer to Trash?"))return;
+    const id=b.dataset.id;
+    if(String(id).startsWith("local:")){
+      const clientId=String(id).slice(6);
+      await removePendingInsertByClientId(clientId,"transfer");
+      state.transfers=state.transfers.filter(x=>x.id!==id);
+      renderAll();
+      return toast("Pending transfer removed");
+    }
+    if(!navigator.onLine&&state.offlineEnabled){
+      await queueOfflineOp({op:"transfer_delete",server_id:id});
+      state.transfers=state.transfers.filter(x=>x.id!==id);
+      await offlineCachePut("transfers",state.transfers.filter(x=>!x._pending));
+      renderAll();return toast("Transfer deleted offline • Pending Sync");
+    }
+    if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
+    await db.from("transfers").update({deleted_at:new Date().toISOString()}).eq("id",id);await loadTransfers();renderAll()
+  });
+}
+function bindTxMenu(){bindHistoryItems()}
 function renderHistory(){
-  let a=[...state.transactions],q=$("#historySearch").value.toLowerCase(),typ=$("#historyType").value||"all",cat=$("#historyCategory").value||"all";
-  if(typ!=="all")a=a.filter(x=>x.type===typ);if(cat!=="all")a=a.filter(x=>x.category===cat);if(q)a=a.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
-  $("#historyList").innerHTML=a.length?a.map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();
+  let tx=[...state.transactions],tf=[...state.transfers],q=$("#historySearch").value.toLowerCase(),typ=$("#historyType").value||"all",cat=$("#historyCategory").value||"all";
+  if(typ==="transfer")tx=[];
+  else if(typ!=="all")tx=tx.filter(x=>x.type===typ);
+  if(cat!=="all")tx=tx.filter(x=>x.category===cat);
+  let items=[
+    ...tx.map(x=>({...x,_kind:"transaction",_sortDate:x.transaction_date,_sortTime:x.transaction_time||""})),
+    ...(typ==="all"||typ==="transfer"?tf.map(x=>({...x,_kind:"transfer",_sortDate:x.transfer_date,_sortTime:x.transfer_time||""})):[])
+  ];
+  if(q)items=items.filter(x=>JSON.stringify(x).toLowerCase().includes(q));
+  items.sort((a,b)=>`${b._sortDate} ${b._sortTime}`.localeCompare(`${a._sortDate} ${a._sortTime}`));
+  $("#historyList").innerHTML=items.length?items.map(historyItemHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;
+  bindHistoryItems();
 }
 function targetSaved(tg){return state.transactions.filter(x=>x.type==="saving"&&x.target_id===tg.id).reduce((s,x)=>s+Number(x.amount||0),0)}
 function targetHtml(tg){const sv=targetSaved(tg),p=tg.target_amount?Math.min(100,sv/Number(tg.target_amount)*100):0;return `<div class="target-card"><div class="target-top"><strong>${esc(tg.name)}</strong><span>${Math.round(p)}%</span></div><div class="progress"><span style="width:${p}%"></span></div><div class="target-meta"><span>${money(sv,tg.currency)}</span><span>${money(tg.target_amount,tg.currency)}</span></div></div>`}
 function renderTargets(){$("#targetsGrid").innerHTML=state.targets.length?state.targets.map(targetHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`}
 
 function updateSubs(){const c=state.settings.categories.find(x=>x.name===$("#expenseCategory").value),s=c?.subs||[];fill($("#expenseSubcategory"),s);$("#subcategoryWrap").classList.toggle("hidden",!s.length)}
-function setEntryType(type){$("#entryType").value=type;$$("[data-entry-type]").forEach(b=>b.classList.toggle("active",b.dataset.entryType===type));$("#incomeFields").classList.toggle("hidden",type!=="income");$("#expenseFields").classList.toggle("hidden",type!=="expense");$("#savingFields").classList.toggle("hidden",type!=="saving");$("#entryTitle").textContent=type==="income"?tr("income"):type==="expense"?tr("expense"):tr("savings")}
-function openEntry(type="expense"){state.editingId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
+function setEntryType(type){
+  $("#entryType").value=type;
+  $$("[data-entry-type]").forEach(b=>b.classList.toggle("active",b.dataset.entryType===type));
+  $("#incomeFields").classList.toggle("hidden",type!=="income");
+  $("#expenseFields").classList.toggle("hidden",type!=="expense");
+  $("#savingFields").classList.toggle("hidden",type!=="saving");
+  $("#transferFields").classList.toggle("hidden",type!=="transfer");
+  $("#methodWrap").classList.toggle("hidden",type==="transfer");
+  $("#entryTitle").textContent=type==="income"?tr("income"):type==="expense"?tr("expense"):type==="saving"?tr("savings"):tr("transfer");
+}
+function openEntry(type="expense"){state.editingId=null;state.editingTransferId=null;$("#entryForm button[type='submit']").textContent=tr("saveRecord");setEntryType(type);$("#entryDate").value=localDate();$("#entryTime").value=localTime();$("#entryAmount").value="";$("#entryNote").value="";$("#entryCurrency").value=state.settings.base_currency;$("#entryRate").value=1;$("#autoOwner").textContent=state.profile.display_name;updateRate();openD("entryDialog")}
 function updateRate(){$("#rateWrap").classList.toggle("hidden",$("#entryCurrency").value===state.settings.base_currency);if($("#entryCurrency").value===state.settings.base_currency)$("#entryRate").value=1}
 async function submitEntry(e){
   e.preventDefault();
@@ -188,64 +270,85 @@ async function submitEntry(e){
     if(!amount||amount<=0)return toast("Enter amount");
     if(rate<=0)return toast("Enter conversion rate");
 
+    if(type==="transfer"){
+      const from=$("#transferFrom").value,to=$("#transferTo").value;
+      if(!from||!to)return toast("Select From and To accounts");
+      if(from===to)return toast("From and To accounts must be different");
+      const row={
+        amount,currency,exchange_rate:rate,from_account:from,to_account:to,
+        transfer_date:$("#entryDate").value,transfer_time:$("#entryTime").value||localTime(),
+        note:$("#entryNote").value.trim()||null,created_by:state.user.id,owner_name:state.profile.display_name
+      };
+
+      if(state.editingTransferId){
+        const editId=state.editingTransferId;
+        if(String(editId).startsWith("local:")){
+          const clientId=String(editId).slice(6);
+          row.client_id=clientId;
+          await updatePendingInsertRow(clientId,row,"transfer");
+          const i=state.transfers.findIndex(x=>x.id===editId);if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
+        }else if(state.offlineEnabled){
+          await queueOfflineOp({op:"transfer_update",server_id:editId,row:{...row,updated_at:new Date().toISOString()}});
+          const i=state.transfers.findIndex(x=>x.id===editId);if(i>=0)state.transfers[i]={...state.transfers[i],...row,_pending:true};
+          if(navigator.onLine)syncPending();
+        }else{
+          if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
+          const r=await db.from("transfers").update({...row,updated_at:new Date().toISOString()}).eq("id",editId);if(r.error)return toast(r.error.message);
+        }
+        state.editingTransferId=null;closeD("entryDialog");if(navigator.onLine)await loadTransfers();renderAll();return toast("Transfer updated");
+      }
+
+      row.client_id=crypto.randomUUID();
+      if(state.offlineEnabled){
+        await queueOfflineOp({op:"transfer_insert",client_id:row.client_id,row});
+        addPendingTransfer(row);closeD("entryDialog");renderAll();toast(navigator.onLine?"Transfer saved • Syncing…":"Transfer saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
+      }
+      if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
+      const ex=await db.from("transfers").select("id").eq("client_id",row.client_id).maybeSingle();if(ex.error&&ex.error.code!=="PGRST116")return toast(ex.error.message);
+      if(!ex.data){const r=await db.from("transfers").insert(row);if(r.error&&r.error.code!=="23505")return toast(r.error.message)}
+      closeD("entryDialog");await loadTransfers();renderAll();return toast("Transfer saved");
+    }
+
     const row={
       type,amount,currency,exchange_rate:rate,
-      transaction_date:$("#entryDate").value,
-      transaction_time:$("#entryTime").value||localTime(),
-      payment_method:$("#entryMethod").value,
-      note:$("#entryNote").value.trim()||null,
-      created_by:state.user.id,
-      owner_name:state.profile.display_name
+      transaction_date:$("#entryDate").value,transaction_time:$("#entryTime").value||localTime(),
+      payment_method:$("#entryMethod").value,note:$("#entryNote").value.trim()||null,
+      created_by:state.user.id,owner_name:state.profile.display_name
     };
     if(type==="income"){row.income_owner=$("#incomeOwner").value;row.source=$("#incomeSource").value}
     if(type==="expense"){row.category=$("#expenseCategory").value;row.subcategory=$("#expenseSubcategory").value||null}
     if(type==="saving"){row.saving_account=$("#savingAccount").value;row.target_id=$("#savingTarget").value||null}
 
     if(state.editingId){
+      const editId=state.editingId;
+      if(String(editId).startsWith("local:")){
+        const clientId=String(editId).slice(6);row.client_id=clientId;
+        await updatePendingInsertRow(clientId,row,"transaction");
+        applyOfflineUpdate(editId,row);
+        state.editingId=null;closeD("entryDialog");renderAll();toast("Pending record updated");if(navigator.onLine)syncPending();return;
+      }
       if(state.offlineEnabled){
-        await queueOfflineOp({op:"update",server_id:state.editingId,row:{...row,updated_at:new Date().toISOString()}});
-        applyOfflineUpdate(state.editingId,row);
-        state.editingId=null;
-        closeD("entryDialog");renderAll();
-        toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");
-        if(navigator.onLine)syncPending();
-        return;
+        await queueOfflineOp({op:"update",server_id:editId,row:{...row,updated_at:new Date().toISOString()}});
+        applyOfflineUpdate(editId,row);state.editingId=null;closeD("entryDialog");renderAll();toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
       }
       if(!navigator.onLine)return toast("No internet. Offline Mode is disabled.");
-      const r=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",state.editingId);
-      if(r.error)return toast(r.error.message);
+      const r=await db.from("transactions").update({...row,updated_at:new Date().toISOString()}).eq("id",editId);if(r.error)return toast(r.error.message);
       state.editingId=null;closeD("entryDialog");await loadTx();renderAll();return toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
     }
 
     row.client_id=crypto.randomUUID();
-
-    // SAFE MODE: queue locally first, before any network call.
     if(state.offlineEnabled){
       await queueOfflineOp({op:"insert",client_id:row.client_id,row});
-      addPendingTransaction(row);
-      closeD("entryDialog");renderAll();
-      toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");
-      if(navigator.onLine)syncPending();
-      return;
+      addPendingTransaction(row);closeD("entryDialog");renderAll();toast(navigator.onLine?"Saved • Syncing…":"Saved offline • Pending Sync");if(navigator.onLine)syncPending();return;
     }
-
     if(!navigator.onLine)return toast("No internet. Enable Offline Mode to save without internet.");
-    const existing=await db.from("transactions").select("id").eq("client_id",row.client_id).maybeSingle();
-    if(existing.error && existing.error.code!=="PGRST116")return toast(existing.error.message);
-    if(!existing.data){
-      const r=await db.from("transactions").insert(row);
-      if(r.error && r.error.code!=="23505")return toast(r.error.message);
-    }
+    const existing=await db.from("transactions").select("id").eq("client_id",row.client_id).maybeSingle();if(existing.error&&existing.error.code!=="PGRST116")return toast(existing.error.message);
+    if(!existing.data){const r=await db.from("transactions").insert(row);if(r.error&&r.error.code!=="23505")return toast(r.error.message)}
     closeD("entryDialog");await loadTx();renderAll();toast(lang()==="bn"?"সেভ হয়েছে":"Saved");
   }catch(err){
-    console.error("Save Record failed",err);
-    toast("Save error: "+String(err?.message||err));
+    console.error("Save Record failed",err);toast("Save error: "+String(err?.message||err));
   }finally{
-    if(entrySubmitBtn){
-      entrySubmitBtn.disabled=false;
-      entrySubmitBtn.textContent=entrySubmitBtn.dataset.oldText||tr("saveRecord");
-      delete entrySubmitBtn.dataset.oldText;
-    }
+    if(entrySubmitBtn){entrySubmitBtn.disabled=false;entrySubmitBtn.textContent=entrySubmitBtn.dataset.oldText||tr("saveRecord");delete entrySubmitBtn.dataset.oldText;}
   }
 }
 async function submitTarget(e){e.preventDefault();const row={name:$("#targetName").value.trim(),target_amount:Number($("#targetAmount").value),currency:$("#targetCurrency").value,target_date:$("#targetDate").value||null,created_by:state.user.id};const {error}=await db.from("targets").insert(row);if(error)return toast(error.message);closeD("targetDialog");e.target.reset();await loadTargets();populate();renderAll()}
@@ -255,7 +358,7 @@ function formatCreatedAt(value){
   try{return new Date(value).toLocaleString(lang()==="bn"?"bn-BD":"en-US",{year:"numeric",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"})}catch{return value}
 }
 function openTransactionDetail(id){
-  const x=state.transactions.find(r=>r.id===id);if(!x)return;state.currentTxId=id;
+  const x=state.transactions.find(r=>r.id===id);if(!x)return;state.currentTxId=id;state.currentDetailKind="transaction";
   const label=x.category?`${x.category}${x.subcategory?` → ${x.subcategory}`:""}`:(x.source||x.saving_account||"Transaction");
   $("#transactionDetailTitle").textContent=label;
   const rows=[
@@ -268,6 +371,24 @@ function openTransactionDetail(id){
   if(x.type==="income"){rows.splice(2,0,[tr("incomeOwner"),x.income_owner||"—"]);rows.splice(3,0,[tr("source"),x.source||"—"]);}
   if(x.type==="expense"){rows.splice(2,0,[tr("category"),x.category||"—"]);rows.splice(3,0,[tr("subcategory"),x.subcategory||"—"])}
   if(x.type==="saving"){rows.splice(2,0,[tr("saveTo"),x.saving_account||"—"]);const tg=state.targets.find(t=>t.id===x.target_id);rows.splice(3,0,[tr("targets"),tg?.name||(lang()==="bn"?"কোনো টার্গেট নয়":"No target")])}
+  if(x.note)rows.push([tr("noteOptional").replace(" (optional)",""),x.note]);
+  $("#transactionDetailBody").innerHTML=rows.map(([k,v])=>`<div class="transaction-detail-row"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
+  openD("transactionDialog");
+}
+
+
+function openTransferDetail(id){
+  const x=state.transfers.find(r=>r.id===id);if(!x)return;
+  state.currentTxId=id;state.currentDetailKind="transfer";
+  $("#transactionDetailTitle").textContent=`${tr("transfer")}: ${x.from_account} → ${x.to_account}`;
+  const rows=[
+    [tr("amount"),money(x.amount,x.currency)],
+    [tr("fromAccount"),x.from_account],
+    [tr("toAccount"),x.to_account],
+    [tr("transactionDateTime"),`${x.transfer_date}${x.transfer_time?` • ${String(x.transfer_time).slice(0,5)}`:""}`],
+    [tr("addedBy"),x.owner_name||ownerName(x.created_by)],
+    [tr("createdAt"),formatCreatedAt(x.created_at)]
+  ];
   if(x.note)rows.push([tr("noteOptional").replace(" (optional)",""),x.note]);
   $("#transactionDetailBody").innerHTML=rows.map(([k,v])=>`<div class="transaction-detail-row"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("");
   openD("transactionDialog");
@@ -296,40 +417,58 @@ function reportDateRange(){
 function updateReportSubs(){const c=$("#reportCategory").value,s=c&&c!=="all"?state.settings.categories.find(x=>x.name===c)?.subs||[]:[];fill($("#reportSubcategory"),[{value:"all",label:tr("all")},...s.map(x=>({value:x,label:x}))],"all")}
 function getReportRows(){
   const {from,to}=reportDateRange(),cat=$("#reportCategory").value||"all",sub=$("#reportSubcategory").value||"all",incomeOwner=$("#reportIncomeOwner").value||"all",owner=$("#reportOwner").value||"all",cur=$("#reportCurrency").value||"all";
+  if(state.reportType==="transfer"){
+    let rows=state.transfers.filter(x=>x.transfer_date>=from&&x.transfer_date<=to);
+    if(owner!=="all")rows=rows.filter(x=>(x.owner_name||ownerName(x.created_by))===owner);
+    if(cur!=="all")rows=rows.filter(x=>x.currency===cur);
+    return rows.map(x=>({...x,_kind:"transfer"}));
+  }
   let rows=state.transactions.filter(x=>x.transaction_date>=from&&x.transaction_date<=to);
   if(state.reportType==="family")rows=rows.filter(x=>x.type==="expense"&&x.category==="Family Support");
   else if(state.reportType!=="all")rows=rows.filter(x=>x.type===state.reportType);
   if(incomeOwner!=="all")rows=rows.filter(x=>x.income_owner===incomeOwner);if(cat!=="all")rows=rows.filter(x=>x.category===cat);if(sub!=="all")rows=rows.filter(x=>x.subcategory===sub);if(owner!=="all")rows=rows.filter(x=>(x.owner_name||ownerName(x.created_by))===owner);if(cur!=="all")rows=rows.filter(x=>x.currency===cur);
-  return rows;
+  if(state.reportType==="all"){
+    const tf=state.transfers.filter(x=>x.transfer_date>=from&&x.transfer_date<=to).filter(x=>(owner==="all"||(x.owner_name||ownerName(x.created_by))===owner)&&(cur==="all"||x.currency===cur)).map(x=>({...x,_kind:"transfer"}));
+    return [...rows.map(x=>({...x,_kind:"transaction"})),...tf];
+  }
+  return rows.map(x=>({...x,_kind:"transaction"}));
 }
 function reportLabel(){
-  if(state.reportType==="income")return tr("totalIncome");if(state.reportType==="expense")return tr("totalExpense");if(state.reportType==="saving")return tr("totalSavings");if(state.reportType==="family")return tr("totalFamily");return lang()==="bn"?"নেট পরিবর্তন":"Net Change";
+  if(state.reportType==="income")return tr("totalIncome");if(state.reportType==="expense")return tr("totalExpense");if(state.reportType==="saving")return tr("totalSavings");if(state.reportType==="family")return tr("totalFamily");if(state.reportType==="transfer")return tr("totalTransfer");return lang()==="bn"?"নেট পরিবর্তন":"Net Change";
 }
 function renderReport(){
   const rows=getReportRows();state.reportRows=rows;
-  let total=0;if(state.reportType==="all")total=rows.reduce((s,x)=>s+(x.type==="income"?baseValue(x):-baseValue(x)),0);else total=rows.reduce((s,x)=>s+baseValue(x),0);
+  let total=0;
+  if(state.reportType==="all"){
+    total=rows.reduce((s,x)=>x._kind==="transfer"?s:s+(x.type==="income"?baseValue(x):-baseValue(x)),0);
+  }else if(state.reportType==="transfer"){
+    total=rows.reduce((s,x)=>s+Number(x.amount||0)*Number(x.exchange_rate||1),0);
+  }else total=rows.reduce((s,x)=>s+baseValue(x),0);
   const label=reportLabel();$("#reportSummaryLabel").textContent=label;$("#reportSummaryValue").textContent=money(total);$("#reportSummaryMeta").textContent=`${rows.length} ${tr("entries")}`;$("#reportBottomLabel").textContent=label;$("#reportBottomTotal").textContent=money(total);$("#reportCount").textContent=`${rows.length} ${tr("entries")}`;
+
   const cmap={},smap={};
   if(state.reportType==="income"){
     rows.forEach(x=>{const k=x.income_owner||"Unassigned";cmap[k]=(cmap[k]||0)+baseValue(x);if(x.source)smap[x.source]=(smap[x.source]||0)+baseValue(x)});
+  }else if(state.reportType==="transfer"){
+    rows.forEach(x=>{const k=`${x.from_account} → ${x.to_account}`;cmap[k]=(cmap[k]||0)+Number(x.amount||0)*Number(x.exchange_rate||1)});
   }else{
-    rows.forEach(x=>{if(x.category)cmap[x.category]=(cmap[x.category]||0)+baseValue(x);if(x.subcategory)smap[x.subcategory]=(smap[x.subcategory]||0)+baseValue(x)});
+    rows.filter(x=>x._kind!=="transfer").forEach(x=>{if(x.category)cmap[x.category]=(cmap[x.category]||0)+baseValue(x);if(x.subcategory)smap[x.subcategory]=(smap[x.subcategory]||0)+baseValue(x)});
   }
   const breakdown=m=>{const a=Object.entries(m).sort((a,b)=>b[1]-a[1]);return a.length?a.map(([k,v])=>`<div class="breakdown-item"><span>${esc(k)}</span><strong>${money(v)}</strong></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`};
-  $("#reportCategoryBreakdown").innerHTML=breakdown(cmap);$("#reportSubcategoryBreakdown").innerHTML=breakdown(smap);$("#reportBreakdownWrap").classList.toggle("hidden",state.reportType==="saving");
+  $("#reportCategoryBreakdown").innerHTML=breakdown(cmap);$("#reportSubcategoryBreakdown").innerHTML=breakdown(smap);
+  $("#reportBreakdownWrap").classList.toggle("hidden",state.reportType==="saving");
   $("#reportIncomeOwnerWrap").classList.toggle("hidden",!(state.reportType==="income"||state.reportType==="all"));
-  $("#reportTransactions").innerHTML=rows.length?rows.map(txHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindTxMenu();
+  const sorted=[...rows].sort((a,b)=>`${b._kind==="transfer"?b.transfer_date:b.transaction_date} ${b._kind==="transfer"?(b.transfer_time||""):(b.transaction_time||"")}`.localeCompare(`${a._kind==="transfer"?a.transfer_date:a.transaction_date} ${a._kind==="transfer"?(a.transfer_time||""):(a.transaction_time||"")}`));
+  $("#reportTransactions").innerHTML=sorted.length?sorted.map(historyItemHtml).join(""):`<div class="empty-state">${tr("noData")}</div>`;bindHistoryItems();
 }
 function pdfReport(){
   const {jsPDF}=window.jspdf,doc=new jsPDF({unit:"pt",format:"a4"}),rows=state.reportRows;let y=42;
   doc.setFont("helvetica","bold");doc.setFontSize(18);doc.text("Our Money - Finance Report",40,y);y+=18;doc.setFont("helvetica","normal");doc.setFontSize(9);doc.text(`Generated: ${new Date().toLocaleString()} | User: ${state.profile.display_name}`,40,y);y+=20;
-  let total=state.reportType==="all"?rows.reduce((s,x)=>s+(x.type==="income"?baseValue(x):-baseValue(x)),0):rows.reduce((s,x)=>s+baseValue(x),0);
+  let total=state.reportType==="all"?rows.reduce((s,x)=>x._kind==="transfer"?s:s+(x.type==="income"?baseValue(x):-baseValue(x)),0):state.reportType==="transfer"?rows.reduce((s,x)=>s+Number(x.amount||0)*Number(x.exchange_rate||1),0):rows.reduce((s,x)=>s+baseValue(x),0);
   doc.autoTable({startY:y,head:[[reportLabel(),"Entries"]],body:[[money(total),String(rows.length)]],theme:"grid",styles:{fontSize:9}});y=doc.lastAutoTable.finalY+14;
-  if(state.reportType==="expense"||state.reportType==="family"||state.reportType==="all"){const map={};rows.filter(x=>x.type==="expense").forEach(x=>{const k=x.subcategory?`${x.category} > ${x.subcategory}`:(x.category||"Expense");map[k]=(map[k]||0)+baseValue(x)});doc.autoTable({startY:y,head:[["Category / Subcategory","Total"]],body:Object.entries(map).sort((a,b)=>b[1]-a[1]).map(([k,v])=>[k,money(v)]),theme:"striped",styles:{fontSize:8}});y=doc.lastAutoTable.finalY+14}
-  doc.autoTable({startY:y,head:[["Date","Type","Category","Subcategory / Source","Amount","Added by"]],body:rows.map(x=>[`${x.transaction_date}${x.transaction_time?` ${String(x.transaction_time).slice(0,5)}`:""}`,x.type,x.category||"",x.subcategory||x.source||x.saving_account||"",money(x.amount,x.currency),x.owner_name||ownerName(x.created_by)]),theme:"grid",styles:{fontSize:7}});
+  doc.autoTable({startY:y,head:[["Date","Type","Details","Amount","Added by"]],body:rows.map(x=>x._kind==="transfer"?[x.transfer_date,"transfer",`${x.from_account} > ${x.to_account}`,money(x.amount,x.currency),x.owner_name||ownerName(x.created_by)]:[x.transaction_date,x.type,x.category?`${x.category}${x.subcategory?` > ${x.subcategory}`:""}`:(x.source||x.saving_account||""),money(x.amount,x.currency),x.owner_name||ownerName(x.created_by)]),theme:"grid",styles:{fontSize:7}});
   doc.save(`our-money-${state.reportType}-${localDate()}.pdf`);
 }
-
 
 function renderSavingsMasked(value){
   const el=$("#savedThisMonth");
@@ -368,17 +507,25 @@ function renderExpenseSlide(){
   $("#expenseSlideDots").innerHTML=state.expenseSlides.map((_,i)=>`<i class="${i===state.expenseSlideIndex?"active":""}"></i>`).join("");
 }
 function editCurrentTransaction(){
+  if(state.currentDetailKind==="transfer"){
+    const x=state.transfers.find(r=>r.id===state.currentTxId);if(!x)return;
+    closeD("transactionDialog");state.editingId=null;state.editingTransferId=x.id;setEntryType("transfer");
+    $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
+    $("#entryDate").value=x.transfer_date;$("#entryTime").value=(x.transfer_time||localTime()).slice(0,5);$("#entryNote").value=x.note||"";
+    $("#transferFrom").value=x.from_account||"";$("#transferTo").value=x.to_account||"";
+    $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+tr("transfer");$("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";openD("entryDialog");return;
+  }
   const x=state.transactions.find(r=>r.id===state.currentTxId);if(!x)return;
-  closeD("transactionDialog");state.editingId=x.id;setEntryType(x.type);
+  closeD("transactionDialog");state.editingTransferId=null;state.editingId=x.id;setEntryType(x.type);
   $("#entryAmount").value=x.amount;$("#entryCurrency").value=x.currency;updateRate();$("#entryRate").value=x.exchange_rate||1;
   $("#entryDate").value=x.transaction_date;$("#entryTime").value=(x.transaction_time||localTime()).slice(0,5);$("#entryMethod").value=x.payment_method||"";$("#entryNote").value=x.note||"";
   if(x.type==="income"){$("#incomeOwner").value=x.income_owner||"";$("#incomeSource").value=x.source||""}
   if(x.type==="expense"){$("#expenseCategory").value=x.category||"";updateSubs();$("#expenseSubcategory").value=x.subcategory||""}
   if(x.type==="saving"){$("#savingAccount").value=x.saving_account||"";$("#savingTarget").value=x.target_id||""}
   $("#entryTitle").textContent=(lang()==="bn"?"এডিট ":"Edit ")+(x.type==="income"?tr("income"):x.type==="expense"?tr("expense"):tr("savings"));
-  $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";
-  openD("entryDialog");
+  $("#entryForm button[type='submit']").textContent=lang()==="bn"?"পরিবর্তন সেভ করুন":"Save Changes";openD("entryDialog");
 }
+
 async function loadPsaMeta(){
   const {data,error}=await db.from("psa_settings").select("code_hash").eq("user_id",state.user.id).maybeSingle();
   if(error && error.code!=="PGRST116")console.warn(error);
@@ -427,8 +574,9 @@ function openPsaPanel(){
   renderPsa();openD("psaDialog");
 }
 function renderPsa(){
-  const balance=state.psaEntries.reduce((s,x)=>s+(x.entry_type==="saving"?Number(x.amount): -Number(x.amount)),0);
-  $("#psaBalance").textContent=money(balance,state.settings.base_currency);
+  const balances={};state.psaEntries.forEach(x=>{balances[x.currency]=(balances[x.currency]||0)+(x.entry_type==="saving"?Number(x.amount):-Number(x.amount))});
+  const parts=Object.entries(balances).map(([c,v])=>money(v,c));
+  $("#psaBalance").textContent=parts.length?parts.join(" • "):money(0,state.settings.base_currency);
   $("#psaHistory").innerHTML=state.psaEntries.length?state.psaEntries.map(x=>`<div class="tx"><div class="tx-icon">${x.entry_type==="saving"?"＋":"−"}</div><div class="tx-main"><strong>${x.entry_type==="saving"?"Savings":"Expense"}</strong><small>${x.entry_date} • ${String(x.entry_time||"").slice(0,5)}${x.note?` • ${esc(x.note)}`:""}</small></div><div class="tx-amount ${x.entry_type==="saving"?"income":"expense"}">${x.entry_type==="saving"?"+":"−"} ${money(x.amount,x.currency)}</div></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;
 }
 async function savePsaEntry(e){
@@ -445,6 +593,7 @@ function renderSettings(){
   $("#currencyManager").innerHTML=state.settings.currencies.map((x,i)=>chip(`${x.code} ${x.symbol}`,"currency",i)).join("");
   $("#incomeOwnerManager").innerHTML=(state.settings.income_owners||[]).map((x,i)=>chip(x,"incomeOwner",i)).join("");
   $("#incomeSourceManager").innerHTML=state.settings.income_sources.map((x,i)=>chip(x,"incomeSource",i)).join("");
+  $("#accountManager").innerHTML=(state.settings.money_accounts||["Bank","Cash"]).map((x,i)=>chip(x,"account",i)).join("");
   $("#methodManager").innerHTML=state.settings.payment_methods.map((x,i)=>chip(x,"method",i)).join("");
   $("#savingAccountManager").innerHTML=state.settings.saving_accounts.map((x,i)=>chip(`${x.name} • ${x.currency}`,"saving",i)).join("");
   $("#categoryManager").innerHTML=state.settings.categories.map((c,i)=>`<div class="cat-card"><div class="cat-head"><strong>${esc(c.name)}</strong><div class="cat-actions"><button class="btn cat-toggle" data-i="${i}">Sub</button><button class="icon-btn cat-delete" data-i="${i}">×</button></div></div><div class="cat-body hidden" id="catBody${i}"><div class="subchips">${c.subs.map((s,j)=>`<span class="subchip">${esc(s)}<button data-ci="${i}" data-si="${j}">×</button></span>`).join("")}</div><div class="sub-add"><input id="subInput${i}" placeholder="New subcategory"><button class="btn sub-add-btn" data-i="${i}">${tr("add")}</button></div></div></div>`).join("");
@@ -456,7 +605,7 @@ function bindManagers(){
   $$(".cat-delete").forEach(b=>b.onclick=async()=>{if(!confirm("Remove category? Existing history stays unchanged."))return;state.settings.categories.splice(+b.dataset.i,1);await saveSettings()});
   $$("[data-ci]").forEach(b=>b.onclick=async()=>{state.settings.categories[+b.dataset.ci].subs.splice(+b.dataset.si,1);await saveSettings()});
   $$(".sub-add-btn").forEach(b=>b.onclick=async()=>{const i=+b.dataset.i,v=$("#subInput"+i).value.trim();if(v&&!state.settings.categories[i].subs.includes(v))state.settings.categories[i].subs.push(v);await saveSettings()});
-  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",method:"payment_methods",saving:"saving_accounts",incomeOwner:"income_owners",incomeSource:"income_sources"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
+  $$("[data-manager]").forEach(b=>b.onclick=async()=>{const map={currency:"currencies",account:"money_accounts",method:"payment_methods",saving:"saving_accounts",incomeOwner:"income_owners",incomeSource:"income_sources"},k=map[b.dataset.manager];if(b.dataset.manager==="currency"&&state.settings.currencies.length<=1)return toast("Keep one currency");state.settings[k].splice(+b.dataset.index,1);await saveSettings()})
 }
 async function saveSettings(){const {error}=await db.from("app_settings").upsert({id:1,settings:state.settings,updated_by:state.user.id,updated_at:new Date().toISOString()});if(error)return toast(error.message);populate();renderAll();toast(lang()==="bn"?"সেটিংস সেভ হয়েছে":"Settings saved")}
 async function saveProfile(){const n=$("#profileName").value.trim();if(!n)return;const {error}=await db.from("profiles").update({display_name:n}).eq("user_id",state.user.id);if(error)return toast(error.message);state.profile={...state.profile,display_name:n};await loadProfiles();applyLanguage();initMonthPicker();populate();renderAll();$("#sidebarUser").textContent=n;$("#autoOwner").textContent=n}
@@ -468,7 +617,7 @@ async function changeLanguage(language){
   applyLanguage();initMonthPicker();populate();renderAll();
 }
 async function showTrash(){const {data}=await db.from("transactions").select("*").not("deleted_at","is",null).order("deleted_at",{ascending:false});$("#trashList").innerHTML=(data||[]).length?data.map(x=>`<div class="tx"><div class="tx-icon">↶</div><div class="tx-main"><strong>${esc(x.category||x.source||x.saving_account||"Record")}</strong><small>${x.transaction_date}</small></div><div class="tx-amount ${x.type}">${money(x.amount,x.currency)}</div><button class="btn restore" data-id="${x.id}">Restore</button></div>`).join(""):`<div class="empty-state">${tr("noData")}</div>`;$$(".restore").forEach(b=>b.onclick=async()=>{await db.from("transactions").update({deleted_at:null}).eq("id",b.dataset.id);await loadTx();renderAll();showTrash()});openD("trashDialog")}
-async function exportJson(){const {data:trash}=await db.from("transactions").select("*").not("deleted_at","is",null);const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),profiles:state.profiles,settings:state.settings,transactions:[...state.transactions,...(trash||[])],targets:state.targets},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`our-money-backup-${localDate()}.json`;a.click()}
+async function exportJson(){const {data:trash}=await db.from("transactions").select("*").not("deleted_at","is",null);const blob=new Blob([JSON.stringify({exported_at:new Date().toISOString(),profiles:state.profiles,settings:state.settings,transactions:[...state.transactions,...(trash||[])],transfers:state.transfers,targets:state.targets},null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`our-money-backup-${localDate()}.json`;a.click()}
 
 function go(page){$$(".page").forEach(p=>p.classList.remove("active"));$("#"+page+"Page").classList.add("active");$$(".nav-item").forEach(b=>b.classList.toggle("active",b.dataset.page===page));$("#pageTitle").textContent={home:tr("dashboard"),history:tr("history"),reports:tr("reports"),targets:tr("targets"),settings:tr("settings")}[page];if(page==="settings"&&!state.unlocked){$("#settingsLock").classList.remove("hidden");$("#settingsContent").classList.add("hidden")}if(page==="reports")renderReport()}
 
@@ -482,72 +631,72 @@ async function loadPendingOps(){await offlineInit();state.pendingOps=await new P
 async function queueOfflineOp(op){await offlineInit();const item={...op,qid:crypto.randomUUID(),queued_at:new Date().toISOString(),user_id:state.user.id};await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readwrite"),rq=tx.objectStore(QUEUE_STORE).put(item);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)});state.pendingOps.push(item);updateSyncUI();return item}
 async function removeQueued(qid){await offlineInit();await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readwrite"),rq=tx.objectStore(QUEUE_STORE).delete(qid);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)});state.pendingOps=state.pendingOps.filter(x=>x.qid!==qid);updateSyncUI()}
 function mergePendingIntoState(){for(const q of state.pendingOps.filter(x=>x.user_id===state.user.id)){if(q.op==="insert"&&!state.transactions.some(t=>t.client_id===q.client_id)){state.transactions.unshift({...q.row,id:`local:${q.client_id}`,_pending:true})}else if(q.op==="update"){const i=state.transactions.findIndex(t=>t.id===q.server_id);if(i>=0)state.transactions[i]={...state.transactions[i],...q.row,_pending:true}}else if(q.op==="delete")state.transactions=state.transactions.filter(t=>t.id!==q.server_id)}sortStateTransactions()}
+
+async function updatePendingInsertRow(clientId,row,kind="transaction"){
+  await offlineInit();
+  const item=state.pendingOps.find(q=>q.user_id===state.user.id&&q.client_id===clientId&&q.op===(kind==="transfer"?"transfer_insert":"insert"));
+  if(!item)throw new Error("Pending local record was not found");
+  item.row={...item.row,...row,client_id:clientId};
+  await new Promise((res,rej)=>{const tx=offlineDb.transaction(QUEUE_STORE,"readwrite"),rq=tx.objectStore(QUEUE_STORE).put(item);rq.onsuccess=()=>res();rq.onerror=()=>rej(rq.error)});
+}
+async function removePendingInsertByClientId(clientId,kind="transaction"){
+  await offlineInit();
+  const op=kind==="transfer"?"transfer_insert":"insert";
+  const items=state.pendingOps.filter(q=>q.user_id===state.user.id&&q.client_id===clientId&&q.op===op);
+  for(const item of items)await removeQueued(item.qid);
+}
+function mergePendingTransfersIntoState(){
+  for(const q of state.pendingOps.filter(x=>x.user_id===state.user.id)){
+    if(q.op==="transfer_insert"&&!state.transfers.some(t=>t.client_id===q.client_id))state.transfers.unshift({...q.row,id:`local:${q.client_id}`,_pending:true});
+    else if(q.op==="transfer_update"){const i=state.transfers.findIndex(t=>t.id===q.server_id);if(i>=0)state.transfers[i]={...state.transfers[i],...q.row,_pending:true}}
+    else if(q.op==="transfer_delete")state.transfers=state.transfers.filter(t=>t.id!==q.server_id);
+  }
+  sortStateTransfers();
+}
+function addPendingTransfer(row){state.transfers.unshift({...row,id:`local:${row.client_id}`,_pending:true,created_at:new Date().toISOString()});sortStateTransfers()}
+function sortStateTransfers(){state.transfers.sort((a,b)=>`${b.transfer_date} ${b.transfer_time||""}`.localeCompare(`${a.transfer_date} ${a.transfer_time||""}`))}
 function addPendingTransaction(row){state.transactions.unshift({...row,id:`local:${row.client_id}`,_pending:true,created_at:new Date().toISOString()});sortStateTransactions()}
 function applyOfflineUpdate(id,row){const i=state.transactions.findIndex(x=>x.id===id);if(i>=0)state.transactions[i]={...state.transactions[i],...row,_pending:true};sortStateTransactions()}
 function sortStateTransactions(){state.transactions.sort((a,b)=>`${b.transaction_date} ${b.transaction_time||""}`.localeCompare(`${a.transaction_date} ${a.transaction_time||""}`))}
 function isNetworkLikeError(e){const s=String(e?.message||e||"").toLowerCase();return !navigator.onLine||s.includes("fetch")||s.includes("network")||s.includes("failed")}
 async function syncPending(){
   if(!state.offlineEnabled||!navigator.onLine||state.syncBusy||!state.user)return;
-  state.syncBusy=true;
-  state.lastSyncError=null;
-  updateSyncUI();
-
+  state.syncBusy=true;state.lastSyncError=null;updateSyncUI();
   try{
     await loadPendingOps();
     const mine=state.pendingOps.filter(x=>x.user_id===state.user.id).sort((a,b)=>a.queued_at.localeCompare(b.queued_at));
-
     for(const q of mine){
-      let ok=false;
-      let errMsg=null;
+      let ok=false,errMsg=null;
       try{
-        if(q.op==="insert"){
-          const check=await db.from("transactions").select("id,client_id").eq("client_id",q.client_id).maybeSingle();
-          if(check.error && check.error.code!=="PGRST116") throw check.error;
-          if(check.data){
-            ok=true;
-          }else{
-            const ins=await db.from("transactions").insert(q.row).select("id,client_id").single();
-            if(!ins.error){
-              ok=true;
-            }else if(ins.error.code==="23505"){
-              const verify=await db.from("transactions").select("id").eq("client_id",q.client_id).maybeSingle();
-              if(verify.data) ok=true; else errMsg=ins.error.message;
-            }else{
-              errMsg=ins.error.message;
-            }
+        if(q.op==="insert"||q.op==="transfer_insert"){
+          const table=q.op==="transfer_insert"?"transfers":"transactions";
+          const check=await db.from(table).select("id,client_id").eq("client_id",q.client_id).maybeSingle();
+          if(check.error&&check.error.code!=="PGRST116")throw check.error;
+          if(check.data)ok=true;
+          else{
+            const ins=await db.from(table).insert(q.row).select("id,client_id").single();
+            if(!ins.error)ok=true;
+            else if(ins.error.code==="23505"){const verify=await db.from(table).select("id").eq("client_id",q.client_id).maybeSingle();if(verify.data)ok=true;else errMsg=ins.error.message}
+            else errMsg=ins.error.message;
           }
         }else if(q.op==="update"){
-          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);
-          if(r.error) errMsg=r.error.message; else ok=true;
+          const r=await db.from("transactions").update(q.row).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
         }else if(q.op==="delete"){
-          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);
-          if(r.error) errMsg=r.error.message; else ok=true;
+          const r=await db.from("transactions").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+        }else if(q.op==="transfer_update"){
+          const r=await db.from("transfers").update(q.row).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
+        }else if(q.op==="transfer_delete"){
+          const r=await db.from("transfers").update({deleted_at:new Date().toISOString()}).eq("id",q.server_id);if(r.error)errMsg=r.error.message;else ok=true;
         }
-      }catch(e){
-        errMsg=String(e?.message||e);
-      }
-
-      if(!ok){
-        state.lastSyncError=errMsg||"Unknown sync error";
-        console.error("Our Money sync failed; local queue retained:",q,state.lastSyncError);
-        break;
-      }
-
+      }catch(e){errMsg=String(e?.message||e)}
+      if(!ok){state.lastSyncError=errMsg||"Unknown sync error";console.error("Sync failed; queued record retained",q,state.lastSyncError);break}
       await removeQueued(q.qid);
     }
-
-    await loadTx();
-    renderAll();
-    if(!state.lastSyncError && pendingForUser()===0) toast("All pending records synced");
-    else if(state.lastSyncError) toast("Sync failed: "+state.lastSyncError);
-  }catch(e){
-    state.lastSyncError=String(e?.message||e);
-    console.error("syncPending fatal",e);
-    toast("Sync failed: "+state.lastSyncError);
-  }finally{
-    state.syncBusy=false;
-    updateSyncUI();
-  }
+    await Promise.all([loadTx(),loadTransfers()]);renderAll();
+    if(!state.lastSyncError&&pendingForUser()===0)toast("All pending records synced");
+    else if(state.lastSyncError)toast("Sync failed: "+state.lastSyncError);
+  }catch(e){state.lastSyncError=String(e?.message||e);console.error("syncPending fatal",e);toast("Sync failed: "+state.lastSyncError)}
+  finally{state.syncBusy=false;updateSyncUI()}
 }
 function pendingForUser(){return state.pendingOps.filter(x=>!state.user||x.user_id===state.user.id).length}
 function updateSyncUI(){const n=pendingForUser(),online=navigator.onLine,btn=$("#syncStatusBtn"),txt=$("#syncStatusText");if(!btn)return;btn.classList.remove("offline","pending","failed");if(state.lastSyncError){btn.classList.add("failed");txt.textContent=`Sync Failed (${n})`;btn.title=String(state.lastSyncError).toLowerCase().includes("client_id")?"Run supabase-offline-safe-patch.sql in Supabase SQL Editor":state.lastSyncError}else if(!online){btn.classList.add("offline");txt.textContent=n?`Offline • ${n} Pending`:"Offline"}else if(n||state.syncBusy){btn.classList.add("pending");txt.textContent=state.syncBusy?"Syncing…":`${n} Pending`}else txt.textContent="Synced";if($("#pendingSyncCount"))$("#pendingSyncCount").textContent=String(n);if($("#connectionStatus"))$("#connectionStatus").textContent=online?"Online":"Offline";if($("#offlineModeToggle"))$("#offlineModeToggle").checked=state.offlineEnabled;if($("#offlineModeBadge"))$("#offlineModeBadge").textContent=state.offlineEnabled?"ON":"OFF";
@@ -609,6 +758,7 @@ function bind(){
   $("#addCategoryBtn").onclick=async()=>{const v=$("#newCategory").value.trim();if(v&&!state.settings.categories.some(x=>x.name===v))state.settings.categories.push({name:v,subs:[]});$("#newCategory").value="";await saveSettings()};
   $("#addMethodBtn").onclick=async()=>{const v=$("#newMethod").value.trim();if(v&&!state.settings.payment_methods.includes(v))state.settings.payment_methods.push(v);$("#newMethod").value="";await saveSettings()};
   $("#addSavingAccountBtn").onclick=async()=>{const n=$("#newSavingAccount").value.trim(),c=$("#newSavingCurrency").value;if(n)state.settings.saving_accounts.push({name:n,currency:c});$("#newSavingAccount").value="";await saveSettings()};
+  $("#addAccountBtn").onclick=async()=>{const v=$("#newAccount").value.trim();if(v&&!state.settings.money_accounts.includes(v))state.settings.money_accounts.push(v);$("#newAccount").value="";await saveSettings()};
   $("#addIncomeOwnerBtn").onclick=async()=>{const v=$("#newIncomeOwner").value.trim();if(v&&!state.settings.income_owners.includes(v))state.settings.income_owners.push(v);$("#newIncomeOwner").value="";await saveSettings()};
   $("#addIncomeSourceBtn").onclick=async()=>{const v=$("#newIncomeSource").value.trim();if(v&&!state.settings.income_sources.includes(v))state.settings.income_sources.push(v);$("#newIncomeSource").value="";await saveSettings()};
   $("#openPsaBtn").onclick=openPsa;
